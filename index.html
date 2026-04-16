@@ -374,71 +374,6 @@
                 </aside>
             </section>
 
-            <!-- SLIDE 4.1: THE FULL PROMPT (CODE SCROLL) -->
-            <section
-                data-background-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.1">
-                <style>
-                    .scroll-code {
-                        max-height: 60vh !important;
-                        overflow-y: auto !important;
-                        font-size: 0.55em !important;
-                        line-height: 1.5 !important;
-                        text-align: left;
-                        padding: 20px !important;
-                        border: 1px solid rgba(80, 250, 123, 0.3) !important;
-                        border-radius: 8px;
-                    }
-                </style>
-                <div class="pill">The Master Prompt</div>
-                <h2 class="text-left color-cyan" style="margin-bottom: 20px;">The Engineered Prompt</h2>
-
-                <div class="code-container">
-                    <pre><code class="language-markdown scroll-code" data-trim>
-You are a seasoned Product Manager and Software Architect with 15+ years of experience in developing minimum viable products (MVPs) for service-based mobile applications, particularly in the local service economy sectors like cleaning and maintenance apps. You have successfully launched multiple student-led startup apps in Nordic markets, including Finland, and are adept at creating actionable Product Requirements Documents (PRDs) that balance user needs, technical feasibility, and rapid iteration for developer teams.
-
-**Contextual Constraints:**
-- Target audience: A small developer team (2-4 people) building this app in Vaasa, Finland, using modern cross-platform tools like Flutter or React Native.
-- Focus exclusively on MVP scope: Prioritize core features that enable a basic launch with student cleaners and local customers in Vaasa. Exclude nice-to-haves like advanced analytics, loyalty programs, payments, or scalability features.
-- App concept: A student-led cleaning service app connecting university students in Vaasa (e.g., from Vaasa University of Applied Sciences or local campuses) as cleaners with local residents/businesses needing affordable, on-demand cleaning services (e.g., apartments, offices, post-event cleanups).
-- Tone: Grounded, professional, pragmatic—use clear, concise language like a senior dev would appreciate. Avoid hype, fluff, or unsubstantiated assumptions.
-- Format: Output the entire response as a complete, well-structured Markdown document titled "# Product Requirements Document (PRD): Vaasa Student Cleaning Service MVP". Use Markdown headers (##, ###), bullet points, numbered lists, and simple tables where appropriate (e.g., for feature prioritization or user flows). Ensure it's scannable and developer-friendly—no more than 2000 words.
-
-**Step-by-Step Instructions:**
-1. **Introduction Section**: Write a brief overview (## Introduction) including app name suggestion ("VaasaClean Students" or similar), problem statement (high demand for affordable cleaning in Vaasa student areas, untapped student workforce), target users (customers: residents/businesses; providers: students), MVP goals (validate demand, onboard 50 students/100 customers in first month), and success metrics (e.g., 20 bookings/week).
-2. **User Personas Section**: Define 2-3 concise personas (## User Personas) – e.g., "Busy Vaasa Resident" (customer), "Broke Student Cleaner" (provider), "App Admin" (student founder). Include demographics, pain points, goals relevant to Vaasa context (e.g., cold weather messes, student schedules).
-3. **Key Assumptions & Constraints**: List MVP assumptions (## Assumptions and Constraints), e.g., manual payments initially (cash/transfer), Vaasa-only geolocation, Finnish/English bilingual UI.
-4. **Core Features Section**: Detail only 5-7 MVP features (## MVP Features), prioritized by MoSCoW method (Must-Have, Should-Have). For each feature:
-   - Feature name and description.
-   - User stories (As a [user], I want [feature] so that [benefit]).
-   - High-level user flow (numbered steps).
-   - Technical notes (e.g., "Use Google Maps API for Vaasa-only radius").
-   - Wireframe sketch in simple ASCII or Markdown table.
-   Examples: User auth/signup, Booking creation (select service type: basic clean, deep clean; time slot), Cleaner matching/availability, Basic chat, Ratings, Admin dashboard.
-5. **Non-Functional Requirements**: Cover basics (## Non-Functional Requirements) – performance (load in <3s), security (basic auth/JWT), accessibility (Finnish/English), platforms (iOS/Android web-first?).
-6. **Tech Stack Recommendations**: Suggest lightweight stack (## Recommended Tech Stack) suitable for students/devs, e.g., Firebase backend, Flutter frontend.
-7. **Risks & Next Steps**: Outline top risks (## Risks and Mitigation) and post-MVP roadmap (## Post-MVP Roadmap).
-
-**Output Verification:**
-Before finalizing, self-review against these criteria and confirm in a short footer section (## Self-Review Confirmation):
-- Is the scope strictly MVP (no feature creep)?
-- Does every feature have a clear Vaasa/student context tie-in?
-- Is the document fully Markdown-formatted, professional, and under 2000 words?
-- Are user flows logical and developer-actionable?
-- Does it empower a dev team to start coding immediately?
-If any criterion fails, revise inline before outputting. Output ONLY the Markdown PRD—no additional text, explanations, or chit-chat.
-                    </code></pre>
-                </div>
-                <aside class="notes">
-                    12:40 to 13:40, The CREATE Framework.</br>
-
-                    "This is the actual prompt that comes out of the Anatomy we just looked at. Look at the length and
-                    detail! This is what you hand to an AI to get a professional, ready-to-code Product Requirements
-                    Document. It's almost an entire page of text. If your prompts are only 2 sentences long, start
-                    making them look exactly like this."
-                </aside>
-            </section>
-
             <!-- SLIDE 5: EXAMPLE - C.R.E.A.T.E IN ACTION -->
             <section
                 data-background-image="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=2070"
@@ -560,20 +495,116 @@ If any criterion fails, revise inline before outputting. Output ONLY the Markdow
                 </aside>
             </section>
 
+            <!-- SLIDE 7.1: THE FULL PROMPT (CODE SCROLL) -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.1">
+                <style>
+                    .scroll-code {
+                        max-height: 50vh !important;
+                        overflow-y: auto !important;
+                        font-size: 0.55em !important;
+                        line-height: 1.5 !important;
+                        text-align: left;
+                        padding: 20px !important;
+                        border: 1px solid rgba(80, 250, 123, 0.3) !important;
+                        border-radius: 8px;
+                    }
+                </style>
+                <div class="pill">The Master Prompt</div>
+                <h2 class="text-left color-cyan" style="margin-bottom: 20px;">The Engineered Prompt</h2>
+
+                <div class="code-container">
+                    <pre><code class="language-markdown scroll-code" data-trim>
+You are a seasoned Product Manager and Software Architect with 15+ years of experience in developing minimum viable products (MVPs) for service-based mobile applications, particularly in the local service economy sectors like cleaning and maintenance apps. You have successfully launched multiple student-led startup apps in Nordic markets, including Finland, and are adept at creating actionable Product Requirements Documents (PRDs) that balance user needs, technical feasibility, and rapid iteration for developer teams.
+
+**Contextual Constraints:**
+- Target audience: A small developer team (2-4 people) building this app in Vaasa, Finland, using modern cross-platform tools like Flutter or React Native.
+- Focus exclusively on MVP scope: Prioritize core features that enable a basic launch with student cleaners and local customers in Vaasa. Exclude nice-to-haves like advanced analytics, loyalty programs, payments, or scalability features.
+- App concept: A student-led cleaning service app connecting university students in Vaasa (e.g., from Vaasa University of Applied Sciences or local campuses) as cleaners with local residents/businesses needing affordable, on-demand cleaning services (e.g., apartments, offices, post-event cleanups).
+- Tone: Grounded, professional, pragmatic—use clear, concise language like a senior dev would appreciate. Avoid hype, fluff, or unsubstantiated assumptions.
+- Format: Output the entire response as a complete, well-structured Markdown document titled "# Product Requirements Document (PRD): Vaasa Student Cleaning Service MVP". Use Markdown headers (##, ###), bullet points, numbered lists, and simple tables where appropriate (e.g., for feature prioritization or user flows). Ensure it's scannable and developer-friendly—no more than 2000 words.
+
+**Step-by-Step Instructions:**
+1. **Introduction Section**: Write a brief overview (## Introduction) including app name suggestion ("VaasaClean Students" or similar), problem statement (high demand for affordable cleaning in Vaasa student areas, untapped student workforce), target users (customers: residents/businesses; providers: students), MVP goals (validate demand, onboard 50 students/100 customers in first month), and success metrics (e.g., 20 bookings/week).
+2. **User Personas Section**: Define 2-3 concise personas (## User Personas) – e.g., "Busy Vaasa Resident" (customer), "Broke Student Cleaner" (provider), "App Admin" (student founder). Include demographics, pain points, goals relevant to Vaasa context (e.g., cold weather messes, student schedules).
+3. **Key Assumptions & Constraints**: List MVP assumptions (## Assumptions and Constraints), e.g., manual payments initially (cash/transfer), Vaasa-only geolocation, Finnish/English bilingual UI.
+4. **Core Features Section**: Detail only 5-7 MVP features (## MVP Features), prioritized by MoSCoW method (Must-Have, Should-Have). For each feature:
+   - Feature name and description.
+   - User stories (As a [user], I want [feature] so that [benefit]).
+   - High-level user flow (numbered steps).
+   - Technical notes (e.g., "Use Google Maps API for Vaasa-only radius").
+   - Wireframe sketch in simple ASCII or Markdown table.
+   Examples: User auth/signup, Booking creation (select service type: basic clean, deep clean; time slot), Cleaner matching/availability, Basic chat, Ratings, Admin dashboard.
+5. **Non-Functional Requirements**: Cover basics (## Non-Functional Requirements) – performance (load in <3s), security (basic auth/JWT), accessibility (Finnish/English), platforms (iOS/Android web-first?).
+6. **Tech Stack Recommendations**: Suggest lightweight stack (## Recommended Tech Stack) suitable for students/devs, e.g., Firebase backend, Flutter frontend.
+7. **Risks & Next Steps**: Outline top risks (## Risks and Mitigation) and post-MVP roadmap (## Post-MVP Roadmap).
+
+**Output Verification:**
+Before finalizing, self-review against these criteria and confirm in a short footer section (## Self-Review Confirmation):
+- Is the scope strictly MVP (no feature creep)?
+- Does every feature have a clear Vaasa/student context tie-in?
+- Is the document fully Markdown-formatted, professional, and under 2000 words?
+- Are user flows logical and developer-actionable?
+- Does it empower a dev team to start coding immediately?
+If any criterion fails, revise inline before outputting. Output ONLY the Markdown PRD—no additional text, explanations, or chit-chat.
+                    </code></pre>
+                </div>
+                <aside class="notes">
+                    12:40 to 13:40, The CREATE Framework.</br>
+
+                    "This is the actual prompt that comes out of the Anatomy we just looked at. Look at the length and
+                    detail! This is what you hand to an AI to get a professional, ready-to-code Product Requirements
+                    Document. It's almost an entire page of text. If your prompts are only 2 sentences long, start
+                    making them look exactly like this."
+                </aside>
+            </section>
+
             <!-- SLIDE 8: SKEPTICAL VC PERSONA -->
             <section
                 data-background-image="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&q=80&w=2070"
                 data-background-opacity="0.3">
                 <div class="pill">15:00 Segment</div>
-                <h2 class="text-left color-pink">The Skeptical VC Persona</h2>
+                <h2 class="text-left color-pink" style="margin-bottom: 10px;">The Skeptical VC Persona</h2>
                 <p class="text-left" style="font-size: 0.9em; margin-bottom: 20px;">
                     Stress-testing your business model before a real pitch.
                 </p>
-                <div class="code-container">
+                
+                <div class="code-container" style="margin-top: 0;">
                     <pre><code class="language-markdown" data-trim>
 Act as a Senior Partner at a Tier-1 VC firm...
 Find 3 fatal flaws...
 Ask 3 nightmare questions.
+                    </code></pre>
+                </div>
+
+                <h4 class="text-left color-pink" style="margin-top: 20px; margin-bottom: 10px; font-size: 1em;">The Complete VC Prompt</h4>
+                <div class="code-container" style="margin-top: 0;">
+                    <pre><code class="language-markdown scroll-code" style="max-height: 40vh !important; border-color: rgba(255, 121, 198, 0.3) !important;" data-trim>
+You are a Senior Partner at Sequoia Capital, a Tier-1 venture capital firm with over 25 years of experience evaluating thousands of startups across consumer, marketplace, and service sectors. You have led investments in category-defining companies like Uber, Airbnb, and DoorDash, and are renowned for your ruthless ability to identify fatal flaws in business models before they manifest. Your style is direct, incisive, and developer-founder-friendly—cutting through hype to expose structural weaknesses with data-backed reasoning.
+
+**Contextual Constraints:**
+- Target business: The "Vaasa Student Cleaning Service" app MVP from the prior PRD (student cleaners in Vaasa, Finland connecting with local customers for on-demand cleaning services).
+- Output format: Pure Markdown document titled "# VC Due Diligence: Fatal Flaws & Nightmare Questions - Vaasa Student Cleaning Service". Use crisp headers (##, ###), numbered lists for flaws/questions, and bolded **key risks**. Keep total length under 800 words for pitch-deck digestibility.
+- Tone: Grounded, professional, no-nonsense—like a boardroom takedown. Use metrics, Vaasa-specific realities (e.g., small population ~70k, harsh winters, student turnover), and marketplace benchmarks (e.g., TaskRabbit failure rates).
+- Audience: Student founders pitching for seed funding—make it constructive yet brutal to force model hardening.
+
+**Step-by-Step Instructions:**
+1. **Executive Summary (## Executive Summary)**: 2-3 sentences recapping the business model (2-sided marketplace: student supply vs. customer demand in Vaasa) and your overall thesis (e.g., "High-localization limits scalability; viability hinges on unproven retention").
+2. **Fatal Flaw #1 (## Fatal Flaw 1: [Descriptive Title])**: Identify the first structural death-knell (e.g., extreme supply-side churn from graduating students). Explain why it's fatal (data/cases), Vaasa impact, and quantitative risk (e.g., "90% annual turnover erodes network effects").
+3. **Fatal Flaw #2 (## Fatal Flaw 2: [Descriptive Title])**: Second killer issue (e.g., demand ceiling in small market with seasonal cleaning needs). Back with local stats, comps.
+4. **Fatal Flaw #3 (## Fatal Flaw 3: [Descriptive Title])**: Third core weakness (e.g., manual payments enabling fraud/black market bypass). Tie to regulatory/execution risks.
+5. **Nightmare Questions (## Nightmare Questions for Founders)**: Pose exactly 3 brutal, unanswerable-without-data questions (numbered 1-3). Each with 1-2 sentences explaining why it matters (e.g., "If student acquisition cost > €10, how do you hit breakeven with Vaasa's 70k population?").
+6. **Path to Survival (## Survival Recommendations)**: 3-5 bullet-point fixes, prioritized by impact.
+
+**Output Verification:**
+Before finalizing, self-audit in a footer (## VC Audit Checklist) confirming:
+- Each flaw is truly "fatal" (model-killing at scale, not fixable with tweaks)?
+- Questions are nightmare-level (require deep metrics/models, expose assumptions)?
+- Analysis is Vaasa-contextualized, benchmarked (e.g., vs. Helpling/Handy), under 800 words?
+- Tone is Sequoia-sharp: 70% critique, 30% constructive?
+- Fully Markdown-formatted, no fluff or generic advice?
+If failing any, revise inline. Output ONLY the Markdown doc—no intros, explanations, or additional text.
                     </code></pre>
                 </div>
                 <aside class="notes">
