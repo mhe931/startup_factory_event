@@ -61,12 +61,15 @@ We are also going to use the 'Skeptical VC' persona. This is a prompt that tells
 **Slide: The Engineered Prompt (Master Scroll)**
 *(Show the scrolled Master Prompt for Vaasa Student Cleaning Service)*: "This is the actual prompt that comes out of the Anatomy we just looked at. Look at the length and detail! This is what you hand to an AI to get a professional, ready-to-code Product Requirements Document. If your prompts are only 2 sentences long, start making them look exactly like this."
 
-**Example: The VC Critique**
+**Slide: The Skeptical VC Persona**
 - **Prompt:** "Act as a Senior Partner at a Tier-1 VC firm. Here is my idea: [Describe idea]. Find 3 fatal flaws in my logic. Ask me 3 nightmare questions. Don't be nice."
+
+**Slide: The Complete VC Prompt (Master Scroll)**
+*(Show the scrolled Master Prompt for Sequoia Capital)*: "Look at this complete critique prompt. Give it the exact format, the tone you want, and the layout. Set your constraints tightly!"
 
 **Exercise (60 mins):**
 1. Use the CoT prompt to calculate your market size.
-2. Run the VC Critique prompt.
+2. Run the Complete VC Critique prompt.
 3. Write down your answers to the 'nightmare' questions the AI asks you.
 
 ---
@@ -82,12 +85,15 @@ We are also going to use the 'Skeptical VC' persona. This is a prompt that tells
 **Däniel's Script:**
 "The final part is building. We want to leave here with something real. We are going to ask the AI to write a Product Requirements Document (PRD). This is a map for developers. Then, we will ask it to code a simple landing page in HTML."
 
-**Prompt Example: The Landing Page**
+**Prompt Example: The Landing Page (Short Form)**
 > "Act as a web developer. Create a single-file HTML landing page for my business. Use Tailwind CSS for a modern, clean look. Include a hero section with a call to action button. Make it look like a high-end Nordic startup."
+
+**Slide: The Engineered Landing Page (Master Scroll)**
+*(Show the scrolled Master Prompt for Vaasa Student Cleaning Service)*: "This is the actual prompt for generating a complete HTML landing page. Look how precise the constraints are! Tell the AI what colors, fonts, layout, and copy it should use. Don't leave it up to chance."
 
 **Exercise (40 mins):**
 1. Ask the AI to write a PRD for your MVP.
-2. Generate the HTML code for your landing page.
+2. Generate the HTML code for your landing page using the massive prompt style.
 3. Open the code in a browser to see it.
 
 ---

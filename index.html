@@ -501,10 +501,12 @@
                 data-background-opacity="0.1">
                 <style>
                     .scroll-code {
-                        max-height: 450px !important;
+                        max-height: 480px !important;
                         overflow-y: auto !important;
-                        font-size: 1.2em !important;
+                        font-size: 1.5em !important;
                         line-height: 1.6 !important;
+                        white-space: pre-wrap !important;
+                        word-break: break-word !important;
                         text-align: left;
                         padding: 24px !important;
                         border: 1px solid rgba(80, 250, 123, 0.5) !important;
@@ -581,8 +583,20 @@ Ask 3 nightmare questions.
                     </code></pre>
                 </div>
 
-                <h4 class="text-left color-pink" style="margin-top: 20px; margin-bottom: 10px; font-size: 1em;">The
-                    Complete VC Prompt</h4>
+                <aside class="notes">
+                    At 15:00, we dive into The Skeptical VC.</br>
+
+                    "We are also going to use the 'Skeptical VC' persona. This is a prompt that tells the AI to be your
+                    harshest critic. It is way better to fail right here than in front of a real investor."</br>
+                </aside>
+            </section>
+
+            <!-- SLIDE 8.1: COMPLETE VC PROMPT -->
+            <section data-background-size="cover"
+                data-background-image="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.15">
+                <div class="pill">The VC Deep-Dive</div>
+                <h2 class="text-left color-pink" style="margin-bottom: 20px;">The Complete VC Prompt</h2>
                 <div class="code-container" style="margin-top: 0;">
                     <pre><code class="language-markdown scroll-code" style="border-color: rgba(255, 121, 198, 0.5) !important;" data-trim>
 You are a Senior Partner at Sequoia Capital, a Tier-1 venture capital firm with over 25 years of experience evaluating thousands of startups across consumer, marketplace, and service sectors. You have led investments in category-defining companies like Uber, Airbnb, and DoorDash, and are renowned for your ruthless ability to identify fatal flaws in business models before they manifest. Your style is direct, incisive, and developer-founder-friendly—cutting through hype to expose structural weaknesses with data-backed reasoning.
@@ -612,12 +626,7 @@ If failing any, revise inline. Output ONLY the Markdown doc—no intros, explana
                     </code></pre>
                 </div>
                 <aside class="notes">
-                    At 15:00, we dive into The Skeptical VC.</br>
-
-                    "We are also going to use the 'Skeptical VC' persona. This is a prompt that tells the AI to be your
-                    harshest critic. It is way better to fail right here than in front of a real investor."</br>
-
-                    Business Example 3: The VC Critique.</br>
+                    Business Example 3: The Complete VC Critique Prompt.</br>
 
                     Step-by-Step Exercise for 30 mins:</br>
                     Use the CoT prompt to calculate your market size.</br>
@@ -681,6 +690,52 @@ Make it look like a high-end Nordic startup.
                     Open the code in your browser and see how it looks.</br>
                 </aside>
             </section>
+
+            <!-- SLIDE 10.1: THE NORDIC LANDING PAGE PROMPT -->
+            <section data-background-size="cover"
+                data-background-image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2072"
+                data-background-opacity="0.1">
+                <div class="pill">The Master Prompt</div>
+                <h2 class="text-left color-cyan" style="margin-bottom: 20px;">The Engineered Landing Page</h2>
+
+                <div class="code-container">
+                    <pre><code class="language-markdown scroll-code" style="border-color: #8be9fd !important;" data-trim>
+You are a Senior Frontend Developer at a top Nordic design agency (like Vaadin or Futurice), specializing in high-conversion landing pages for Finnish startups. With 10+ years building pixel-perfect, Tailwind-powered sites for SaaS and service apps, you've crafted pages for companies like Wolt and Relex—minimalist, trustworthy, and optimized for cold Nordic markets like Vaasa.
+
+**Contextual Constraints:**
+- Business: "Vaasa Student Cleaning Service" app—a student-led on-demand cleaning marketplace in Vaasa, Finland (students as cleaners, locals as customers; MVP-focused).
+- Tech: Single-file HTML only. Include Tailwind CSS via CDN (latest v3.x). No external JS frameworks; vanilla JS for subtle interactions (e.g., button hover, smooth scroll). Fully responsive (mobile-first for Samsung S24 Ultra users).
+- Design: High-end Nordic startup aesthetic—clean whites/grays/blues (e.g., #F8FAFC bg, #0F172A text, #3B82F6 accents), generous whitespace, sans-serif fonts (Inter via Google Fonts), subtle shadows/gradients. Hero evokes trust/reliability (e.g., sparkling clean imagery placeholder).
+- Features: Hero section with compelling headline ("Affordable Cleaning by Trusted Vaasa Students"), subheadline, prominent CTA button ("Book Now"), trust signals (e.g., "50+ Students Ready", "Vaasa Only"), simple 3-feature grid, footer with contacts.
+- Output: ONLY the complete, copy-paste-ready HTML code in a single &lt;pre&gt;&lt;code&gt; block. No explanations, previews, or extra text—pure functional code.
+
+**Step-by-Step Instructions:**
+1. **DOCTYPE & Head Setup**: Start with &lt;!DOCTYPE html&gt;, &lt;html lang="fi"&gt; (Finnish primary). &lt;head&gt; with &lt;title&gt;VaasaClean Students | Student Cleaning Service&lt;/title&gt;, Tailwind CDN &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;, Google Fonts &lt;link&gt; for Inter, responsive viewport meta.
+2. **Hero Section**: &lt;section class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4 py-20"&gt; with centered content: H1 headline (text-5xl md:text-7xl font-bold text-gray-900), subheadline (text-xl md:text-2xl text-gray-600), CTA button (bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg transform hover:-translate-y-1 transition-all).
+3. **Features Section**: Below hero, 3-column grid (md:grid-cols-3) with cards for key benefits (e.g., "Local Students", "Flexible Slots", "Affordable Rates")—each with icon emoji, title, short desc.
+4. **Trust/CTA Section**: Stats row (e.g., "70k+ Vaasa Reach", "5⭐ Avg Rating"), secondary CTA ("Get Quote").
+5. **Footer**: Simple bottom bar with logo/text, email/phone (use placeholders: hello@vaasaclean.fi, +358 40 1234567), social links (LinkedIn, Instagram icons via Heroicons SVG or emoji).
+6. **Polish**: Add smooth-scroll &lt;a href="#features"&gt; links, mobile hamburger if needed (but keep minimal), dark mode toggle? No—stick to light Nordic vibe. Ensure <100KB file size.
+
+**Output Verification:**
+Self-check before outputting:
+- Single-file HTML? Tailwind via CDN only? Fully responsive (test mentally: mobile hero stacks, grid adapts)?
+- Nordic high-end look: Clean, spacious, blue-toned, trustworthy (no clutter)?
+- Hero + CTA prominent? Business-relevant (Vaasa students cleaning)?
+- Code is production-ready: Semantic HTML5, ARIA labels where needed, fast-loading, no console errors?
+- EXACTLY &lt;pre&gt;&lt;code class="language-html"&gt;```html [full code] ```&lt;/code&gt;&lt;/pre&gt;—nothing else?
+If any fail, fix inline. Output ONLY the code block.
+                    </code></pre>
+                </div>
+                <aside class="notes">
+                    Landing Page Prompt Exercise for 40 mins.</br>
+
+                    "This is the actual prompt for generating a complete HTML landing page. Look how precise the
+                    constraints are! Tell the AI what colors, fonts, layout, and copy it should use. Don't leave it up
+                    to chance."
+                </aside>
+            </section>
+
             <!-- SLIDE 11: CHEAT SHEET -->
             <section data-background-size="cover"
                 data-background-image="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=2070"
