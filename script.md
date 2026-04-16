@@ -27,9 +27,8 @@ State their name, their startup idea, and their specific goal.
 
 Think about it like this. If you hire an intern and just say 'Write a plan,' they will fail. If you say 'You are a marketing lead, we are in Vaasa, we need 3 ways to reach students on a 50 euro budget,' they will succeed. That’s what we are doing here."
 
-**Slide: Anatomy of a Prompt & Master Prompt Scroll**
+**Slide: Anatomy of a Prompt**
 "Now, let's look under the hood. This prompt isn't just a sentence; it's a system. Notice how we didn't just ask for a plan, we gave the AI a job, a location, a specific audience, and a format. This reduces hallucination."
-*(Show the scrolled Master Prompt for Vaasa Student Cleaning Service)*: "Look at the length and detail! This is what you hand to an AI to get a professional, ready-to-code Product Requirements Document. If your prompts are only 2 sentences long, start making them look exactly like this."
 
 **Business Example: Local Bike Rental (Vaasa)**
 - **Context:** A new e-bike rental service near the University.
@@ -58,6 +57,9 @@ We are also going to use the 'Skeptical VC' persona. This is a prompt that tells
 
 **Example: SaaS for Finnish SMEs**
 - **Prompt:** "Estimate the market size for an automated bookkeeping tool for small businesses in Finland. **Think step-by-step.** First, find the number of registered SMEs. Second, estimate how many use manual systems. Third, calculate a price point."
+
+**Slide: The Engineered Prompt (Master Scroll)**
+*(Show the scrolled Master Prompt for Vaasa Student Cleaning Service)*: "This is the actual prompt that comes out of the Anatomy we just looked at. Look at the length and detail! This is what you hand to an AI to get a professional, ready-to-code Product Requirements Document. If your prompts are only 2 sentences long, start making them look exactly like this."
 
 **Example: The VC Critique**
 - **Prompt:** "Act as a Senior Partner at a Tier-1 VC firm. Here is my idea: [Describe idea]. Find 3 fatal flaws in my logic. Ask me 3 nightmare questions. Don't be nice."
