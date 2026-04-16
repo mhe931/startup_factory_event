@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Cheat Sheet | Startup Factory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .printable-card {
+            break-inside: avoid;
+        }
+        @media print {
+            body { background-color: white; }
+            .no-print { display: none; }
+            .print-padding { padding: 0 !important; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <!-- Header Section -->
+    <header class="max-w-4xl mx-auto mb-10 text-center md:text-left border-b border-slate-200 pb-8">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+            The Entrepreneur’s AI Interface Guide
+        </h1>
+        <p class="text-slate-600 text-lg">
+            Mastering the art of prompt engineering at Startup Factory, Vaasa.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Framework: C.R.E.A.T.E</span>
+            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Strategy: Chain-of-Thought</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Section: CREATE Framework -->
+        <section class="printable-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm">C</span>
+                The C.R.E.A.T.E Framework
+            </h2>
+            <ul class="space-y-3 text-sm">
+                <li><strong class="text-blue-600">Context:</strong> Give the background. What is the startup stage? What is the goal?</li>
+                <li><strong class="text-blue-600">Role:</strong> Assign a persona. PM, Senior Dev, or Skeptical Investor.</li>
+                <li><strong class="text-blue-600">Explicit Instructions:</strong> List exactly what to do. Use verbs.</li>
+                <li><strong class="text-blue-600">Audience:</strong> Who is reading the result? Students? VCs? Mentors?</li>
+                <li><strong class="text-blue-600">Tone:</strong> Define the voice. Visionary, professional, or grounded.</li>
+                <li><strong class="text-blue-600">Evaluation:</strong> Set the format. Table, JSON, or 5 bullet points.</li>
+            </ul>
+        </section>
+
+        <!-- Section: Power Triggers -->
+        <section class="printable-card bg-slate-900 text-white p-6 rounded-2xl shadow-xl">
+            <h2 class="text-xl font-bold mb-4 text-blue-400">Essential Power Triggers</h2>
+            <div class="space-y-4 text-sm leading-relaxed">
+                <div class="border-l-2 border-blue-500 pl-4">
+                    <p class="font-semibold text-white italic">"Think step-by-step."</p>
+                    <p class="text-slate-400 mt-1">Forces the model to reason and reduces logic errors in math or strategy.</p>
+                </div>
+                <div class="border-l-2 border-blue-500 pl-4">
+                    <p class="font-semibold text-white italic">"Explain your reasoning first."</p>
+                    <p class="text-slate-400 mt-1">Useful for finding flaws in your own business assumptions.</p>
+                </div>
+                <div class="border-l-2 border-blue-500 pl-4">
+                    <p class="font-semibold text-white italic">"Cite your sources or say you don't know."</p>
+                    <p class="text-slate-400 mt-1">Prevents the AI from making up fake market statistics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Persona: Skeptical VC -->
+        <section class="printable-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 md:col-span-2">
+            <h2 class="text-xl font-bold mb-4 text-slate-900 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                The Stress-Test Persona: Skeptical VC
+            </h2>
+            <div class="bg-slate-50 p-4 rounded-xl font-mono text-xs border border-slate-200 mb-4">
+                "Act as a Senior Partner at a Tier-1 VC. I will present my startup idea. Your goal is to find 3 fatal flaws in my unit economics and market defensibility. Do not be polite. Be hyper-rational and data-driven."
+            </div>
+            <p class="text-sm text-slate-600">
+                <strong>Why use this?</strong> It simulates a real pitch scenario. If your idea survives this prompt, it's ready for a real mentor session at Startup Factory.
+            </p>
+        </section>
+
+        <!-- Section: Anti-Hallucination Checklist -->
+        <section class="printable-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-xl font-bold mb-4 text-slate-900">Truth & Verification</h2>
+            <ul class="space-y-3 text-sm text-slate-600">
+                <li class="flex items-start gap-2">
+                    <span class="text-green-500 font-bold">✓</span>
+                    Ask: "On a scale of 1-10, how confident are you in this number?"
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-green-500 font-bold">✓</span>
+                    Command: "Check your own output for contradictions."
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-green-500 font-bold">✓</span>
+                    Input data: Provide your own market research as a context block.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section: Prototyping Section -->
+        <section class="printable-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-xl font-bold mb-4 text-slate-900">Rapid MVP Prototyping</h2>
+            <div class="space-y-2">
+                <p class="text-sm font-semibold text-blue-600 uppercase">Product Specs:</p>
+                <p class="text-xs text-slate-500 italic">"Translate my idea into a technical PRD with user stories and 5 core features for an MVP launch."</p>
+                <div class="h-px bg-slate-100 my-4"></div>
+                <p class="text-sm font-semibold text-blue-600 uppercase">Coding UI:</p>
+                <p class="text-xs text-slate-500 italic">"Create a landing page using HTML and Tailwind CSS. Nordic design, clean blue accents, mobile-responsive."</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-4xl mx-auto mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-slate-400 text-xs gap-4">
+        <p>Curated by Däniel | AI & Data Engineering, University of Vaasa</p>
+        <div class="flex items-center gap-4">
+            <p>Startup Factory Event 2026</p>
+            <button onclick="window.print()" class="no-print bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2 px-4 rounded transition">
+                Print Handout
+            </button>
+        </div>
+    </footer>
+
+</body>
+</html>

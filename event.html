@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mastering the AI Interface - Masterclass</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/dracula.min.css"
+        id="theme">
+
+    <!-- syntax highlighting -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        .reveal {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4,
+        .reveal h5,
+        .reveal h6 {
+            font-family: 'Outfit', sans-serif;
+            text-transform: none;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .reveal h1 {
+            font-size: 2.8em;
+            line-height: 1.1;
+        }
+
+        .reveal h2 {
+            font-size: 2.0em;
+            line-height: 1.2;
+        }
+
+        .reveal h3 {
+            font-size: 1.5em;
+            line-height: 1.3;
+        }
+
+        .color-cyan {
+            color: #8be9fd !important;
+        }
+
+        .color-green {
+            color: #50fa7b !important;
+        }
+
+        .color-pink {
+            color: #ff79c6 !important;
+        }
+
+        .color-purple {
+            color: #bd93f9 !important;
+        }
+
+        .color-yellow {
+            color: #f1fa8c !important;
+        }
+
+        .color-orange {
+            color: #ffb86c !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .split-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .split-layout>div {
+            flex: 1;
+            width: 50%;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(80, 250, 123, 0.15);
+            color: #50fa7b;
+            border-radius: 50px;
+            font-size: 0.6em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            border: 1px solid rgba(80, 250, 123, 0.3);
+        }
+
+        .card {
+            background: rgba(40, 42, 54, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .code-container {
+            font-size: 0.65em;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .reveal ul {
+            display: block;
+            margin-left: 1.2em;
+        }
+
+        .reveal li {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            line-height: 1.3;
+        }
+
+        .prompt-box {
+            background: rgba(255, 121, 198, 0.1);
+            border-left: 5px solid #ff79c6;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            font-weight: 300;
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 0.85em;
+        }
+
+        .bg-subtle-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(139, 233, 253, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .reveal pre {
+            width: 100%;
+            margin: 0;
+            box-shadow: none;
+        }
+
+        .glass-panel {
+            background: rgba(30, 30, 40, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: TITLE & VISION -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072"
+                data-background-opacity="0.25">
+                <div class="bg-subtle-glow"></div>
+                <div class="glass-panel text-left">
+                    <div class="pill">Startup Factory, Vaasa &bull; Masterclass</div>
+                    <h1><span class="color-pink">Mastering</span><br>the AI Interface</h1>
+                    <h3 class="color-cyan" style="font-weight: 300;">From Idea to Minimum Viable Product</h3>
+                    <p style="opacity: 0.8; font-size: 0.9em; margin-top: 30px;">
+                        Today isn't about chatting with AI.<br>It's about <strong>programming it</strong> using natural
+                        language.
+                    </p>
+                </div>
+                <aside class="notes">
+                    12:00 – 12:40 | Introduction & Targets
+                    Goal: Break the ice and set the goal for the day.
+                    Däniel's Script:
+                    "Hi everyone. I'm Däniel. I study AI and Data Engineering here at the University of Vaasa. I spend
+                    most of my time looking at data, but today I want to show you the practical side of AI. Startup
+                    Factory is about building things, so we aren't just here to talk. We are here to create.
+
+                    Let's start around the room. Please tell me your name, what you're studying or building, and what is
+                    the one thing you want to walk away with today. Is it a business plan? A landing page? Or just
+                    understanding how to stop the AI from lying to you?"
+
+                    Participant Task:
+                    State their name, their startup idea (if they have one), and their specific goal.
+                </aside>
+            </section>
+
+            <!-- SLIDE 2: THE SHIFT -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.2">
+                <div class="glass-panel">
+                    <h2 class="color-purple text-center">The Entrepreneurial Shift</h2>
+                    <p class="text-center" style="font-size: 1.1em; margin-bottom: 40px;">
+                        AI is your <span class="color-green">first hire</span>, not your search engine.
+                    </p>
+                    <div class="split-layout" style="gap: 30px;">
+                        <div class="card" style="border-top: 4px solid #ff79c6; text-align: center;">
+                            <h3 class="color-pink">Users Ask</h3>
+                            <p style="opacity: 0.8; font-size: 0.8em;">They type simple queries and expect instant
+                                perfection. This is the Google mindset.</p>
+                        </div>
+                        <div class="card" style="border-top: 4px solid #8be9fd; text-align: center;">
+                            <h3 class="color-cyan">Engineers Design</h3>
+                            <p style="opacity: 0.8; font-size: 0.8em;">They build structured prompts, define roles, and
+                                guide logic. This is the Systems mindset.</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    12:40 – 13:40 | The CREATE Framework
+                    Goal: Move from "Asking" to "Engineering."
+                    Däniel's Script:
+                    "Okay, first thing. AI is not Google. If you treat it like a search engine, you get average results.
+                    To get professional results, we need a structure.
+                </aside>
+            </section>
+
+            <!-- SLIDE 3: THE C.R.E.A.T.E FRAMEWORK -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.15">
+                <h2 class="color-yellow">The C.R.E.A.T.E. Framework</h2>
+                <p style="margin-bottom: 40px; font-weight: 300;">Move from "Asking" to "Engineering".</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="card" style="padding: 20px;">
+                        <h4 class="color-cyan">C</h4>
+                        <p style="margin: 0; font-size: 0.8em;"><strong>Context</strong><br><span
+                                style="opacity:0.7">The background</span></p>
+                    </div>
+                    <div class="card" style="padding: 20px;">
+                        <h4 class="color-pink">R</h4>
+                        <p style="margin: 0; font-size: 0.8em;"><strong>Role</strong><br><span style="opacity:0.7">Who
+                                the AI is</span></p>
+                    </div>
+                    <div class="card" style="padding: 20px;">
+                        <h4 class="color-green">E</h4>
+                        <p style="margin: 0; font-size: 0.8em;"><strong>Explicit</strong><br><span
+                                style="opacity:0.7">Clear instructions</span></p>
+                    </div>
+                    <div class="card" style="padding: 20px;">
+                        <h4 class="color-orange">A</h4>
+                        <p style="margin: 0; font-size: 0.8em;"><strong>Audience</strong><br><span
+                                style="opacity:0.7">Who it's for</span></p>
+                    </div>
+                    <div class="card" style="padding: 20px;">
+                        <h4 class="color-purple">T</h4>
+                        <p style="margin: 0; font-size: 0.8em;"><strong>Tone</strong><br><span style="opacity:0.7">Voice
+                                & style</span></p>
+                    </div>
+                    <div class="card" style="padding: 20px;">
+                        <h4 class="color-yellow">E</h4>
+                        <p style="margin: 0; font-size: 0.8em;"><strong>Evaluation</strong><br><span
+                                style="opacity:0.7">The success metric</span></p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    We use CREATE. Context, Role, Explicit instructions, Audience, Tone, and Evaluation.
+                    Think about it like this. If you hire an intern and just say 'Write a plan,' they will fail. If you
+                    say 'You are a marketing lead, we are in Vaasa, we need 3 ways to reach students on a 50 euro
+                    budget,' they will succeed. That’s what we are doing here."
+                </aside>
+            </section>
+
+            <!-- SLIDE 4: EXAMPLE - C.R.E.A.T.E IN ACTION -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.2">
+                <h2 class="text-left">C.R.E.A.T.E <span class="color-green">in Action</span></h2>
+                <p class="text-left" style="font-size: 0.9em; opacity: 0.8;">Local Bike Rental in Vaasa</p>
+
+                <div class="split-layout" style="align-items: stretch; margin-top: 30px;">
+                    <div class="card" style="background: rgba(255, 85, 85, 0.1); border-color: rgba(255, 85, 85, 0.3);">
+                        <h4 style="color: #ff5555;">Before (The User)</h4>
+                        <p style="font-size: 0.8em; font-style: italic; opacity: 0.9;">
+                            "Write a marketing plan for my bike rental business."
+                        </p>
+                        <p style="font-size: 0.7em; margin-top: 20px; color: #ff5555;">Result: Generic, unhelpful SEO
+                            fluff.</p>
+                    </div>
+                    <div class="card"
+                        style="background: rgba(80, 250, 123, 0.1); border-color: rgba(80, 250, 123, 0.3);">
+                        <h4 style="color: #50fa7b;">After (The Engineer)</h4>
+                        <p style="font-size: 0.75em; font-style: italic; opacity: 0.9; margin: 0; line-height: 1.4;">
+                            <span style="color:#8be9fd">[Context]</span> I am launching an e-bike rental near the Univ.
+                            of Vaasa.<br>
+                            <span style="color:#ffb86c">[Role]</span> Act as a Local Marketing Consultant.<br>
+                            <span style="color:#ff79c6">[Explicit]</span> Create a 1-week launch strategy.<br>
+                            <span style="color:#bd93f9">[Audience]</span> Target international students.<br>
+                            <span style="color:#f1fa8c">[Tone]</span> Trendy and budget-conscious.<br>
+                            <span style="color:#50fa7b">[Evaluation]</span> Format as a daily bulleted list.
+                        </p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Business Example 1: Local Bike Rental (Vaasa)<br>
+                    Context: A new e-bike rental service near the University.<br>
+                    Role: Local Marketing Consultant.<br>
+                    Goal: Create a 1-week launch strategy.<br>
+
+                    Step-by-Step Exercise (40 mins):<br>
+                    Pick your business idea. (e.g., A sustainable coffee shop, a cleaning app, or a niche SaaS).<br>
+                    Write a prompt using all 6 CREATE letters.<br>
+                    Share the result with the person next to you.<br>
+
+                    Däniel's Pro-Tip:<br>
+                    "If your prompt is shorter than three sentences, it's probably too vague. Add more context about who
+                    your customer is."<br>
+
+                    13:40 – 14:10 | Break & Lunch<br>
+                    "Take a break, grab some food. Talk to each other about your ideas. We’ll start the hard logic part
+                    in 30 minutes."
+                </aside>
+            </section>
+
+            <!-- SLIDE 5: LOGIC & CHAIN-OF-THOUGHT -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1620802051772-29fc12d1264c?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.3">
+                <div class="glass-panel text-left">
+                    <h2 class="color-cyan">Logic & Chain-of-Thought</h2>
+                    <p style="font-size: 1.1em; opacity: 0.9;">
+                        "Think <span class="color-yellow">step-by-step</span>."
+                    </p>
+                    <ul style="margin-top: 30px;">
+                        <li>AI models don't "think"—they probabilistically predict.</li>
+                        <li>Complex logic requested instantly often leads to hallucination.</li>
+                        <li>Forcing the model to show its math reduces error rates significantly.</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    14:10 – 15:30 | Logic & The Skeptical VC<br>
+                    Goal: Stress-test the business model using Chain-of-Thought (CoT).<br>
+                    Däniel's Script:<br>
+                    "Welcome back. Now we get serious. AI can hallucinate. It makes things up. To fix this, we use
+                    Chain-of-Thought. We tell it: 'Think step-by-step.' This forces the model to show its math before
+                    giving an answer.<br>
+
+                    The "Skeptical VC" Exercise (30 mins):<br>
+                    We will use the "Skeptical VC" persona to challenge your business idea. The AI will act as a
+                    venture capitalist who has seen thousands of pitches and is looking for holes in your logic.<br>
+
+                    Step-by-Step Exercise:<br>
+                    Take your business idea from the previous exercise.<br>
+                    Write a prompt asking the AI to act as a Skeptical VC and analyze your idea.<br>
+                    Use Chain-of-Thought by asking: "Think step-by-step and show your math."<br>
+                    Share the AI's response with your neighbor. Did it find any holes?<br>
+
+                    Däniel's Pro-Tip:<br>
+                    "If the AI immediately says 'Great idea!', it's not being skeptical enough. You need to push it to
+                    find the risks."<br>
+
+                    15:30 – 16:00 | Break<br>
+                    "Quick break. Stretch your legs. We're almost done."
+
+                    16:00 – 16:45 | The Final Polish & Demo<br>
+                    Goal: Turn the rough draft into a presentable pitch deck.<br>
+                    Däniel's Script:<br>
+                    "Now we take your rough notes and turn them into a pitch deck. We will use the AI to structure the
+                    content, write speaker notes, and even generate a simple visual design.<br>
+
+                    Step-by-Step Exercise:<br>
+                    Take your Chain-of-Thought analysis.<br>
+                    Ask the AI to create a 10-slide pitch deck structure.<br>
+                    Ask for speaker notes for each slide.<br>
+                    Ask for a simple visual description for each slide (colors, layout).<br>
+                    Share your final structure with the group.<br>
+
+                    Closing Remarks:<br>
+                    "You now have a complete business idea, stress-tested by an AI, with a full pitch deck ready to
+                    present. You've gone from zero to a complete business plan in under 4 hours. That's the power of
+                    working with AI."
+                </aside>
+            </section>
+
+            <!-- SLIDE 6: MARKET SIZING EXAMPLE -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.2">
+                <h2 class="text-left color-yellow">Market Sizing Example</h2>
+                <div class="card">
+                    <h4 style="margin-top: 0;">SaaS for Finnish SMEs</h4>
+                    <div class="prompt-box">
+                        "Estimate the market size for an automated bookkeeping tool for small businesses in
+                        Finland.<br><br>
+                        <strong class="color-pink">Think step-by-step.</strong><br>
+                        1. First, find the number of registered SMEs in Finland.<br>
+                        2. Second, estimate how many use manual systems.<br>
+                        3. Third, calculate a realistic price point."
+                    </div>
+                </div>
+                <div style="margin-top: 20px; text-align: left; font-size: 0.8em; opacity: 0.8;">
+                    <em>Exercise: Use the CoT prompt to calculate your own market size.</em>
+                </div>
+                <aside class="notes">
+                    Business Example 2: SaaS for Finnish SMEs<br>
+                    Prompt: "Estimate the market size for an automated bookkeeping tool for small businesses in Finland.
+                    Think step-by-step. First, find the number of registered SMEs. Second, estimate how many use manual
+                    systems. Third, calculate a realistic price point."
+
+                </aside>
+            </section>
+
+            <!-- SLIDE 7: SKEPTICAL VC PERSONA -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.3">
+                <h2 class="text-left color-pink">The Skeptical VC Persona</h2>
+                <p class="text-left" style="font-size: 0.9em; margin-bottom: 20px;">
+                    Stress-testing your business model before a real pitch.
+                </p>
+                <div class="code-container">
+                    <pre><code class="language-markdown" data-trim>
+# SYSTEM PROMPT
+Act as a Senior Partner at a VC firm.
+Personality: Highly analytical, ruthlessly pragmatic. Don't be nice.
+
+# USER PROMPT
+Here is my startup idea: [Describe idea].
+
+Task:
+1. Find 3 fatal flaws in my logic.
+2. Ask me 3 questions that would make a founder sweat.
+                    </code></pre>
+                </div>
+                <aside class="notes">
+                    We are also going to use the 'Skeptical VC' persona. This is a prompt that tells the AI to be your
+                    harshest critic. It's better to fail here than in a real pitch."<br>
+
+                    Business Example 3: The VC Critique<br>
+                    Prompt: "Act as a Senior Partner at a VC firm. Here is my idea: [Describe idea]. Find 3 fatal flaws
+                    in my logic. Ask me 3 questions that would make a founder sweat. Don't be nice."<br>
+
+                    Step-by-Step Exercise (60 mins):
+                    Use the CoT prompt to calculate your market size.<br>
+                    Run the VC Critique prompt.<br>
+                    Write down your answers to the 'nightmare' questions the AI asks you.<br>
+
+                    15:30 – 15:45 | Break<br>
+                    "Quick stretch. Next, we build the actual product."
+                </aside>
+            </section>
+
+            <!-- SLIDE 8: RAPID PROTOTYPING LAB -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=2072"
+                data-background-opacity="0.2">
+                <h2 class="text-left color-green">Rapid Prototyping Lab</h2>
+                <div class="split-layout" style="margin-bottom: 20px;">
+                    <div>
+                        <h4 class="color-yellow" style="margin-bottom: 5px;">1. The Technical PRD</h4>
+                        <p style="font-size: 0.7em; opacity: 0.8;">Generate a Product Requirements Document to map out
+                            features.</p>
+                    </div>
+                    <div>
+                        <h4 class="color-cyan" style="margin-bottom: 5px;">2. The Landing Page</h4>
+                        <p style="font-size: 0.7em; opacity: 0.8;">Generate a functional HTML website instantly.</p>
+                    </div>
+                </div>
+
+                <div class="code-container">
+                    <pre><code class="language-markdown" data-trim>
+Act as a web developer. 
+Create a single-file HTML landing page for my business. 
+Use Tailwind CSS for a modern, clean look. 
+Include a hero section with a call to action button. 
+Make it look like a high-end Nordic startup.
+                    </code></pre>
+                </div>
+                <aside class="notes">
+                    15:45 – 16:30 | Building the MVP<br>
+                    Goal: Generate a Technical PRD and a Landing Page.<br>
+                    Däniel's Script:<br>
+                    "The final part is building. We want to leave here with something real. We are going to ask the AI
+                    to write a Product Requirements Document (PRD). This is a map for developers. Then, we will ask it
+                    to code a simple landing page in HTML."<br>
+
+                    Prompt Example: The Landing Page<br>
+                    "Act as a web developer. Create a single-file HTML landing page for my business. Use Tailwind CSS
+                    for a modern, clean look. Include a hero section with a call to action button. Make it look like a
+                    high-end Nordic startup."<br>
+
+                    Step-by-Step Exercise (40 mins):
+                    Ask the AI to write a PRD for your MVP (Minimum Viable Product).<br>
+                    Generate the HTML code for your landing page.<br>
+                    Open the code in a browser to see it.<br>
+                </aside>
+            </section>
+
+            <!-- SLIDE 9: CONCLUSION & DEMO -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.3">
+                <div class="bg-subtle-glow"
+                    style="background: radial-gradient(circle, rgba(255, 121, 198, 0.15) 0%, rgba(0, 0, 0, 0) 70%);">
+                </div>
+                <div class="text-center" style="margin-top: 50px;">
+                    <h1 class="color-pink" style="margin-bottom: 10px;">Showcase & Celebrate</h1>
+                    <h3 style="font-weight: 300;">You are no longer users. You are engineers.</h3>
+
+                    <div style="margin-top: 50px;">
+                        <p class="color-cyan"
+                            style="font-size: 1.2em; border-bottom: 2px solid #50fa7b; display: inline-block; padding-bottom: 10px;">
+                            Keep Building in Vaasa.
+                        </p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    16:30 – 16:45 | Showcase, Snacks & Gifts<br>
+                    Goal: Celebrate the wins.<br>
+                    Däniel's Script:<br>
+                    "We are at the finish line. Who wants to show their landing page? Who got a really tough question
+                    from the VC? Let's see some results.<br>
+                    I have some small gifts for the best prompts and most improved ideas. Grab a snack, and thank you
+                    for being here. You aren't just users anymore, you're engineers. Let's keep building in Vaasa."<br>
+
+                    Tips for Däniel (The Solo Host)<br>
+                    Watch the clock: Since you don't have mentors, you need to be the timekeeper. Give a 5-minute
+                    warning before every section ends.<br>
+                    Check in: Every 15 minutes, walk around and look at people's screens. If someone looks confused, ask
+                    "What is the AI telling you?"<br>
+                    Keep it simple: If the technical code part is too hard for some, tell them to focus on the PRD (the
+                    business plan) instead.<br>
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            transition: 'slide',
+            backgroundTransition: 'fade',
+            plugins: [RevealNotes, RevealHighlight]
+        });
+    </script>
+</body>
+
+</html>
