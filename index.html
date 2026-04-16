@@ -304,7 +304,8 @@
                 data-background-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070"
                 data-background-opacity="0.15">
                 <h2 class="text-left">Anatomy of a <span class="color-yellow">Prompt</span></h2>
-                <p class="text-left" style="font-size: 0.9em; opacity: 0.8; margin-bottom: 20px;">Breaking down the C.R.E.A.T.E framework.</p>
+                <p class="text-left" style="font-size: 0.9em; opacity: 0.8; margin-bottom: 20px;">Breaking down the
+                    C.R.E.A.T.E framework.</p>
 
                 <div class="split-layout" style="align-items: flex-start; gap: 40px;">
                     <!-- LEFT SIDE: THE PROMPT -->
@@ -322,38 +323,119 @@
                     </div>
 
                     <!-- RIGHT SIDE: THE BREAKDOWN -->
-                    <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <div style="background: rgba(40,42,54,0.8); padding: 15px 25px; border-left: 4px solid #8be9fd; border-radius: 8px;">
-                            <strong class="color-cyan" style="font-size: 0.8em; text-transform: uppercase;">Context</strong>
-                            <div style="font-size: 0.75em; margin-top: 5px;">Student-led cleaning service in Vaasa.</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div
+                            style="background: rgba(40,42,54,0.8); padding: 15px; border-left: 4px solid #8be9fd; border-radius: 8px;">
+                            <strong class="color-cyan"
+                                style="font-size: 0.75em; text-transform: uppercase;">Context</strong>
+                            <div style="font-size: 0.7em; margin-top: 5px;">Student-led cleaning service in Vaasa.
+                            </div>
                         </div>
-                        <div style="background: rgba(40,42,54,0.8); padding: 15px 25px; border-left: 4px solid #ff79c6; border-radius: 8px;">
-                            <strong class="color-pink" style="font-size: 0.8em; text-transform: uppercase;">Role</strong>
-                            <div style="font-size: 0.75em; margin-top: 5px;">Senior SaaS Product Manager.</div>
+                        <div
+                            style="background: rgba(40,42,54,0.8); padding: 15px; border-left: 4px solid #ff79c6; border-radius: 8px;">
+                            <strong class="color-pink"
+                                style="font-size: 0.75em; text-transform: uppercase;">Role</strong>
+                            <div style="font-size: 0.7em; margin-top: 5px;">Senior Product Manager.</div>
                         </div>
-                        <div style="background: rgba(40,42,54,0.8); padding: 15px 25px; border-left: 4px solid #50fa7b; border-radius: 8px;">
-                            <strong class="color-green" style="font-size: 0.8em; text-transform: uppercase;">Explicit Instructions</strong>
-                            <div style="font-size: 0.75em; margin-top: 5px;">Create a PRD focusing on MVP features.</div>
+                        <div
+                            style="background: rgba(40,42,54,0.8); padding: 15px; border-left: 4px solid #50fa7b; border-radius: 8px;">
+                            <strong class="color-green" style="font-size: 0.75em; text-transform: uppercase;">Explicit
+                                Instructions</strong>
+                            <div style="font-size: 0.7em; margin-top: 5px;">Create a PRD focusing on MVP features.
+                            </div>
                         </div>
-                        <div style="background: rgba(40,42,54,0.8); padding: 15px 25px; border-left: 4px solid #ffb86c; border-radius: 8px;">
-                            <strong class="color-orange" style="font-size: 0.8em; text-transform: uppercase;">Audience</strong>
-                            <div style="font-size: 0.75em; margin-top: 5px;">Developers.</div>
+                        <div
+                            style="background: rgba(40,42,54,0.8); padding: 15px; border-left: 4px solid #ffb86c; border-radius: 8px;">
+                            <strong class="color-orange"
+                                style="font-size: 0.75em; text-transform: uppercase;">Audience</strong>
+                            <div style="font-size: 0.7em; margin-top: 5px;">Developers.</div>
                         </div>
-                        <div style="background: rgba(40,42,54,0.8); padding: 15px 25px; border-left: 4px solid #bd93f9; border-radius: 8px;">
-                            <strong class="color-purple" style="font-size: 0.8em; text-transform: uppercase;">Tone</strong>
-                            <div style="font-size: 0.75em; margin-top: 5px;">Grounded and professional.</div>
+                        <div
+                            style="background: rgba(40,42,54,0.8); padding: 15px; border-left: 4px solid #bd93f9; border-radius: 8px;">
+                            <strong class="color-purple"
+                                style="font-size: 0.75em; text-transform: uppercase;">Tone</strong>
+                            <div style="font-size: 0.7em; margin-top: 5px;">Grounded and professional.</div>
                         </div>
-                        <div style="background: rgba(40,42,54,0.8); padding: 15px 25px; border-left: 4px solid #f1fa8c; border-radius: 8px;">
-                            <strong class="color-yellow" style="font-size: 0.8em; text-transform: uppercase;">Evaluation</strong>
-                            <div style="font-size: 0.75em; margin-top: 5px;">Markdown document format.</div>
+                        <div
+                            style="background: rgba(40,42,54,0.8); padding: 15px; border-left: 4px solid #f1fa8c; border-radius: 8px;">
+                            <strong class="color-yellow"
+                                style="font-size: 0.75em; text-transform: uppercase;">Evaluation</strong>
+                            <div style="font-size: 0.7em; margin-top: 5px;">Markdown document format.</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <aside class="notes">
                     12:40 to 13:40, The CREATE Framework.</br>
 
-                    "Now, let's look under the hood. This prompt isn't just a sentence; it's a system. Notice how we didn't just ask for a plan, we gave the AI a job, a location, a specific audience, and a format. This reduces hallucination and gives you exactly what you need for your MVP."
+                    "Now, let's look under the hood. This prompt isn't just a sentence; it's a system. Notice how we
+                    didn't just ask for a plan, we gave the AI a job, a location, a specific audience, and a format.
+                    This reduces hallucination and gives you exactly what you need for your MVP."
+                </aside>
+            </section>
+
+            <!-- SLIDE 4.1: THE FULL PROMPT (CODE SCROLL) -->
+            <section
+                data-background-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070"
+                data-background-opacity="0.1">
+                <style>
+                    .scroll-code {
+                        max-height: 60vh !important;
+                        overflow-y: auto !important;
+                        font-size: 0.55em !important;
+                        line-height: 1.5 !important;
+                        text-align: left;
+                        padding: 20px !important;
+                        border: 1px solid rgba(80, 250, 123, 0.3) !important;
+                        border-radius: 8px;
+                    }
+                </style>
+                <div class="pill">The Master Prompt</div>
+                <h2 class="text-left color-cyan" style="margin-bottom: 20px;">The Engineered Prompt</h2>
+
+                <div class="code-container">
+                    <pre><code class="language-markdown scroll-code" data-trim>
+You are a seasoned Product Manager and Software Architect with 15+ years of experience in developing minimum viable products (MVPs) for service-based mobile applications, particularly in the local service economy sectors like cleaning and maintenance apps. You have successfully launched multiple student-led startup apps in Nordic markets, including Finland, and are adept at creating actionable Product Requirements Documents (PRDs) that balance user needs, technical feasibility, and rapid iteration for developer teams.
+
+**Contextual Constraints:**
+- Target audience: A small developer team (2-4 people) building this app in Vaasa, Finland, using modern cross-platform tools like Flutter or React Native.
+- Focus exclusively on MVP scope: Prioritize core features that enable a basic launch with student cleaners and local customers in Vaasa. Exclude nice-to-haves like advanced analytics, loyalty programs, payments, or scalability features.
+- App concept: A student-led cleaning service app connecting university students in Vaasa (e.g., from Vaasa University of Applied Sciences or local campuses) as cleaners with local residents/businesses needing affordable, on-demand cleaning services (e.g., apartments, offices, post-event cleanups).
+- Tone: Grounded, professional, pragmatic—use clear, concise language like a senior dev would appreciate. Avoid hype, fluff, or unsubstantiated assumptions.
+- Format: Output the entire response as a complete, well-structured Markdown document titled "# Product Requirements Document (PRD): Vaasa Student Cleaning Service MVP". Use Markdown headers (##, ###), bullet points, numbered lists, and simple tables where appropriate (e.g., for feature prioritization or user flows). Ensure it's scannable and developer-friendly—no more than 2000 words.
+
+**Step-by-Step Instructions:**
+1. **Introduction Section**: Write a brief overview (## Introduction) including app name suggestion ("VaasaClean Students" or similar), problem statement (high demand for affordable cleaning in Vaasa student areas, untapped student workforce), target users (customers: residents/businesses; providers: students), MVP goals (validate demand, onboard 50 students/100 customers in first month), and success metrics (e.g., 20 bookings/week).
+2. **User Personas Section**: Define 2-3 concise personas (## User Personas) – e.g., "Busy Vaasa Resident" (customer), "Broke Student Cleaner" (provider), "App Admin" (student founder). Include demographics, pain points, goals relevant to Vaasa context (e.g., cold weather messes, student schedules).
+3. **Key Assumptions & Constraints**: List MVP assumptions (## Assumptions and Constraints), e.g., manual payments initially (cash/transfer), Vaasa-only geolocation, Finnish/English bilingual UI.
+4. **Core Features Section**: Detail only 5-7 MVP features (## MVP Features), prioritized by MoSCoW method (Must-Have, Should-Have). For each feature:
+   - Feature name and description.
+   - User stories (As a [user], I want [feature] so that [benefit]).
+   - High-level user flow (numbered steps).
+   - Technical notes (e.g., "Use Google Maps API for Vaasa-only radius").
+   - Wireframe sketch in simple ASCII or Markdown table.
+   Examples: User auth/signup, Booking creation (select service type: basic clean, deep clean; time slot), Cleaner matching/availability, Basic chat, Ratings, Admin dashboard.
+5. **Non-Functional Requirements**: Cover basics (## Non-Functional Requirements) – performance (load in <3s), security (basic auth/JWT), accessibility (Finnish/English), platforms (iOS/Android web-first?).
+6. **Tech Stack Recommendations**: Suggest lightweight stack (## Recommended Tech Stack) suitable for students/devs, e.g., Firebase backend, Flutter frontend.
+7. **Risks & Next Steps**: Outline top risks (## Risks and Mitigation) and post-MVP roadmap (## Post-MVP Roadmap).
+
+**Output Verification:**
+Before finalizing, self-review against these criteria and confirm in a short footer section (## Self-Review Confirmation):
+- Is the scope strictly MVP (no feature creep)?
+- Does every feature have a clear Vaasa/student context tie-in?
+- Is the document fully Markdown-formatted, professional, and under 2000 words?
+- Are user flows logical and developer-actionable?
+- Does it empower a dev team to start coding immediately?
+If any criterion fails, revise inline before outputting. Output ONLY the Markdown PRD—no additional text, explanations, or chit-chat.
+                    </code></pre>
+                </div>
+                <aside class="notes">
+                    12:40 to 13:40, The CREATE Framework.</br>
+
+                    "This is the actual prompt that comes out of the Anatomy we just looked at. Look at the length and
+                    detail! This is what you hand to an AI to get a professional, ready-to-code Product Requirements
+                    Document. It's almost an entire page of text. If your prompts are only 2 sentences long, start
+                    making them look exactly like this."
                 </aside>
             </section>
 
