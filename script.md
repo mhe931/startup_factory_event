@@ -121,7 +121,7 @@ DO (Facilitation Actions):
 - Assign triads to participant-owned cases.
 - Rotate roles at minute 8 and 16.
 - Start critique at minute 22.
-- After critique, visibly tick Segment 4 complete on the board.
+- After critique, visibly tick Segment 5 complete on the board.
 
 ASK (Audience Prompts):
 - Which constraint removed the most fluff?
@@ -146,7 +146,7 @@ Live Iteration Crucible now. One variable per turn. Diagnose the failure, isolat
 DO (Facilitation Actions):
 - 10 minutes solo build, 10 minutes peer audit, 5 minutes final patch.
 - Use one harvested weak-vs-strong pair from Segment 5 for live debugging.
-- Tick Segment 5 complete on board at minute 49.
+- Tick Segment 6 complete on board at minute 49.
 
 ASK (Audience Prompts):
 - What failed and why?
