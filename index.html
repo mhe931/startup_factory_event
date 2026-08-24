@@ -3,591 +3,586 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>The Architecture of Intent | Professional Prompting Workshop</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/dracula.min.css" id="theme">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Architecture of Shared Meaning | C.L.E.A.R.+ Workshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        html, body {
+        :root {
+            --ink: #f7f3e8;
+            --muted: #d8cfba;
+            --deep: #121414;
+            --panel: rgba(25, 29, 27, 0.84);
+            --line: rgba(247, 243, 232, 0.18);
+            --amber: #f2b84b;
+            --teal: #66d0c2;
+            --rose: #e8705d;
+            --leaf: #a6cf62;
+            --sky: #8cb7ff;
+            --shadow: rgba(0, 0, 0, 0.42);
+        }
+
+        * { box-sizing: border-box; }
+
+        html,
+        body {
             width: 100%;
             height: 100%;
             margin: 0;
             overflow: hidden;
+            background: var(--deep);
         }
 
-        #presentation-root {
+        body {
+            color: var(--ink);
+            font-family: "Source Sans 3", sans-serif;
+        }
+
+        main#presentation-root {
             width: 100vw;
             height: 100vh;
-            overflow: hidden;
             display: grid;
             place-items: center;
-            background: #191a21;
-        }
-
-        :root {
-            --c-cyan: #8be9fd;
-            --c-green: #50fa7b;
-            --c-pink: #ff79c6;
-            --c-purple: #bd93f9;
-            --c-yellow: #f1fa8c;
-            --c-orange: #ffb86c;
-            --bg-card: rgba(40, 42, 54, 0.85);
-            --bg-glass: rgba(30, 30, 40, 0.7);
-            --line-soft: rgba(255, 255, 255, 0.12);
-        }
-
-        .reveal.slides-container {
-            width: 100vw;
-            height: 100vh;
-            max-width: 100vw;
-            max-height: 100vh;
-        }
-
-        .reveal {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(18px, 2.1vw, 32px);
-        }
-
-        .reveal .slides {
-            width: 100%;
-            height: 100%;
-        }
-
-        .reveal .slides section.slide {
-            max-height: 90vh;
             overflow: hidden;
-            box-sizing: border-box;
+            background:
+                linear-gradient(135deg, rgba(18, 20, 20, 0.5), rgba(18, 20, 20, 0.95)),
+                url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=2200") center / cover no-repeat;
         }
 
-        .reveal h1,
-        .reveal h2,
-        .reveal h3,
-        .reveal h4,
-        .reveal h5,
-        .reveal h6 {
-            font-family: 'Outfit', sans-serif;
-            text-transform: none;
+        .slides-container {
+            width: min(100vw, 177.7778vh);
+            height: min(56.25vw, 100vh);
+            aspect-ratio: 16 / 9;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            display: none;
+            grid-template-rows: auto 1fr;
+            gap: clamp(12px, 1.8vmin, 24px);
+            padding: clamp(24px, 4.2vmin, 58px);
+            overflow: hidden;
+            background:
+                linear-gradient(145deg, rgba(18, 20, 20, 0.76), rgba(18, 20, 20, 0.54)),
+                radial-gradient(circle at 12% 18%, rgba(242, 184, 75, 0.2), transparent 28%),
+                radial-gradient(circle at 88% 12%, rgba(102, 208, 194, 0.18), transparent 30%),
+                linear-gradient(180deg, rgba(247, 243, 232, 0.04), rgba(247, 243, 232, 0.01));
+        }
+
+        .slide.active { display: grid; }
+
+        .slide::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(247, 243, 232, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(247, 243, 232, 0.05) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent 70%);
+        }
+
+        .slide-header,
+        .slide-body {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            margin: 0 0 clamp(6px, 1vmin, 12px);
+            color: var(--amber);
+            font-size: clamp(0.74rem, 1.25vmin, 1rem);
             font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 18px;
-        }
-
-        .reveal h1 {
-            font-size: 2.5em;
-            line-height: 1.1;
-        }
-
-        .reveal h2 {
-            font-size: 1.9em;
-            line-height: 1.2;
-        }
-
-        .reveal h3 {
-            font-size: 1.25em;
-            line-height: 1.3;
-        }
-
-        .color-cyan { color: var(--c-cyan) !important; }
-        .color-green { color: var(--c-green) !important; }
-        .color-pink { color: var(--c-pink) !important; }
-        .color-purple { color: var(--c-purple) !important; }
-        .color-yellow { color: var(--c-yellow) !important; }
-        .color-orange { color: var(--c-orange) !important; }
-        .text-left { text-align: left; }
-
-        .small {
-            font-size: 0.72em;
-            opacity: 0.9;
-        }
-
-        .pill {
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 999px;
-            font-size: 0.52em;
-            font-weight: 800;
-            letter-spacing: 1.7px;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin: 0 0 22px;
-            border: 1px solid rgba(80, 250, 123, 0.32);
-            color: var(--c-green);
-            background: rgba(80, 250, 123, 0.14);
         }
 
-        .glass-panel {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--line-soft);
-            border-radius: 20px;
-            padding: 34px;
+        h1,
+        h2 {
+            margin: 0;
+            font-family: "Fraunces", serif;
+            letter-spacing: 0;
+            text-wrap: balance;
+        }
+
+        h1 {
+            max-width: 15ch;
+            font-size: clamp(3.1rem, 8.6vmin, 6.8rem);
+            line-height: 0.92;
+        }
+
+        h2 {
+            max-width: 18ch;
+            font-size: clamp(2.25rem, 6.2vmin, 5rem);
+            line-height: 0.95;
+        }
+
+        .kicker {
+            max-width: 66ch;
+            margin: clamp(10px, 1.6vmin, 18px) 0 0;
+            color: var(--muted);
+            font-size: clamp(1rem, 2.3vmin, 1.55rem);
+            line-height: 1.28;
+        }
+
+        .slide-body {
+            min-height: 0;
+            display: grid;
+            align-content: center;
+            gap: clamp(12px, 2vmin, 22px);
+        }
+
+        .columns {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(12px, 2vmin, 22px);
+            min-height: 0;
+        }
+
+        .matrix {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(10px, 1.6vmin, 18px);
+            min-height: 0;
         }
 
         .card {
-            background: var(--bg-card);
-            border: 1px solid var(--line-soft);
-            border-radius: 16px;
-            padding: 22px;
-            text-align: left;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+            min-width: 0;
+            padding: clamp(14px, 2vmin, 24px);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--panel);
+            box-shadow: 0 18px 42px var(--shadow);
         }
 
-        .grid-2 {
+        .card h3 {
+            margin: 0 0 8px;
+            color: var(--teal);
+            font-size: clamp(1.02rem, 2.4vmin, 1.7rem);
+            line-height: 1.05;
+        }
+
+        .card p,
+        .card li {
+            color: var(--muted);
+            font-size: clamp(0.86rem, 1.85vmin, 1.25rem);
+            line-height: 1.25;
+        }
+
+        .card p { margin: 0; }
+
+        ul {
+            margin: 0;
+            padding-left: 1.1em;
+        }
+
+        li + li { margin-top: 0.28em; }
+
+        .protocol-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: clamp(8px, 1.2vmin, 14px);
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
+        .protocol-cell {
+            min-width: 0;
+            padding: clamp(12px, 1.5vmin, 18px);
+            border-radius: 8px;
+            background: rgba(247, 243, 232, 0.1);
+            border: 1px solid var(--line);
         }
 
-        .agenda-item {
-            border-left: 4px solid var(--c-cyan);
-            padding-left: 14px;
-            margin-bottom: 14px;
-            font-size: 0.76em;
-        }
-
-        .break-panel {
-            border: 1px solid rgba(241, 250, 140, 0.35);
-            background: rgba(241, 250, 140, 0.08);
-            border-radius: 18px;
-            padding: 24px;
-        }
-
-        .reveal ul {
+        .protocol-cell strong {
             display: block;
-            margin-left: 1.1em;
+            color: var(--amber);
+            font-family: "Fraunces", serif;
+            font-size: clamp(1.7rem, 4vmin, 3rem);
+            line-height: 0.9;
         }
 
-        .reveal li {
-            margin-bottom: 9px;
-            font-size: 0.82em;
-            line-height: 1.35;
+        .protocol-cell span {
+            display: block;
+            margin-top: 0.45em;
+            color: var(--muted);
+            font-size: clamp(0.72rem, 1.45vmin, 1.05rem);
+            line-height: 1.15;
+        }
+
+        .callout {
+            width: fit-content;
+            max-width: 100%;
+            padding: clamp(12px, 1.8vmin, 20px) clamp(16px, 2.2vmin, 26px);
+            border-left: 6px solid var(--rose);
+            background: rgba(232, 112, 93, 0.14);
+            color: var(--ink);
+            font-size: clamp(1.06rem, 2.5vmin, 1.7rem);
+            line-height: 1.2;
+        }
+
+        .quote {
+            font-family: "Fraunces", serif;
+            font-size: clamp(2rem, 5.1vmin, 4.4rem);
+            line-height: 1;
+            color: var(--ink);
+            text-wrap: balance;
         }
 
         #speaker-overlay {
             position: fixed;
-            right: 0;
-            top: 0;
-            width: min(480px, calc(100vw - 16px));
+            inset: 0 0 0 auto;
+            width: min(520px, 100vw);
             height: 100vh;
-            overflow-y: auto;
-            z-index: 9999;
-            border: 1px solid var(--line-soft);
-            border-radius: 0;
-            padding: 16px;
-            background: rgba(18, 20, 28, 0.97);
-            box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
+            z-index: 20;
             display: none;
+            overflow-y: auto;
+            padding: 18px;
+            color: #f8f4ea;
+            background: rgba(13, 16, 17, 0.98);
+            border-left: 1px solid rgba(247, 243, 232, 0.18);
+            box-shadow: -18px 0 40px rgba(0, 0, 0, 0.34);
+            font-family: "Source Sans 3", sans-serif;
         }
 
-        #speaker-overlay.open {
-            display: block;
+        #speaker-overlay.open { display: block; }
+
+        #speaker-overlay h2 {
+            margin-bottom: 12px;
+            font-family: "Fraunces", serif;
+            font-size: 1.45rem;
+            line-height: 1.05;
         }
 
-        #speaker-overlay h4 {
-            margin: 0 0 10px;
-            font-size: 0.74em;
-            color: var(--c-cyan);
-            text-transform: uppercase;
-            letter-spacing: 0.7px;
-        }
-
-        #speaker-overlay .block {
-            border-left: 3px solid var(--line-soft);
-            padding: 8px 10px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.03);
+        #speaker-overlay .note-block {
+            margin: 0 0 12px;
+            padding: 12px;
+            border: 1px solid rgba(247, 243, 232, 0.14);
             border-radius: 8px;
+            background: rgba(247, 243, 232, 0.055);
         }
 
         #speaker-overlay .label {
-            color: var(--c-yellow);
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            font-size: 0.6em;
-            margin-bottom: 4px;
+            margin: 0 0 4px;
+            color: var(--amber);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
         }
 
         #speaker-overlay .value {
-            font-size: 0.62em;
-            line-height: 1.45;
             white-space: pre-wrap;
-            color: #dce1ef;
+            color: #e6decd;
+            font-size: 0.98rem;
+            line-height: 1.35;
         }
 
-        #speaker-overlay .tip {
-            border-top: 1px solid var(--line-soft);
-            margin-top: 8px;
-            padding-top: 8px;
-            font-size: 0.56em;
-            opacity: 0.8;
-        }
+        @media (max-width: 900px), (max-height: 650px) {
+            .columns,
+            .matrix { gap: 10px; }
 
-        @media (max-width: 900px) {
-            .reveal {
-                font-size: 24px;
-            }
+            .card { padding: 12px; }
 
-            .grid-2,
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
+            .card p,
+            .card li { font-size: clamp(0.74rem, 1.7vmin, 0.98rem); }
         }
     </style>
 </head>
 
 <body>
-    <div id="presentation-root">
-    <div class="reveal slides-container">
-        <div class="slides">
-            <section class="slide" data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2072"
-                data-background-opacity="0.23"
-                data-speaker-time="00:00-00:15 | 15 min"
-                data-speaker-say="Welcome to The Architecture of Intent. Quick check-in ritual: in one sentence, say your name, your goal for today, and one place AI has frustrated you. We are here to turn that frustration into a repeatable method."
-                data-speaker-do="Stand center, establish safety, and run low-friction check-in immediately. On whiteboard write three columns: Name, Goal, AI Friction. Capture entries live. At minute 12, read back patterns and preview where each will be solved."
-                data-speaker-ask="What is your honest gut-feeling about LLM output quality right now? What is one result you could not trust? Which part of your workflow loses the most time to AI rework?"
-                data-speaker-adapt="Tag each friction point by likely segment: Delegation Lab, Makeover, or Iteration. Pull two high-frequency friction points and announce they will become live case studies in Segments 4 and 5."
-                data-speaker-ritual="Serial Position + Strong Start Ritual: break silence in first 90 seconds. Keep the first participant answer very short and energetic."
-                >
-                <div class="glass-panel text-left">
-                    <div class="pill">Professional Prompting Workshop • 120 Minutes</div>
-                    <h1>The <span class="color-pink">Architecture</span> of <span class="color-cyan">Intent</span></h1>
-                    <h3 style="font-weight: 300;">Human Communication for Reliable AI Delegation</h3>
-                    <p class="small">Framework: <span class="color-green">C.L.E.A.R.+</span> • Context & Goal, Limits,
-                        Expected Output, Audience, Role/Process, Iteration/Verification</p>
+    <main id="presentation-root" aria-label="The Architecture of Shared Meaning presentation">
+        <div class="slides-container" aria-live="polite">
+            <section class="slide active"
+                data-speaker-time="Segment 1 | 00:00-00:15 | 15 min | The Intent & Meaning Bottleneck"
+                data-speaker-say="Welcome to The Architecture of Shared Meaning. Today is not a tricks-and-prompts session; it is a communication lab. The central claim is simple: every failed AI interaction exposes the same bottleneck we see in human work, the gap between what one mind assumes and what another system can actually infer. By the end, you will have a shared protocol for closing that gap with people and with AI."
+                data-speaker-do="Stand centered before advancing. Ask participants to write their name, their goal, and one recent AI frustration on a sticky note or shared board. Capture the strongest pattern labels under Assumption Gap, Missing Constraints, and Verification Debt. Keep the opening ritual to fifteen minutes and do not solve examples yet."
+                data-speaker-ask="What did you assume the other person or the AI would just understand? Where did the output force rework? What would count as trustworthy enough to use without rewriting from scratch?"
+                data-speaker-adapt="Extract two participant frustrations with clear business stakes. Reserve one for the Executive Makeover Studio and one for the Live Iteration Crucible. Prefer examples involving cross-functional handoff, customer communication, or analysis requests."
+                data-speaker-ritual="Serial Position and Grounding: create psychological safety in the first ninety seconds, name the learning contract, and anchor every later concept to participant language from the opening board.">
+                <div class="slide-header">
+                    <p class="eyebrow">Segment 1 | The Intent &amp; Meaning Bottleneck</p>
+                    <h1>The Architecture of Shared Meaning</h1>
+                    <p class="kicker">Aligning human minds and AI intelligence through the C.L.E.A.R.+ protocol.</p>
                 </div>
-                <div class="card" style="margin-top: 20px;">
-                    <h3 class="color-purple">Workshop Flow</h3>
-                    <div class="agenda-item"><strong>00:00-00:15 (15m)</strong><br>Welcome, Contract & Baseline Diagnostic</div>
-                    <div class="agenda-item"><strong>00:15-00:35 (20m)</strong><br>The Human Delegation Lab</div>
-                    <div class="agenda-item"><strong>00:35-00:50 (15m)</strong><br>Assumption Gap & C.L.E.A.R.+ Engine</div>
-                    <div class="agenda-item"><strong>00:50-01:00 (10m)</strong><br>Break / Rest & Informal Table Chat</div>
-                    <div class="agenda-item"><strong>01:00-01:25 (25m)</strong><br>Prompt Makeover Studio</div>
-                    <div class="agenda-item"><strong>01:25-01:50 (25m)</strong><br>Live Iteration Crucible</div>
-                    <div class="agenda-item"><strong>01:50-02:00 (10m)</strong><br>Highlight Session & Commitment Close</div>
-                </div>
-            </section>
-
-            <section class="slide" data-speaker-time="00:15-00:35 | 20 min"
-                data-speaker-say="Round one starts now: Architect gives one instruction only. Builder executes with no questions and no gestures from Architect. We will run this on three everyday frames: Tree Climbing safety instruction, interpersonal conflict resolution message, and shared responsibility handoff. Then we reveal the assumption gap. Round two repeats with C.L.E.A.R.+."
-                data-speaker-do="Pair people. Enforce no gestures and no questions in Round 1. Run timer: 7 minutes Round 1, 8 minutes Round 2, 5 minutes reveal. Rotate all pairs through the three framing examples. After reveal, visibly tick Segment 2 complete on board to signal momentum."
-                data-speaker-ask="Architects: what did you assume was obvious? Builders: what did you have to invent? Which framing example broke first and why: Tree Climbing, interpersonal conflict, or shared responsibility handoff?"
-                data-speaker-adapt="Capture one failure snapshot per framing example and label each by failure type. Reuse Tree Climbing in Segment 5 makeover and shared responsibility in Segment 6 iteration debug."
-                data-speaker-ritual="Visible Progress Tracking Ritual: after debrief, physically mark Segment 2 as complete on the board."
-                >
-                <h2>The Human Delegation Lab</h2>
-                <p class="small">Architect and Builder paired simulation to expose the assumption gap.</p>
-                <div class="grid-2">
-                    <div class="card">
-                        <h3 class="color-green">Round 1: Strict Blind Execution</h3>
-                        <ul>
-                            <li>No gestures.</li>
-                            <li>No clarifying questions.</li>
-                            <li>Log assumptions explicitly.</li>
-                        </ul>
+                <div class="slide-body">
+                    <div class="columns">
+                        <div class="card">
+                            <h3>The Assumption Gap</h3>
+                            <p>Meaning fails when context, constraints, format, audience, process, or verification stay implicit.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Case Anchor</h3>
+                            <p>Mars Climate Orbiter: two competent teams, one missing shared unit convention, one expensive lesson in unverified assumptions.</p>
+                        </div>
                     </div>
-                    <div class="card">
-                        <h3 class="color-yellow">Round 2: C.L.E.A.R.+ Run</h3>
-                        <ul>
-                            <li>Rewrite with C.L.E.A.R.+.</li>
-                            <li>Allow one clarifying question.</li>
-                            <li>Compare rework and confidence delta.</li>
-                        </ul>
+                    <div class="callout">Start ritual: name, goal, one AI frustration.</div>
+                </div>
+            </section>
+
+            <section class="slide"
+                data-speaker-time="Segment 2 | 00:15-00:35 | 20 min | The Human Delegation Lab"
+                data-speaker-say="We are going to make the hidden cost of vague delegation visible. In round one, the Architect gives one instruction and then becomes silent. The Builder executes with no questions, no clarification, and no repair. In round two, the same pair uses calibrated grounding: context, limits, expected output, audience, role, process, and a verification check. The comparison is the lesson."
+                data-speaker-do="Pair participants as Architect and Builder. Run seven minutes of zero-feedback instruction, eight minutes of calibrated grounding, and five minutes of debrief. Use three frames: a safe tree-climbing instruction, a delicate interpersonal conflict message, and a shared-responsibility handoff. Stop side coaching during round one."
+                data-speaker-ask="Architects, what did you think was obvious? Builders, what did you have to invent? Which failure appeared first: scope, safety, tone, format, or accountability?"
+                data-speaker-adapt="Capture one failed instruction and one improved instruction from each frame. Label failures as missing context, weak limits, unclear output, wrong audience, weak role/process, or absent verification."
+                data-speaker-ritual="Grounding: force the room to experience ambiguity before naming the model. Visible Progress: after debrief, mark Segment 2 complete on the board.">
+                <div class="slide-header">
+                    <p class="eyebrow">Segment 2 | The Human Delegation Lab</p>
+                    <h2>Architect vs. Builder</h2>
+                    <p class="kicker">Zero-feedback delegation reveals where meaning is being invented instead of transferred.</p>
+                </div>
+                <div class="slide-body">
+                    <div class="matrix">
+                        <div class="card"><h3>Tree</h3><p>Safety, age, environment, supervision, and stop conditions.</p></div>
+                        <div class="card"><h3>Conflict</h3><p>Tone, repair goal, accountability, and escalation boundaries.</p></div>
+                        <div class="card"><h3>Handoff</h3><p>Ownership, deadline, acceptance criteria, and evidence of completion.</p></div>
                     </div>
-                </div>
-                <div class="card" style="margin-top: 16px;">
-                    <h3 class="color-cyan">Multi-Angle Framing Drills</h3>
-                    <ul>
-                        <li><strong>Tree Climbing:</strong> same safety goal, different audience and constraints.</li>
-                        <li><strong>Interpersonal Conflict:</strong> same tension, different tone and role framing.</li>
-                        <li><strong>Shared Responsibility:</strong> same outcome, different ownership language.</li>
-                    </ul>
+                    <div class="callout">Round 1: no questions. Round 2: calibrated grounding.</div>
                 </div>
             </section>
 
-            <section class="slide" data-speaker-time="00:35-00:50 | 15 min"
-                data-speaker-say="Now we deconstruct the gap. Weak outputs usually come from weak instructions. We tighten context, limits, output shape, audience, role, and verification until the result becomes trustworthy. We compare the Tree Climbing frame, conflict-resolution frame, and shared-responsibility frame to show how meaning shifts."
-                data-speaker-do="Use one participant example from opening board and the three framing drills. Rebuild each field through C, L, E, A, R, + and call out what changed by role, audience, and constraints."
-                data-speaker-ask="Which field changed usefulness most? Which field do you skip under time pressure? Which framing example made hidden assumptions easiest to see?"
-                data-speaker-adapt="Convert one high-friction participant prompt and one shared-responsibility prompt into reusable scaffolds. Save Tree Climbing as first triad task for Segment 5."
-                data-speaker-ritual="Serial Position Reinforcement: make this midpoint crisp and memorable by showing one dramatic before/after delta."
-                >
-                <h2>Assumption Gap & <span class="color-yellow">C.L.E.A.R.+ Engine</span></h2>
-                <p class="small">Expression as problem-solving: ownership, interpersonal conflict, and audience context transform meaning.</p>
-                <div class="grid-3">
-                    <div class="card"><strong class="color-cyan">C</strong><br><span class="small">Context & Goal</span></div>
-                    <div class="card"><strong class="color-pink">L</strong><br><span class="small">Limits & Negative Constraints</span></div>
-                    <div class="card"><strong class="color-green">E</strong><br><span class="small">Expected Output</span></div>
-                    <div class="card"><strong class="color-orange">A</strong><br><span class="small">Audience</span></div>
-                    <div class="card"><strong class="color-purple">R</strong><br><span class="small">Role & Process</span></div>
-                    <div class="card"><strong class="color-yellow">+</strong><br><span class="small">Iteration & Verification</span></div>
+            <section class="slide"
+                data-speaker-time="Segment 3 | 00:35-00:43 | 8 min | The Multi-Lens Experiment"
+                data-speaker-say="Now we test one sentence through multiple minds: Can we climb a tree? A child hears adventure. A psychologist hears developmental readiness and motivation. A risk officer hears injury probability and duty of care. An arborist hears species, branch load, bark health, and access route. A heavy-eared alien hears balance, appendage geometry, and whether the word climb even maps to its body. Meaning is not inside the sentence; meaning is negotiated through lenses."
+                data-speaker-do="Put the sentence Can we climb a tree? in the center of the board. Rapidly annotate five lenses around it: child, psychologist, risk officer, arborist, heavy-eared alien. Keep this crisp at eight minutes; the point is reframing speed, not comedy expansion."
+                data-speaker-ask="Which lens changed the answer most? Which lens would an AI infer if you did not specify one? What detail became critical only after the role changed?"
+                data-speaker-adapt="Invite one participant to substitute a real workplace question into the same five-lens pattern. Save the most productive lens conflict for Segment 6 scenario selection."
+                data-speaker-ritual="Serial Position: use a memorable middle exercise to make role and audience sticky. Grounding: show that different valid interpretations can coexist until constraints select one.">
+                <div class="slide-header">
+                    <p class="eyebrow">Segment 3 | The Multi-Lens Experiment</p>
+                    <h2>Can we climb a tree?</h2>
+                    <p class="kicker">A sentence does not carry one meaning. It activates a lens.</p>
                 </div>
-                <div class="card" style="margin-top: 16px;">
-                    <h3 class="color-orange">Case Lens Prompts</h3>
-                    <ul>
-                        <li>How does a Tree Climbing instruction change across novice, child, and trainer audiences?</li>
-                        <li>How does an interpersonal conflict prompt change from accusation to collaborative repair?</li>
-                        <li>How does shared responsibility framing avoid blame while preserving accountability?</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="slide" data-speaker-time="00:50-01:00 | 10 min"
-                data-speaker-say="Break now. Step away from screens, grab coffee, and reset your brain. At your table discuss one insight and one unresolved challenge. We restart in exactly ten minutes."
-                data-speaker-do="Start 10-minute visible timer. Walk the room and prevent laptop creep. At 00:59 announce one-minute warning and ask each table for one spokesperson."
-                data-speaker-ask="On return ask: what challenge should we tackle first in the next block?"
-                data-speaker-adapt="Capture one challenge per table and assign each to triads before Segment 4 starts. Prioritize unresolved opening friction points."
-                data-speaker-ritual="Recovery Ritual: protect the break as non-negotiable to preserve second-half energy and focus."
-                data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.2"
-                >
-                <div class="break-panel">
-                    <h2 class="color-yellow">Break / Rest & Informal Table Chat</h2>
-                    <p class="small">00:50-01:00 • Mandatory pause for recovery, reflection, and peer exchange.</p>
-                    <ul>
-                        <li>Step away from screens.</li>
-                        <li>Grab coffee and hydrate.</li>
-                        <li>Discuss one insight and one unresolved challenge.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="slide" data-speaker-time="01:00-01:25 | 25 min"
-                data-speaker-say="Prompt Makeover Studio starts with your real problems. No generic templates. Triads rotate roles every eight minutes and produce one prompt that can survive public critique."
-                data-speaker-do="Assign triads to participant cases captured earlier. Run role rotations at minute 8 and 16. At minute 22 run critique. After critiques, visibly tick Segment 5 complete on board."
-                data-speaker-ask="Which constraint removed the most fluff? Where is the output still vague? What would make this prompt shippable today?"
-                data-speaker-adapt="Swap out all default examples with participant-owned cases from opening and break capture. Harvest one strong and one weak version for Segment 5 debug comparison."
-                data-speaker-ritual="Visible Progress + Dynamic Harvest Ritual: mark progress publicly and reinforce that participant examples drive the workshop."
-                >
-                <h2>Prompt Makeover Studio</h2>
-                <p class="small">Triad refactoring and critique on real participant problems.</p>
-                <div class="grid-2">
-                    <div class="card" style="border-top: 4px solid #ff79c6;">
-                        <h3 class="color-pink">Before</h3>
-                        <p class="small">Use one captured participant prompt with unclear scope and output.</p>
-                        <ul>
-                            <li>Missing scope boundaries</li>
-                            <li>Missing output format</li>
-                            <li>Missing negative constraints</li>
-                        </ul>
-                    </div>
-                    <div class="card" style="border-top: 4px solid #50fa7b;">
-                        <h3 class="color-green">After (C.L.E.A.R.+)</h3>
-                        <p class="small">Rewritten with participant context, explicit limits, and verification checks.</p>
+                <div class="slide-body">
+                    <div class="matrix">
+                        <div class="card"><h3>Child</h3><p>Adventure and permission.</p></div>
+                        <div class="card"><h3>Psychologist</h3><p>Developmental readiness and motivation.</p></div>
+                        <div class="card"><h3>Risk</h3><p>Duty of care and failure modes.</p></div>
+                        <div class="card"><h3>Arborist</h3><p>Tree health and load-bearing structure.</p></div>
+                        <div class="card"><h3>Alien</h3><p>Body geometry and translated assumptions.</p></div>
+                        <div class="card"><h3>Protocol</h3><p>Name the lens before asking for the answer.</p></div>
                     </div>
                 </div>
             </section>
 
-            <section class="slide" data-speaker-time="01:25-01:50 | 25 min"
-                data-speaker-say="Live Iteration Crucible now. One variable per turn. Diagnose the failure, isolate one change, then constrain with sharper exclusions and pass-fail checks."
-                data-speaker-do="Run 10-minute solo build, 10-minute peer audit, 5-minute final patch. Use one harvested weak-vs-strong pair from Segment 5 as a live debug challenge. Tick Segment 6 complete on board at minute 49."
-                data-speaker-ask="What failed and why? What assumption still leaks? Which rejection test catches this failure next time?"
-                data-speaker-adapt="Use participant case pair from Segment 5 to run two live iterations with room voting on stronger patch. Require evidence from revision logs."
-                data-speaker-ritual="Visible Progress Tracking Ritual: public tick mark after completion to maintain momentum before close."
-                >
-                <h2>Live Iteration Crucible</h2>
-                <p class="small">Solo build, peer audit, and multi-turn debugging with evidence-based revision logs.</p>
-                <div class="card">
-                    <h3 class="color-cyan">Diagnose-Isolate-Constrain Loop</h3>
-                    <ol style="font-size: 0.8em; line-height: 1.35;">
-                        <li><strong>Diagnose:</strong> identify failed C.L.E.A.R.+ field.</li>
-                        <li><strong>Isolate:</strong> modify one variable only.</li>
-                        <li><strong>Constrain:</strong> add explicit exclusions and acceptance checks.</li>
-                    </ol>
-                    <p class="small">Peer audit: "What assumption remains unconstrained and what check rejects it?"</p>
+            <section class="slide"
+                data-speaker-time="Segment 4 | 00:43-00:50 | 7 min | The C.L.E.A.R.+ Universal Protocol"
+                data-speaker-say="C.L.E.A.R.+ is the universal protocol we use to make shared meaning explicit. Context defines the world and the goal. Limits name boundaries and exclusions. Expected Output specifies the artifact. Audience tunes depth and tone. Role and Process define the stance and method. Plus means iterate and verify, because the first answer is a draft unless the acceptance test says otherwise."
+                data-speaker-do="Reveal all six fields at once, then point to one participant example and map it field by field. Keep this as a seven-minute compression lesson before the break. Do not let participants debate definitions; promise immediate use after the reset."
+                data-speaker-ask="Which field is usually missing in your prompts? What negative constraint would have prevented your last bad output? What acceptance test would make the answer shippable?"
+                data-speaker-adapt="Convert one opening-board frustration into a six-field C.L.E.A.R.+ skeleton. Keep it visible for the post-break triad studio."
+                data-speaker-ritual="Grounding: turn abstract protocol into visible fields. Serial Position: place the compact model immediately before the break so it becomes the recall anchor.">
+                <div class="slide-header">
+                    <p class="eyebrow">Segment 4 | The C.L.E.A.R.+ Universal Protocol</p>
+                    <h2>Make the hidden contract explicit.</h2>
+                </div>
+                <div class="slide-body">
+                    <div class="protocol-row">
+                        <div class="protocol-cell"><strong>C</strong><span>Context and goal</span></div>
+                        <div class="protocol-cell"><strong>L</strong><span>Limits and exclusions</span></div>
+                        <div class="protocol-cell"><strong>E</strong><span>Expected output</span></div>
+                        <div class="protocol-cell"><strong>A</strong><span>Audience</span></div>
+                        <div class="protocol-cell"><strong>R</strong><span>Role and process</span></div>
+                        <div class="protocol-cell"><strong>+</strong><span>Iterate and verify</span></div>
+                    </div>
+                    <div class="callout">No production prompt ships without an exclusion and a pass-fail check.</div>
                 </div>
             </section>
 
-            <section class="slide" data-speaker-time="01:50-02:00 | 10 min"
-                data-speaker-say="Final Highlight Session. Round-robin: each person shares one big win and one personal commitment. Tell us your before-and-after prompt transformation in one sentence."
-                data-speaker-do="Run 4-minute commitment write, then 4-minute round-robin highlights, then 2-minute close. Summarize visible progress from board ticks and opening pain points addressed. Close exactly on time."
-                data-speaker-ask="What is your one big win? What changed from your before prompt to your after prompt? What commitment will you execute this week and who will hold you accountable?"
-                data-speaker-adapt="Map each participant commitment back to opening friction notes. Call out group-level progress: what was fixed, what remains, and what next practice loop should be."
-                data-speaker-ritual="Peak-End Rule + Highlight Session Ritual: make the end emotionally vivid and action-oriented so retention and follow-through are maximized."
-                >
-                <h2>One Big Win & Personal Commitment</h2>
-                <div class="grid-2">
-                    <div class="card">
-                        <h3 class="color-orange">Highlight Round-Robin</h3>
-                        <ul>
-                            <li>Share your before/after transformation.</li>
-                            <li>Name one biggest insight from today.</li>
-                            <li>Celebrate one peer contribution.</li>
-                        </ul>
+            <section class="slide"
+                data-speaker-time="Segment 5 | 00:50-01:00 | 10 min | Reset, Bio-Break & Purposeful Table Alignment"
+                data-speaker-say="Reset now. Step away from the screen, refill water or coffee, and use the break as purposeful alignment rather than drift. At your table, pick one messy real prompt, one stakeholder whose meaning matters, and one constraint you usually forget. We restart exactly at the hour."
+                data-speaker-do="Start a visible ten-minute timer outside the slide viewport if available. Walk the room, listen for strong participant examples, and prevent the break from becoming solo email time. At minute nine, give a one-minute return warning and ask each table for one spokesperson."
+                data-speaker-ask="What messy prompt should your table improve after the break? Whose interpretation matters most? What constraint must not be violated?"
+                data-speaker-adapt="Select three table examples for the Executive Makeover Studio. Choose cases with clear audience, stakes, and measurable output so the post-break work starts fast."
+                data-speaker-ritual="Recovery and Grounding: protect the break as a learning device, then re-enter with participant-owned material instead of generic examples.">
+                <div class="slide-header">
+                    <p class="eyebrow">Segment 5 | Reset, Bio-Break &amp; Purposeful Table Alignment</p>
+                    <h2>Ten-minute reset. Three prompts.</h2>
+                    <p class="kicker">Messy prompt. Key stakeholder. Forgotten constraint.</p>
+                </div>
+                <div class="slide-body">
+                    <div class="columns">
+                        <div class="card"><h3>1. Prompt</h3><p>Bring back a real instruction that wastes time or creates rework.</p></div>
+                        <div class="card"><h3>2. Stakeholder</h3><p>Name the person, team, or model perspective that must understand it.</p></div>
+                        <div class="card"><h3>3. Constraint</h3><p>Identify one boundary the output must respect.</p></div>
+                        <div class="card"><h3>Return</h3><p>One spokesperson, one example, one sentence.</p></div>
                     </div>
-                    <div class="card">
-                        <h3 class="color-yellow">Commitment Contract</h3>
-                        <ul>
-                            <li>One real task this week</li>
-                            <li>Two non-negotiable exclusions</li>
-                            <li>One pass-fail acceptance test</li>
-                        </ul>
+                </div>
+            </section>
+
+            <section class="slide"
+                data-speaker-time="Segment 6 | 01:00-01:25 | 25 min | The Executive Makeover Studio"
+                data-speaker-say="Welcome to the Executive Makeover Studio. You will work in triads: owner, challenger, and editor. Your job is to refactor a messy executive request into a prompt that another person or AI system could execute without mind-reading. Use the scenario library if your table needs a starter, but prefer the real cases you brought back from break. The final artifact must pass the six-point peer rubric."
+                data-speaker-do="Assign triads and rotate roles after eight minutes and sixteen minutes. Offer the twelve scenario cards: board update, customer apology, hiring calibration, risk memo, product launch, budget tradeoff, incident review, policy rewrite, sales brief, research synthesis, vendor comparison, and executive ghostwrite. Run the six-point rubric in the final five minutes."
+                data-speaker-ask="What changed after adding audience? Which exclusion removed ambiguity? Does the expected output specify structure, length, and decision use? What would make this prompt fail peer review?"
+                data-speaker-adapt="Use participant prompts first, then fill gaps with the twelve-scenario library. Harvest one high-performing prompt and one still-fragile prompt for live iteration in Segment 7."
+                data-speaker-ritual="Visible Progress and Grounding: make every triad show its before and after. Require evidence of C.L.E.A.R.+ fields, not just nicer wording.">
+                <div class="slide-header">
+                    <p class="eyebrow">Segment 6 | The Executive Makeover Studio</p>
+                    <h2>Refactor intention into execution.</h2>
+                    <p class="kicker">Triads convert real executive requests through a six-point peer rubric.</p>
+                </div>
+                <div class="slide-body">
+                    <div class="matrix">
+                        <div class="card"><h3>Triad Roles</h3><p>Owner, challenger, editor. Rotate twice.</p></div>
+                        <div class="card"><h3>Scenario Library</h3><p>Twelve executive contexts when teams need a starter.</p></div>
+                        <div class="card"><h3>Peer Rubric</h3><p>Context, limits, output, audience, process, verification.</p></div>
+                    </div>
+                    <div class="callout">A better prompt is an operational artifact, not a nicer paragraph.</div>
+                </div>
+            </section>
+
+            <section class="slide"
+                data-speaker-time="Segment 7 | 01:25-01:50 | 25 min | The Live Iteration Crucible & Steering Protocol"
+                data-speaker-say="Now we put pressure on the system. The steering protocol is Diagnose, Isolate, Constrain. Diagnose the exact failure field. Isolate one variable so you know what changed the result. Constrain with negative instructions, source boundaries, and pass-fail tests. For data work, use zero-trust governance: no invented facts, no hidden sources, no confidential data, and no claims without traceable evidence."
+                data-speaker-do="Run ten minutes of solo repair, ten minutes of peer audit, and five minutes of final patch. Use the harvested weak and strong examples from Segment 6. Require each group to keep a revision log that names the single variable changed in each pass."
+                data-speaker-ask="What failed specifically? Which one variable are you changing? What exclusion prevents the next failure? What evidence proves the answer is safe enough to use?"
+                data-speaker-adapt="If the room is technical, emphasize source grounding, data boundaries, and acceptance tests. If the room is leadership-heavy, emphasize delegation risk, decision quality, and accountability language."
+                data-speaker-ritual="Grounding and Verification: treat every AI answer as provisional until the constraint and evidence checks pass. Visible Progress: tick Segment 7 complete before synthesis.">
+                <div class="slide-header">
+                    <p class="eyebrow">Segment 7 | The Live Iteration Crucible &amp; Steering Protocol</p>
+                    <h2>Diagnose -&gt; Isolate -&gt; Constrain</h2>
+                    <p class="kicker">One variable per turn. Evidence before trust.</p>
+                </div>
+                <div class="slide-body">
+                    <div class="columns">
+                        <div class="card">
+                            <h3>Steering Loop</h3>
+                            <ul>
+                                <li><strong>Diagnose:</strong> name the failing C.L.E.A.R.+ field.</li>
+                                <li><strong>Isolate:</strong> change one variable only.</li>
+                                <li><strong>Constrain:</strong> add exclusions and tests.</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>Zero-Trust Data Governance</h3>
+                            <ul>
+                                <li>No invented facts, citations, or numbers.</li>
+                                <li>No confidential data in prompts.</li>
+                                <li>No claims without traceable evidence.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide"
+                data-speaker-time="Segment 8 | 01:50-02:00 | 10 min | Synthesis, Leadership Commitments & The Peak-End Close"
+                data-speaker-say="We close with a Peak-End moment: one minute to teach the protocol back to someone else, then one commitment you will use this week. Reliable AI outcomes are not luck. They come from shared meaning, explicit constraints, and disciplined verification. Take the desk reference with you and use it before any important delegation, human or machine."
+                data-speaker-do="Run four minutes of silent commitment writing, four minutes of round-robin teach-back, and two minutes of close. Hand participants the desk reference or point them to cheatsheet.html. End exactly on time and do not add a bonus lecture after the close line."
+                data-speaker-ask="What is your one-minute explanation of C.L.E.A.R.+? What before-and-after shift are you taking with you? What commitment will you execute this week, and who will see the result?"
+                data-speaker-adapt="Map each commitment back to an opening frustration. Read the room's progress aloud using their own words from the board so the ending feels earned and concrete."
+                data-speaker-ritual="Peak-End and Serial Position: make the final memory active, public, and practical. The last emotional note is confidence through method, not inspiration without behavior.">
+                <div class="slide-header">
+                    <p class="eyebrow">Segment 8 | Synthesis, Leadership Commitments &amp; The Peak-End Close</p>
+                    <h2>Shared meaning is a leadership practice.</h2>
+                </div>
+                <div class="slide-body">
+                    <div class="quote">Teach it back. Commit it forward.</div>
+                    <div class="columns">
+                        <div class="card"><h3>One Big Win</h3><p>Name the concrete shift from vague request to executable instruction.</p></div>
+                        <div class="card"><h3>One Commitment</h3><p>Use C.L.E.A.R.+ on one consequential delegation this week.</p></div>
                     </div>
                 </div>
             </section>
         </div>
-    </div>
-    </div>
+    </main>
 
-    <aside id="speaker-overlay" aria-live="polite" aria-hidden="true">
-        <h4>Presenter Coaching View</h4>
-
-        <div class="block">
-            <div class="label">Time</div>
-            <div class="value" id="speaker-time">N/A</div>
-        </div>
-
-        <div class="block">
-            <div class="label">Say (Verbatim)</div>
-            <div class="value" id="speaker-say">No slide selected.</div>
-        </div>
-
-        <div class="block">
-            <div class="label">Do (Facilitation Actions)</div>
-            <div class="value" id="speaker-do">No slide selected.</div>
-        </div>
-
-        <div class="block">
-            <div class="label">Ask (Audience Prompts)</div>
-            <div class="value" id="speaker-ask">No slide selected.</div>
-        </div>
-
-        <div class="block">
-            <div class="label">Capture and Adapt</div>
-            <div class="value" id="speaker-adapt">No slide selected.</div>
-        </div>
-
-        <div class="block">
-            <div class="label">Facilitation Ritual / Pro-Tip</div>
-            <div class="value" id="speaker-ritual">No slide selected.</div>
-        </div>
-
-        <div class="tip">Hotkeys: S toggles this presenter panel. Escape closes it.</div>
+    <aside id="speaker-overlay" aria-hidden="true" aria-label="Presenter view">
+        <h2 id="speaker-title">Presenter View</h2>
+        <div class="note-block"><div class="label">Time</div><div class="value" id="speaker-time"></div></div>
+        <div class="note-block"><div class="label">Say</div><div class="value" id="speaker-say"></div></div>
+        <div class="note-block"><div class="label">Do</div><div class="value" id="speaker-do"></div></div>
+        <div class="note-block"><div class="label">Ask</div><div class="value" id="speaker-ask"></div></div>
+        <div class="note-block"><div class="label">Capture and Adapt</div><div class="value" id="speaker-adapt"></div></div>
+        <div class="note-block"><div class="label">Facilitation Ritual</div><div class="value" id="speaker-ritual"></div></div>
     </aside>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
     <script>
-        Reveal.initialize({
-            hash: true,
-            width: 1600,
-            height: 900,
-            margin: 0.04,
-            minScale: 0.2,
-            maxScale: 1.3,
-            slideNumber: 'c/t',
-            transition: 'slide',
-            plugins: [RevealNotes, RevealHighlight]
-        });
+        const slides = Array.from(document.querySelectorAll(".slide"));
+        const overlay = document.getElementById("speaker-overlay");
+        const fields = {
+            time: document.getElementById("speaker-time"),
+            say: document.getElementById("speaker-say"),
+            do: document.getElementById("speaker-do"),
+            ask: document.getElementById("speaker-ask"),
+            adapt: document.getElementById("speaker-adapt"),
+            ritual: document.getElementById("speaker-ritual")
+        };
+        let currentSlide = 0;
 
-        const speakerOverlay = document.getElementById('speaker-overlay');
-        const speakerTime = document.getElementById('speaker-time');
-        const speakerSay = document.getElementById('speaker-say');
-        const speakerDo = document.getElementById('speaker-do');
-        const speakerAsk = document.getElementById('speaker-ask');
-        const speakerAdapt = document.getElementById('speaker-adapt');
-        const speakerRitual = document.getElementById('speaker-ritual');
-
-        function getSpeakerData(slide) {
-            if (!slide) {
-                return {
-                    time: 'N/A',
-                    say: 'No slide selected.',
-                    doText: 'No slide selected.',
-                    askText: 'No slide selected.',
-                    adaptText: 'No slide selected.',
-                    ritualText: 'No slide selected.'
-                };
-            }
-
-            return {
-                time: slide.getAttribute('data-speaker-time') || 'N/A',
-                say: slide.getAttribute('data-speaker-say') || 'No speaker script found for this slide.',
-                doText: slide.getAttribute('data-speaker-do') || 'No facilitator action notes found for this slide.',
-                askText: slide.getAttribute('data-speaker-ask') || 'No audience prompts found for this slide.',
-                adaptText: slide.getAttribute('data-speaker-adapt') || 'No capture/adapt guidance found for this slide.',
-                ritualText: slide.getAttribute('data-speaker-ritual') || 'No ritual guidance found for this slide.'
-            };
+        function activeSlide() {
+            return slides[currentSlide];
         }
 
-        function updateSpeakerNotes(currentSlideIndex) {
-            const slides = document.querySelectorAll('.slides section.slide');
-            let activeSlide = Reveal.getCurrentSlide();
+        function hydrateSpeakerNotes() {
+            const slide = activeSlide();
+            fields.time.textContent = slide.dataset.speakerTime || "";
+            fields.say.textContent = slide.dataset.speakerSay || "";
+            fields.do.textContent = slide.dataset.speakerDo || "";
+            fields.ask.textContent = slide.dataset.speakerAsk || "";
+            fields.adapt.textContent = slide.dataset.speakerAdapt || "";
+            fields.ritual.textContent = slide.dataset.speakerRitual || "";
+        }
 
-            if (typeof currentSlideIndex === 'number' && currentSlideIndex >= 0 && currentSlideIndex < slides.length) {
-                activeSlide = slides[currentSlideIndex];
-            }
-
-            const { time, say, doText, askText, adaptText, ritualText } = getSpeakerData(activeSlide);
-            speakerTime.textContent = time;
-            speakerSay.textContent = say;
-            speakerDo.textContent = doText;
-            speakerAsk.textContent = askText;
-            speakerAdapt.textContent = adaptText;
-            speakerRitual.textContent = ritualText;
+        function showSlide(index) {
+            currentSlide = Math.max(0, Math.min(index, slides.length - 1));
+            slides.forEach((slide, slideIndex) => {
+                slide.classList.toggle("active", slideIndex === currentSlide);
+            });
+            hydrateSpeakerNotes();
         }
 
         function toggleSpeakerOverlay(forceOpen) {
-            const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !speakerOverlay.classList.contains('open');
-            speakerOverlay.classList.toggle('open', shouldOpen);
-            speakerOverlay.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
+            const shouldOpen = typeof forceOpen === "boolean" ? forceOpen : !overlay.classList.contains("open");
             if (shouldOpen) {
-                updateSpeakerNotes();
+                hydrateSpeakerNotes();
             }
+            overlay.classList.toggle("open", shouldOpen);
+            overlay.setAttribute("aria-hidden", String(!shouldOpen));
         }
 
-        function isTypingTarget(target) {
-            if (!target) {
-                return false;
-            }
-            const tag = target.tagName ? target.tagName.toLowerCase() : '';
-            return tag === 'input' || tag === 'textarea' || tag === 'select' || target.isContentEditable;
+        function isTypingContext(event) {
+            const target = event.target;
+            return target && (
+                ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName) ||
+                target.isContentEditable
+            );
         }
 
-        document.addEventListener('keydown', (event) => {
-            if (event.ctrlKey || event.metaKey || event.altKey) {
+        document.addEventListener("keydown", (event) => {
+            if (isTypingContext(event)) {
                 return;
             }
 
-            if (isTypingTarget(event.target)) {
-                return;
-            }
-
-            const key = (event.key || '').toLowerCase();
-            if (key === 's') {
+            const key = event.key.toLowerCase();
+            if (key === "s") {
                 event.preventDefault();
-                updateSpeakerNotes();
                 toggleSpeakerOverlay();
-            } else if (key === 'escape' && speakerOverlay.classList.contains('open')) {
-                event.preventDefault();
+            } else if (event.key === "Escape") {
                 toggleSpeakerOverlay(false);
-            }
-        }, true);
-
-        Reveal.on('slidechanged', (event) => {
-            updateSpeakerNotes(event.indexh);
-            if (speakerOverlay.classList.contains('open')) {
-                updateSpeakerNotes(event.indexh);
+            } else if (["arrowright", "pagedown", " "].includes(key)) {
+                event.preventDefault();
+                showSlide(currentSlide + 1);
+            } else if (["arrowleft", "pageup"].includes(key)) {
+                event.preventDefault();
+                showSlide(currentSlide - 1);
+            } else if (key === "home") {
+                event.preventDefault();
+                showSlide(0);
+            } else if (key === "end") {
+                event.preventDefault();
+                showSlide(slides.length - 1);
             }
         });
 
-        Reveal.on('ready', () => updateSpeakerNotes());
+        hydrateSpeakerNotes();
     </script>
 </body>
 
