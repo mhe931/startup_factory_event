@@ -43,6 +43,12 @@ Each slide and script segment uses identical fields:
 - Dynamic example harvesting from participant pain points for Segments 5 and 6.
 - Peak-End Rule through final Highlight Session and commitment round-robin.
 
+## Pedagogical Case Set (Synchronized Across Slides + Notes)
+- Tree Climbing scenario: demonstrate how role, audience, and limits alter identical goals.
+- Interpersonal conflict resolution: demonstrate tone, accountability, and de-escalation framing.
+- Shared responsibility handoff: demonstrate ownership language without blame.
+- Segment alignment: introduced in Segment 2 lab, deconstructed in Segment 3 engine, reused in Segments 5 and 6 practice.
+
 ## Repository Files
 - index.html: slide deck and presenter coaching overlay.
 - script.md: 1:1 facilitator coaching script aligned to slide metadata.
