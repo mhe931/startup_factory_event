@@ -1,44 +1,49 @@
-WORKSHOP=The Architecture of Intent
-DURATION_MIN=90
-FRAMEWORK=C.L.E.A.R.+
+# llms.txt
 
-AGENDA
-00:00-00:10 Cost of Ambiguity
-00:10-00:25 Human Delegation Lab
-00:25-00:40 C.L.E.A.R.+ mental model
-00:40-01:00 Prompt Makeover Studio
-01:00-01:20 Live Iteration Crucible
-01:20-01:30 Synthesis + Post-Test
+## Repository Summary
+- Workshop: The Architecture of Intent
+- Session Type: Professional Prompting and Human Communication
+- Total Duration: 90 minutes
+- Core Method: C.L.E.A.R.+ with Diagnose-Isolate-Constrain iteration
+- Primary Objective: train participants to produce reliable, auditable AI delegation prompts
 
-C.L.E.A.R.+
-C=Context and Goal
-L=Limits and Negative Constraints
-E=Expected Output
-A=Audience
-R=Role and Process
-+=Iteration and Verification
+## Workshop Architecture (90-Minute Sequence)
+1. 00:00-00:10 | The Cost of Ambiguity
+2. 00:10-00:25 | The Human Delegation Lab
+3. 00:25-00:40 | The C.L.E.A.R.+ Framework
+4. 00:40-01:00 | Prompt Makeover Studio
+5. 01:00-01:20 | Live Iteration Crucible
+6. 01:20-01:30 | Synthesis, Action Plan, and Post-Test
 
-ITERATION_LOOP
-1 Diagnose failed field
-2 Isolate one variable
-3 Constrain with exclusions and verification checks
+## C.L.E.A.R.+ Protocol
+- C: Context and Goal (problem, business setting, finish condition)
+- L: Limits and Negative Constraints (must-not rules, boundaries, exclusions)
+- E: Expected Output (format, sections, length, completion shape)
+- A: Audience (reader profile, depth, tone calibration)
+- R: Role and Process (model persona and reasoning process)
+- +: Iteration and Verification (test loop, pass-fail gates, revision strategy)
 
-FACILITATOR_RULES
-- Keep segment boundaries strict.
-- Ask "what assumption is still unconstrained?" every 10-15 min.
-- Require pass/fail criteria before accepting final outputs.
+## Iteration Loop
+1. Diagnose: identify failed C.L.E.A.R.+ field
+2. Isolate: change one variable only
+3. Constrain: add explicit exclusions and verification rules
 
-FILES
-index.html=slides+speaker cues+notes toggle
-cheatsheet.html=participant desk card
-script.md=timestamped facilitation script
-docs/workshop-summary.md=concise operations brief
-docs/prompting-framework.md=framework and examples
-.github/copilot-instructions.md=agent conventions for this repo
+## Repository Index
+- [index.html](index.html): Reveal.js deck, cleaned UI, hidden presenter overlay, `s` hotkey toggle, per-slide speaker metadata (time, verbatim script, facilitation actions)
+- [cheatsheet.html](cheatsheet.html): participant desk card with C.L.E.A.R.+, negative constraints, and iteration checklist
+- [script.md](script.md): facilitator runbook with timestamps, transitions, pacing counters, and FAQ handling
+- [README.md](README.md): usage, setup, and delivery overview
+- [docs/workshop-summary.md](docs/workshop-summary.md): compact operational summary
+- [docs/prompting-framework.md](docs/prompting-framework.md): framework details, templates, and failure mapping
+- [.github/copilot-instructions.md](.github/copilot-instructions.md): repository-specific agent operating conventions
 
-OUTPUT_QUALITY_GATES
-- timing must total 90 minutes
-- framework naming must be C.L.E.A.R.+
-- negative constraints included in examples
-- before/after prompt rewrite included
-- iteration loop explicit
+## Presenter Notes System
+- Visible slide surface must not include facilitator buttons or badge-style time chips.
+- Timing metadata is embedded per slide in speaker-note attributes.
+- Press `s` to toggle presenter overlay (case-insensitive); ignore key handling when focus is in input/textarea/select/contenteditable.
+
+## Validation Gates
+- Timing consistency: all assets reflect the same 90-minute sequence.
+- Naming consistency: C.L.E.A.R.+ spelling is preserved across all files.
+- Constraint discipline: examples include negative constraints and verification criteria.
+- Notes completeness: each slide includes time, what-to-say text, and facilitation actions.

@@ -89,10 +89,6 @@
             text-align: left;
         }
 
-        .text-center {
-            text-align: center;
-        }
-
         .small {
             font-size: 0.72em;
             opacity: 0.9;
@@ -148,18 +144,6 @@
             font-size: 0.76em;
         }
 
-        .badge-time {
-            display: inline-block;
-            font-size: 0.54em;
-            font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 999px;
-            letter-spacing: 0.8px;
-            margin-bottom: 10px;
-            color: #111;
-            background: var(--c-yellow);
-        }
-
         .reveal ul {
             display: block;
             margin-left: 1.1em;
@@ -171,56 +155,60 @@
             line-height: 1.35;
         }
 
-        #notes-toggle {
+        #speaker-overlay {
             position: fixed;
-            right: 16px;
-            bottom: 16px;
-            z-index: 90;
-            border: 0;
-            border-radius: 999px;
-            padding: 10px 16px;
-            font-weight: 700;
-            font-family: 'Outfit', sans-serif;
-            background: var(--c-pink);
-            color: #1b1220;
-            cursor: pointer;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
-        }
-
-        #notes-panel {
-            position: fixed;
-            right: 16px;
-            bottom: 68px;
-            width: min(520px, calc(100vw - 32px));
-            max-height: 58vh;
+            right: 14px;
+            bottom: 14px;
+            width: min(520px, calc(100vw - 28px));
+            max-height: 64vh;
             overflow: auto;
             z-index: 90;
             border: 1px solid var(--line-soft);
             border-radius: 16px;
-            padding: 18px;
-            background: rgba(22, 24, 30, 0.96);
+            padding: 16px;
+            background: rgba(18, 20, 28, 0.96);
+            box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
             display: none;
         }
 
-        #notes-panel h4 {
-            margin: 0 0 10px;
-            font-size: 0.72em;
-            color: var(--c-cyan);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+        #speaker-overlay.open {
+            display: block;
         }
 
-        #notes-content {
+        #speaker-overlay h4 {
+            margin: 0 0 10px;
+            font-size: 0.74em;
+            color: var(--c-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+
+        #speaker-overlay .meta {
+            font-size: 0.6em;
+            margin-bottom: 8px;
+            color: #d4d9ea;
+        }
+
+        #speaker-overlay .block {
             font-size: 0.62em;
             line-height: 1.45;
             white-space: pre-wrap;
-            opacity: 0.92;
+            margin-bottom: 10px;
         }
 
-        .notes-tip {
-            font-size: 0.55em;
-            margin-top: 10px;
-            opacity: 0.72;
+        #speaker-overlay .label {
+            color: var(--c-yellow);
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 2px;
+        }
+
+        #speaker-overlay .tip {
+            border-top: 1px solid var(--line-soft);
+            margin-top: 8px;
+            padding-top: 8px;
+            font-size: 0.56em;
+            opacity: 0.8;
         }
 
         @media (max-width: 900px) {
@@ -241,7 +229,10 @@
         <div class="slides">
             <section data-background-size="cover"
                 data-background-image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2072"
-                data-background-opacity="0.23" data-facilitator="OPENING SCRIPT\n- Name the workshop: The Architecture of Intent.\n- Set expectation: this is a delegation lab, not a prompt tips lecture.\n- Ask each participant for one communication failure they want to fix today.\nCUE: Capture 2-3 examples for reuse in later exercises.">
+                data-background-opacity="0.23"
+                data-speaker-time="00:00-00:03 | 3 min"
+                data-speaker-say="Welcome to The Architecture of Intent. Today is not a prompt tricks session; it is a professional communication lab. If an AI output fails, we will inspect instruction quality first, then model behavior. In one sentence each, share your name and one AI communication failure you want to fix in this workshop."
+                data-speaker-do="Facilitation actions: Set the room norm that specificity beats speed. Capture two or three recurring failure themes on a board and tell participants these examples will be reused in Segment 4. Keep introductions tight and move to agenda at minute three.">
                 <div class="glass-panel text-left">
                     <div class="pill">Professional Prompting Workshop • 90 Minutes</div>
                     <h1>The <span class="color-pink">Architecture</span> of <span class="color-cyan">Intent</span></h1>
@@ -250,14 +241,16 @@
                         Expected Output, Audience, Role/Process, Iteration/Verification</p>
                 </div>
                 <aside class="notes">
-                    Welcome everyone and position this as a practical communication workshop.
-                    Ask for one concrete AI-output frustration from each attendee.
+                    TIME 00:00-00:03 | SAY: Welcome to The Architecture of Intent. Today is not a prompt tricks session; it is a professional communication lab. If an AI output fails, we will inspect instruction quality first, then model behavior. In one sentence each, share your name and one AI communication failure you want to fix in this workshop. DO: Capture 2-3 failure themes and announce that they will be used in the Prompt Makeover Studio.
                 </aside>
             </section>
 
             <section data-background-size="cover"
                 data-background-image="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.2" data-facilitator="AGENDA SCRIPT\n- Show the full run-of-show.\n- Stress the workshop rhythm: diagnose, redesign, test, iterate.\n- Mention there are six practical segments and no passive block longer than 20 minutes.">
+                data-background-opacity="0.2"
+                data-speaker-time="00:03-00:06 | 3 min"
+                data-speaker-say="Here is the complete 90-minute run. We are moving through six segments with no passive block longer than twenty minutes. You will diagnose ambiguity, run delegation simulations, refactor prompts, and pressure-test your prompts with peer audits."
+                data-speaker-do="Facilitation actions: Point to each segment in sequence. Confirm hard transitions at 00:10, 00:40, 01:00, and 01:20. Ask for verbal agreement that everyone will use one-variable iteration during hands-on segments.">
                 <h2 class="color-purple">90-Minute Flow</h2>
                 <div class="grid-2">
                     <div class="card">
@@ -271,10 +264,14 @@
                         <div class="agenda-item"><strong>01:20-01:30 (10m)</strong><br>Synthesis & Action Plan</div>
                     </div>
                 </div>
+                <aside class="notes">
+                    TIME 00:03-00:06 | SAY: Here is the complete 90-minute run. We are moving through six segments with no passive block longer than twenty minutes. You will diagnose ambiguity, run delegation simulations, refactor prompts, and pressure-test your prompts with peer audits. DO: Confirm segment checkpoints and one-variable iteration rule.
+                </aside>
             </section>
 
-            <section data-facilitator="SEGMENT 1 SCRIPT (10m)\n- Ask: What did you ask, what did you get, and what broke?\n- Run a quick show-of-hands poll: ambiguity source = context, constraints, output shape, audience, or role.\n- Transition: poor outputs are often communication architecture failures, not model failures.">
-                <div class="badge-time">00:00-00:10</div>
+            <section data-speaker-time="00:06-00:10 | 4 min"
+                data-speaker-say="Think of your last weak AI output. What exactly did you ask? What did the model assume? What did that mistake cost you in time, risk, or credibility? Ambiguity is usually not random; it can be traced to missing context, weak limits, or vague output requirements."
+                data-speaker-do="Facilitation actions: Run a rapid show-of-hands poll for root cause categories. Capture which category appears most often. Close by saying that communication architecture, not model intelligence, is often the first failure point.">
                 <h2>The Cost of <span class="color-pink">Ambiguity</span></h2>
                 <div class="grid-2">
                     <div class="card">
@@ -295,10 +292,14 @@
                         </ul>
                     </div>
                 </div>
+                <aside class="notes">
+                    TIME 00:06-00:10 | SAY: Think of your last weak AI output. What exactly did you ask? What did the model assume? What did that mistake cost you in time, risk, or credibility? DO: Run root-cause poll and call out top failure category before transition.
+                </aside>
             </section>
 
-            <section data-facilitator="SEGMENT 2 SCRIPT (15m)\n- Pair participants: Architect and Builder.\n- Architect gets a workplace objective; Builder executes exactly and may ask only one clarifying question.\n- Debrief where assumptions emerged. Capture phrases that led to drift.">
-                <div class="badge-time">00:10-00:25</div>
+            <section data-speaker-time="00:10-00:25 | 15 min"
+                data-speaker-say="Now we run a delegation simulation. Pair up as Architect and Builder. Round one: Architect gives a single-sentence request and Builder executes literally. Round two: Architect rewrites with C.L.E.A.R.+ fields and Builder executes again. Compare quality and speed, then report what changed."
+                data-speaker-do="Facilitation actions: Enforce one clarifying question maximum in each round. At minute twelve, force transition to round two. At minute twenty-three, stop and run a two-minute debrief: Which field removed the most confusion and which assumption remained unconstrained.">
                 <h2>The Human Delegation Lab</h2>
                 <p class="small">Paired simulation: Architect writes instructions, Builder executes with constrained interpretation.</p>
                 <div class="grid-2">
@@ -319,10 +320,14 @@
                         </ul>
                     </div>
                 </div>
+                <aside class="notes">
+                    TIME 00:10-00:25 | SAY: Pair up as Architect and Builder. Round one is one sentence only. Round two uses C.L.E.A.R.+. Compare mismatch count and time-to-usable-output. DO: Enforce one clarifying question rule and hard-stop each round on schedule.
+                </aside>
             </section>
 
-            <section data-facilitator="SEGMENT 3 SCRIPT (15m)\n- Teach C.L.E.A.R.+ as a delegation protocol.\n- Emphasize Limits and Negative Constraints: what must never happen.\n- Show '+': iteration and verification checkpoints.">
-                <div class="badge-time">00:25-00:40</div>
+            <section data-speaker-time="00:25-00:40 | 15 min"
+                data-speaker-say="C.L.E.A.R.+ is your instruction architecture. C defines business objective and finish line. L defines limits and explicit exclusions. E defines output structure. A defines the reader. R defines operating role and process. Plus defines iteration and verification before acceptance."
+                data-speaker-do="Facilitation actions: Build a weak prompt live and improve it by adding one field at a time. Emphasize that limits and expected output usually produce the largest quality jump. Ask one participant to restate each field in their own words.">
                 <h2>The <span class="color-yellow">C.L.E.A.R.+</span> Framework</h2>
                 <div class="grid-3">
                     <div class="card"><strong class="color-cyan">C</strong><br><span class="small">Context & Goal</span></div>
@@ -332,10 +337,14 @@
                     <div class="card"><strong class="color-purple">R</strong><br><span class="small">Role & Process</span></div>
                     <div class="card"><strong class="color-yellow">+</strong><br><span class="small">Iteration & Verification</span></div>
                 </div>
+                <aside class="notes">
+                    TIME 00:25-00:40 | SAY: C.L.E.A.R.+ is your instruction architecture: Context, Limits, Expected output, Audience, Role/process, and Iteration/verification. DO: Demonstrate field-by-field rewrite and call out the quality jump from limits + output structure.
+                </aside>
             </section>
 
-            <section data-facilitator="SEGMENT 4 SCRIPT (20m)\n- Collect weak workplace requests from participants.\n- Refactor each using C.L.E.A.R.+ fields.\n- Run side-by-side output comparison to expose leverage from constraints.">
-                <div class="badge-time">00:40-01:00</div>
+            <section data-speaker-time="00:40-01:00 | 20 min"
+                data-speaker-say="Bring one weak workplace request. We will refactor it into an execution-grade prompt. Your rewrite must include at least two negative constraints, a concrete output shape, and a verification rubric. Run before and after outputs and compare the amount of rework."
+                data-speaker-do="Facilitation actions: Collect raw prompts at minute forty-five. Review one rewrite live at minute fifty-two. At minute fifty-eight, select one strong participant example and explain why it works.">
                 <h2>Prompt Makeover Studio</h2>
                 <div class="grid-2">
                     <div class="card" style="border-top: 4px solid #ff79c6;">
@@ -354,10 +363,14 @@
                             Expected: 4-week plan table + risk log + owners.</p>
                     </div>
                 </div>
+                <aside class="notes">
+                    TIME 00:40-01:00 | SAY: Refactor one weak request into C.L.E.A.R.+ with at least two exclusions and explicit output format. DO: Compare before/after outputs and quantify rework reduction.
+                </aside>
             </section>
 
-            <section data-facilitator="SEGMENT 5 SCRIPT (20m)\n- Solo build challenge: each participant refines one real prompt through 2-3 turns.\n- Peer audit uses Diagnose-Isolate-Constrain checklist.\n- Intervene only when participants skip verification criteria.">
-                <div class="badge-time">01:00-01:20</div>
+            <section data-speaker-time="01:00-01:20 | 20 min"
+                data-speaker-say="Now run the Diagnose-Isolate-Constrain loop. Diagnose the failing field, isolate one variable change per attempt, and constrain with explicit exclusions plus pass-fail checks. You are not allowed to change multiple fields at once."
+                data-speaker-do="Facilitation actions: Ten minutes solo build, eight minutes peer audit, two minutes final fix. During audit, require peers to answer: What assumption is still unconstrained and what rule rejects a weak output.">
                 <h2>Live Iteration Crucible</h2>
                 <div class="card">
                     <h3 class="color-cyan">3-Step Iteration Loop</h3>
@@ -368,10 +381,14 @@
                     </ol>
                     <p class="small">Peer audit question: "What assumption is still unconstrained?"</p>
                 </div>
+                <aside class="notes">
+                    TIME 01:00-01:20 | SAY: Use Diagnose-Isolate-Constrain with one-variable edits only. DO: Enforce solo build, peer audit, and final patch cadence with strict timing.
+                </aside>
             </section>
 
-            <section data-facilitator="SEGMENT 6 SCRIPT (10m)\n- Run post-test: participants rewrite one prompt from segment 1 in 90 seconds.\n- Ask each participant to commit one workplace use-case and one verification rule.\n- Close with access pointers: cheatsheet + script + notes modal.">
-                <div class="badge-time">01:20-01:30</div>
+            <section data-speaker-time="01:20-01:30 | 10 min"
+                data-speaker-say="Final test: rewrite one flawed prompt from Segment 1 using C.L.E.A.R.+, include two negative constraints, and define pass-fail criteria. Then commit one real workplace task where you will apply this method this week."
+                data-speaker-do="Facilitation actions: Run a four-minute post-test, four-minute action plan, and two-minute close. Ask three volunteers to read one verification rule aloud. End by restating that reliable AI outcomes come from deliberate communication architecture.">
                 <h2>Synthesis, Action Plan & Post-Test</h2>
                 <div class="grid-2">
                     <div class="card">
@@ -391,28 +408,39 @@
                         </ul>
                     </div>
                 </div>
+                <aside class="notes">
+                    TIME 01:20-01:30 | SAY: Final test now: rewrite a weak prompt with C.L.E.A.R.+, add two exclusions, and define pass-fail criteria. DO: collect one workplace commitment and one verification rule from each participant.
+                </aside>
             </section>
 
-            <section data-facilitator="CLOSEOUT SCRIPT\n- Remind participants to open speaker notes panel and cheatsheet for field use.\n- Invite the group to adapt this deck for internal team onboarding.">
+            <section data-speaker-time="01:30-01:32 | 2 min"
+                data-speaker-say="You now have three reusable assets: the slide deck, the facilitator script, and the desk card. Use them to run this exact protocol in your team and maintain the one-variable iteration discipline."
+                data-speaker-do="Facilitation actions: Point participants to cheatsheet.html, script.md, and llms.txt. Remind them that pressing S opens presenter notes. Close session and transition to networking or Q and A.">
                 <h2>Delivery Assets</h2>
                 <div class="card text-left">
                     <ul>
-                        <li>Slides and speaker notes: this deck (press <strong>S</strong> for speaker view).</li>
+                        <li>Slides and speaker notes: this deck (press <strong>S</strong> for presenter notes).</li>
                         <li>Quick reference card: <strong>cheatsheet.html</strong>.</li>
                         <li>Facilitator script: <strong>script.md</strong>.</li>
                         <li>Token-optimized LLM context: <strong>llms.txt</strong> and <strong>docs/</strong>.</li>
                     </ul>
                 </div>
+                <aside class="notes">
+                    TIME 01:30-01:32 | SAY: You now have the deck, script, and desk card to run this workshop repeatedly. DO: direct everyone to the repository assets and close session.
+                </aside>
             </section>
         </div>
     </div>
 
-    <button id="notes-toggle" type="button">Facilitator Notes</button>
-    <div id="notes-panel" aria-live="polite">
-        <h4>Current Slide Cue</h4>
-        <div id="notes-content">Open a slide to view facilitator notes.</div>
-        <div class="notes-tip">Tip: press S for Reveal speaker mode.</div>
-    </div>
+    <aside id="speaker-overlay" aria-live="polite" aria-hidden="true">
+        <h4>Presenter Notes</h4>
+        <div class="meta" id="speaker-time">Time: N/A</div>
+        <div class="label">What To Say (Verbatim)</div>
+        <div class="block" id="speaker-say">No slide selected.</div>
+        <div class="label">What To Do (Facilitation Actions)</div>
+        <div class="block" id="speaker-do">No slide selected.</div>
+        <div class="tip">Hotkeys: S toggles this panel. Escape closes this panel.</div>
+    </aside>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
@@ -425,25 +453,77 @@
             plugins: [RevealNotes, RevealHighlight]
         });
 
-        const notesPanel = document.getElementById('notes-panel');
-        const notesContent = document.getElementById('notes-content');
-        const notesToggle = document.getElementById('notes-toggle');
+        const speakerOverlay = document.getElementById('speaker-overlay');
+        const speakerTime = document.getElementById('speaker-time');
+        const speakerSay = document.getElementById('speaker-say');
+        const speakerDo = document.getElementById('speaker-do');
 
-        function updateFacilitatorNotes() {
-            const current = Reveal.getCurrentSlide();
-            const cue = current && current.getAttribute('data-facilitator');
-            notesContent.textContent = cue || 'No custom facilitator cue on this slide. Use speaker notes (S) if needed.';
+        function getSpeakerData(slide) {
+            if (!slide) {
+                return {
+                    time: 'N/A',
+                    say: 'No slide selected.',
+                    doText: 'No slide selected.'
+                };
+            }
+
+            return {
+                time: slide.getAttribute('data-speaker-time') || 'N/A',
+                say: slide.getAttribute('data-speaker-say') || 'No speaker script found for this slide.',
+                doText: slide.getAttribute('data-speaker-do') || 'No facilitation actions found for this slide.'
+            };
         }
 
-        notesToggle.addEventListener('click', () => {
-            notesPanel.style.display = notesPanel.style.display === 'block' ? 'none' : 'block';
-            if (notesPanel.style.display === 'block') {
-                updateFacilitatorNotes();
+        function updateSpeakerOverlay() {
+            const { time, say, doText } = getSpeakerData(Reveal.getCurrentSlide());
+            speakerTime.textContent = `Time: ${time}`;
+            speakerSay.textContent = say;
+            speakerDo.textContent = doText;
+        }
+
+        function toggleSpeakerOverlay(forceOpen) {
+            const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !speakerOverlay.classList.contains('open');
+            speakerOverlay.classList.toggle('open', shouldOpen);
+            speakerOverlay.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
+            if (shouldOpen) {
+                updateSpeakerOverlay();
+            }
+        }
+
+        function isTypingTarget(target) {
+            if (!target) {
+                return false;
+            }
+            const tag = target.tagName ? target.tagName.toLowerCase() : '';
+            return tag === 'input' || tag === 'textarea' || tag === 'select' || target.isContentEditable;
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.ctrlKey || event.metaKey || event.altKey) {
+                return;
+            }
+
+            if (isTypingTarget(event.target)) {
+                return;
+            }
+
+            const key = (event.key || '').toLowerCase();
+            if (key === 's') {
+                event.preventDefault();
+                toggleSpeakerOverlay();
+            } else if (key === 'escape' && speakerOverlay.classList.contains('open')) {
+                event.preventDefault();
+                toggleSpeakerOverlay(false);
+            }
+        }, true);
+
+        Reveal.on('slidechanged', () => {
+            if (speakerOverlay.classList.contains('open')) {
+                updateSpeakerOverlay();
             }
         });
 
-        Reveal.on('slidechanged', updateFacilitatorNotes);
-        Reveal.on('ready', updateFacilitatorNotes);
+        Reveal.on('ready', updateSpeakerOverlay);
     </script>
 </body>
 
