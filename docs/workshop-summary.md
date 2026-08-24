@@ -2,26 +2,28 @@
 
 ## Identity
 - Name: The Architecture of Intent
-- Length: 90 minutes
+- Length: 120 minutes
 - Domain: professional prompting + human communication
 - Outcome: participants produce reliable, auditable AI delegation prompts
 
 ## Segment Map
-- 00:00-00:10 ambiguity diagnosis
-- 00:10-00:25 paired delegation simulation
-- 00:25-00:40 framework instruction (C.L.E.A.R.+)
-- 00:40-01:00 prompt refactor workshop
-- 01:00-01:20 iteration debugging drills
-- 01:20-01:30 post-test + action commitment
+- 00:00-00:15 welcome, contract, baseline diagnostic
+- 00:15-00:35 paired delegation simulation
+- 00:35-00:50 assumption gap teardown + C.L.E.A.R.+ engine
+- 00:50-01:00 mandatory rest break + informal table chat
+- 01:00-01:25 triad prompt refactor workshop
+- 01:25-01:50 live iteration and peer audit drills
+- 01:50-02:00 synthesis, commitment contract, final evaluation
 
 ## Operational Rules
 - one-variable prompt changes during iteration
 - minimum two negative constraints in production prompts
 - explicit output schema required
-- pass/fail verification criteria required
+- pass-fail verification criteria required
+- mandatory break window enforced without compression
 
 ## Core Artifacts
-- index.html: deck + facilitator overlay
+- index.html: deck + singleton presenter overlay
 - cheatsheet.html: printable desk reference
 - script.md: speaking script + pacing controls
 - llms.txt: compressed machine context

@@ -1,7 +1,7 @@
 # Copilot Instructions for Workshop Repository
 
 ## Repository Purpose
-Maintain a facilitator-ready workshop suite for The Architecture of Intent (90-minute Professional Prompting & Human Communication session).
+Maintain a facilitator-ready workshop suite for The Architecture of Intent (120-minute Professional Prompting & Human Communication session).
 
 ## Agent Operating Protocol
 - Assume full task ownership and execute requests end-to-end without unnecessary pause prompts.
@@ -18,7 +18,7 @@ Maintain a facilitator-ready workshop suite for The Architecture of Intent (90-m
 - Preserve unrelated local changes; never discard user work without explicit permission.
 
 ## Source of Truth
-- Timing and segment sequence must match the 90-minute structure in script.md.
+- Timing and segment sequence must match the 120-minute structure in script.md.
 - Framework naming must remain C.L.E.A.R.+ in all assets.
 - Terminology alignment required across index.html, cheatsheet.html, script.md, README.md, llms.txt, and docs/.
 
@@ -48,8 +48,8 @@ Maintain a facilitator-ready workshop suite for The Architecture of Intent (90-m
 - Maintain keyboard access for presenter notes via `s` toggle and keep behavior case-insensitive.
 
 ## Validation Checklist Before Commit
-- Total workshop time = 90 minutes.
-- All six agenda segments present and ordered.
+- Total workshop time = 120 minutes.
+- All seven agenda segments (including break) present and ordered.
 - C.L.E.A.R.+ expanded consistently.
 - Diagnose-Isolate-Constrain loop included.
 - No dead links between repository assets.
