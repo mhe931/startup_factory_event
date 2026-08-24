@@ -4,23 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>C.L.E.A.R.+ Desk Card</title>
+    <title>C.L.E.A.R.+ Shared Meaning Desk Reference</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --c-bg: #161821;
-            --c-surface: rgba(40, 42, 54, 0.9);
-            --c-line: rgba(255, 255, 255, 0.12);
-            --c-text: #f8f8f2;
-            --c-muted: #bdc2d0;
-            --c-cyan: #8be9fd;
-            --c-green: #50fa7b;
-            --c-pink: #ff79c6;
-            --c-purple: #bd93f9;
-            --c-yellow: #f1fa8c;
-            --c-orange: #ffb86c;
+            --ink: #201f1a;
+            --muted: #585244;
+            --paper: #fbf5e6;
+            --panel: #fffaf0;
+            --line: #ded1b8;
+            --amber: #b56d12;
+            --teal: #097f75;
+            --rose: #b44935;
         }
 
         * { box-sizing: border-box; }
@@ -28,92 +25,130 @@
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: 'Outfit', sans-serif;
-            color: var(--c-text);
+            color: var(--ink);
+            font-family: "Source Sans 3", sans-serif;
             background:
-                radial-gradient(circle at 10% 10%, rgba(139, 233, 253, 0.12), transparent 30%),
-                radial-gradient(circle at 85% 20%, rgba(255, 121, 198, 0.12), transparent 26%),
-                var(--c-bg);
-            padding: 20px;
+                linear-gradient(135deg, rgba(181, 109, 18, 0.11), rgba(9, 127, 117, 0.08)),
+                repeating-linear-gradient(0deg, rgba(32, 31, 26, 0.035) 0 1px, transparent 1px 32px),
+                var(--paper);
+            padding: clamp(16px, 3vw, 34px);
         }
 
         .wrap {
-            max-width: 1000px;
+            max-width: 1120px;
             margin: 0 auto;
-            border: 1px solid var(--c-line);
-            border-radius: 20px;
-            overflow: hidden;
-            background: rgba(18, 20, 28, 0.9);
         }
 
         header {
-            padding: 24px;
-            border-bottom: 1px solid var(--c-line);
-            background: linear-gradient(120deg, rgba(139, 233, 253, 0.08), rgba(255, 121, 198, 0.08));
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 18px;
+            align-items: end;
+            padding-bottom: 18px;
+            border-bottom: 3px solid var(--ink);
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            font-family: "Fraunces", serif;
+            letter-spacing: 0;
         }
 
         h1 {
-            margin: 0;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            letter-spacing: -0.02em;
+            max-width: 14ch;
+            font-size: clamp(2.4rem, 7vw, 5.4rem);
+            line-height: 0.92;
         }
 
         .sub {
-            margin-top: 8px;
-            color: var(--c-muted);
-            font-size: 0.98rem;
+            max-width: 42ch;
+            color: var(--muted);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 1.25;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            padding: 18px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 18px;
         }
 
         .card {
-            background: var(--c-surface);
-            border: 1px solid var(--c-line);
-            border-radius: 14px;
+            min-width: 0;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 250, 240, 0.88);
             padding: 16px;
+            box-shadow: 0 12px 24px rgba(32, 31, 26, 0.08);
         }
 
-        h2 { margin: 0 0 10px; font-size: 1.05rem; }
-        ul { margin: 8px 0 0; padding-left: 20px; }
+        .wide { grid-column: span 2; }
+
+        h2 {
+            margin-bottom: 8px;
+            color: var(--teal);
+            font-size: 1.35rem;
+        }
+
+        h3 {
+            margin-top: 12px;
+            color: var(--rose);
+            font-size: 1rem;
+        }
+
+        ul,
+        ol {
+            margin: 8px 0 0;
+            padding-left: 1.2em;
+        }
 
         li {
-            margin: 7px 0;
-            line-height: 1.35;
-            color: var(--c-muted);
+            margin: 5px 0;
+            color: var(--muted);
+            line-height: 1.28;
         }
 
-        strong { color: var(--c-text); }
+        strong { color: var(--ink); }
 
-        .pill {
-            display: inline-block;
-            font-weight: 700;
-            font-size: 0.78rem;
-            padding: 4px 10px;
-            border-radius: 999px;
-            margin-bottom: 8px;
-            letter-spacing: 0.4px;
+        .protocol {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
         }
 
-        .cyan { color: #04262f; background: var(--c-cyan); }
-        .pink { color: #320c25; background: var(--c-pink); }
-        .green { color: #09341a; background: var(--c-green); }
-        .yellow { color: #2f3106; background: var(--c-yellow); }
-        .purple { color: #1f1238; background: var(--c-purple); }
-
-        .footer {
-            padding: 14px 18px 18px;
-            border-top: 1px solid var(--c-line);
-            color: #aeb5c7;
-            font-size: 0.9rem;
+        .field {
+            border-left: 5px solid var(--amber);
+            padding: 8px 10px;
+            background: rgba(181, 109, 18, 0.08);
         }
 
-        @media (max-width: 840px) {
+        .field strong {
+            display: block;
+            color: var(--amber);
+            font-size: 1.35rem;
+        }
+
+        .checkline {
+            margin-top: 18px;
+            padding: 12px 14px;
+            border: 2px solid var(--ink);
+            border-radius: 8px;
+            background: #fff;
+            font-weight: 800;
+        }
+
+        @media (max-width: 880px) {
+            header { grid-template-columns: 1fr; }
             .grid { grid-template-columns: 1fr; }
+            .wide { grid-column: auto; }
+        }
+
+        @media print {
+            body { background: #fff; padding: 14px; }
+            .card { box-shadow: none; break-inside: avoid; }
         }
     </style>
 </head>
@@ -121,98 +156,82 @@
 <body>
     <div class="wrap">
         <header>
-            <h1>C.L.E.A.R.+ Prompting Desk Card</h1>
-            <div class="sub">120-Minute Edition • Facilitation Rituals Included</div>
+            <h1>C.L.E.A.R.+ Desk Reference</h1>
+            <p class="sub">For shared meaning between humans and AI: make context, constraints, output, audience, process, and verification explicit before execution.</p>
         </header>
 
         <main class="grid">
+            <section class="card wide">
+                <h2>The Protocol</h2>
+                <div class="protocol">
+                    <div class="field"><strong>C</strong>Context and goal: situation, source material, objective, success condition.</div>
+                    <div class="field"><strong>L</strong>Limits and exclusions: boundaries, non-goals, risks, and forbidden moves.</div>
+                    <div class="field"><strong>E</strong>Expected output: format, sections, length, evidence, decision use.</div>
+                    <div class="field"><strong>A</strong>Audience: reader, expertise, tone, assumptions, accessibility.</div>
+                    <div class="field"><strong>R</strong>Role/Process: stance, expertise, steps, reasoning method.</div>
+                    <div class="field"><strong>+</strong>Iterate/Verify: failure signals, revision rule, pass-fail checks.</div>
+                </div>
+            </section>
+
             <section class="card">
-                <h2>C.L.E.A.R.+ Core</h2>
+                <h2>Steering Loop</h2>
+                <ol>
+                    <li><strong>Diagnose:</strong> name the failed C.L.E.A.R.+ field.</li>
+                    <li><strong>Isolate:</strong> change one variable only.</li>
+                    <li><strong>Constrain:</strong> add exclusions and acceptance tests.</li>
+                </ol>
+            </section>
+
+            <section class="card">
+                <h2>Peer Rubric</h2>
                 <ul>
-                    <li><strong>C:</strong> Context and Goal</li>
-                    <li><strong>L:</strong> Limits and Negative Constraints</li>
-                    <li><strong>E:</strong> Expected Output</li>
-                    <li><strong>A:</strong> Audience</li>
-                    <li><strong>R:</strong> Role and Process</li>
-                    <li><strong>+:</strong> Iteration and Verification</li>
+                    <li>Context is specific.</li>
+                    <li>Limits include explicit exclusions.</li>
+                    <li>Expected output is structured.</li>
+                    <li>Audience is named.</li>
+                    <li>Role/process shapes the work.</li>
+                    <li>Verification can reject a bad answer.</li>
                 </ul>
             </section>
 
             <section class="card">
-                <h2>120-Minute Segment Map</h2>
+                <h2>Zero-Trust Data Rules</h2>
                 <ul>
-                    <li>00:00-00:15 Opening Ritual and Baseline</li>
-                    <li>00:15-00:35 Human Delegation Lab</li>
-                    <li>00:35-00:50 Assumption Gap Engine</li>
-                    <li>00:50-01:00 Break and Table Chat</li>
-                    <li>01:00-01:25 Prompt Makeover Studio</li>
-                    <li>01:25-01:50 Live Iteration Crucible</li>
-                    <li>01:50-02:00 Highlight Session and Commitments</li>
+                    <li>Do not invent facts, citations, or numbers.</li>
+                    <li>Do not paste confidential data into prompts.</li>
+                    <li>Do not make claims without traceable evidence.</li>
+                    <li>When evidence is missing, state the gap.</li>
+                </ul>
+            </section>
+
+            <section class="card wide">
+                <h2>120-Minute Map</h2>
+                <ul>
+                    <li>00:00-00:15 The Intent & Meaning Bottleneck</li>
+                    <li>00:15-00:35 The Human Delegation Lab</li>
+                    <li>00:35-00:43 The Multi-Lens Experiment</li>
+                    <li>00:43-00:50 The C.L.E.A.R.+ Universal Protocol</li>
+                    <li>00:50-01:00 Reset, Bio-Break & Purposeful Table Alignment</li>
+                    <li>01:00-01:25 The Executive Makeover Studio</li>
+                    <li>01:25-01:50 The Live Iteration Crucible & Steering Protocol</li>
+                    <li>01:50-02:00 Synthesis, Leadership Commitments & The Peak-End Close</li>
                 </ul>
             </section>
 
             <section class="card">
-                <h2>Ritual Stack (AJ&amp;Smart Inspired)</h2>
-                <div class="pill cyan">Start Ritual</div>
+                <h2>Prompt Skeleton</h2>
                 <ul>
-                    <li>Low-friction check-in in first 90 seconds.</li>
-                    <li>Write names, goals, and AI friction points live.</li>
-                </ul>
-                <div class="pill green">Visible Progress</div>
-                <ul>
-                    <li>Tick completed blocks after Segments 2, 5, and 6.</li>
-                </ul>
-                <div class="pill yellow">Peak-End</div>
-                <ul>
-                    <li>Final round-robin: One Big Win and Commitment.</li>
-                </ul>
-            </section>
-
-            <section class="card">
-                <h2>Dynamic Example Harvesting</h2>
-                <ul>
-                    <li>Capture participant pain points in Segment 1.</li>
-                    <li>Assign table challenges after break.</li>
-                    <li>Replace generic demos with participant cases in Segments 5 and 6.</li>
-                </ul>
-            </section>
-
-            <section class="card">
-                <h2>Multi-Angle Framing Examples</h2>
-                <ul>
-                    <li><strong>Tree Climbing:</strong> same goal, different audience and safety constraints.</li>
-                    <li><strong>Interpersonal Conflict:</strong> same issue, different tone and repair objective.</li>
-                    <li><strong>Shared Responsibility:</strong> same outcome, different ownership language.</li>
-                </ul>
-            </section>
-
-            <section class="card">
-                <h2>Iteration Loop</h2>
-                <ul>
-                    <li><strong>Diagnose:</strong> Find failure field.</li>
-                    <li><strong>Isolate:</strong> Change one variable only.</li>
-                    <li><strong>Constrain:</strong> Add explicit exclusions and tests.</li>
-                </ul>
-            </section>
-
-            <section class="card">
-                <h2>Facilitator Rules</h2>
-                <div class="pill pink">Energy</div>
-                <ul>
-                    <li>Do not speak over small-group chatter.</li>
-                    <li>Use visible timers for every block.</li>
-                </ul>
-                <div class="pill purple">Clarity</div>
-                <ul>
-                    <li>One instruction at a time.</li>
-                    <li>Require evidence from revision logs.</li>
+                    <li>Role/Process:</li>
+                    <li>Context and Goal:</li>
+                    <li>Limits and Exclusions:</li>
+                    <li>Expected Output:</li>
+                    <li>Audience:</li>
+                    <li>Iteration and Verification:</li>
                 </ul>
             </section>
         </main>
 
-        <div class="footer">
-            Keep this card visible while facilitating triads and critique rounds.
-        </div>
+        <div class="checkline">Before using an AI answer: verify source boundaries, format compliance, assumptions, and acceptance criteria.</div>
     </div>
 </body>
 

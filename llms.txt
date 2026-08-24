@@ -1,71 +1,44 @@
 # llms.txt
 
-## Repository Summary
-- Workshop: The Architecture of Intent
+## Workshop Identity
+- Title: THE ARCHITECTURE OF SHARED MEANING: Aligning Human Minds and AI Intelligence Through the C.L.E.A.R.+ Protocol
 - Runtime: 120 minutes
-- Core Method: C.L.E.A.R.+ with Diagnose-Isolate-Constrain
-- Delivery Mode: facilitator coaching with active participant example harvesting
+- Segment count: 8
+- Environment: responsive standalone HTML deck plus synchronized Markdown/docs
+- Primary outcome: participants transform vague intent into reliable, auditable instructions for humans and AI systems
 
-## Runtime Map (120 Minutes Total)
-- 00:00-00:15 | Opening Ritual and Baseline
-- 00:15-00:35 | Human Delegation Lab
-- 00:35-00:50 | Assumption Gap and C.L.E.A.R.+ Engine
-- 00:50-01:00 | Break and Informal Table Chat
-- 01:00-01:25 | Prompt Makeover Studio
-- 01:25-01:50 | Live Iteration Crucible
-- 01:50-02:00 | Highlight Session and Commitments
+## Core Model
+C.L.E.A.R.+ = Context, Limits, Expected Output, Audience, Role/Process, +Iterate/Verify.
+Failure diagnosis maps weak outputs to missing fields: vague content -> Context or Expected Output; unsafe or invented content -> Limits; wrong tone/depth -> Audience; poor reasoning path -> Role/Process; unstable quality -> missing Iterate/Verify.
+Steering loop: Diagnose -> Isolate -> Constrain. Change one variable per iteration. Add explicit exclusions and pass-fail checks before trusting output.
 
-## Structured Coaching Schema
-Per slide metadata fields:
-- data-speaker-time
-- data-speaker-say
-- data-speaker-do
-- data-speaker-ask
-- data-speaker-adapt
-- data-speaker-ritual
+## 120-Minute Runtime Map
+- Segment 1 | 00:00-00:15 | 15 min | The Intent & Meaning Bottleneck: Assumption Gap, Mars Climate Orbiter case, Start Ritual.
+- Segment 2 | 00:15-00:35 | 20 min | The Human Delegation Lab: Architect vs. Builder, Zero-Feedback vs. Calibrated Grounding.
+- Segment 3 | 00:35-00:43 | 8 min | The Multi-Lens Experiment: Can we climb a tree? child, psychologist, risk officer, arborist, heavy-eared alien.
+- Segment 4 | 00:43-00:50 | 7 min | The C.L.E.A.R.+ Universal Protocol: Context, Limits, Expected Output, Audience, Role/Process, +Iterate/Verify.
+- Segment 5 | 00:50-01:00 | 10 min | Reset, Bio-Break & Purposeful Table Alignment: timer plus three coffee reflection prompts.
+- Segment 6 | 01:00-01:25 | 25 min | The Executive Makeover Studio: triad refactoring, 12 scenario library, six-point peer rubric.
+- Segment 7 | 01:25-01:50 | 25 min | The Live Iteration Crucible & Steering Protocol: Diagnose -> Isolate -> Constrain, zero-trust data governance.
+- Segment 8 | 01:50-02:00 | 10 min | Synthesis, Leadership Commitments & The Peak-End Close: one-minute teach-back and desk reference rollout.
 
-Overlay render fields:
-- TIME
-- SAY
-- DO
-- ASK
-- CAPTURE and ADAPT
-- FACILITATION RITUAL / PRO-TIP
+## Presenter Metadata Contract
+index.html must contain exactly one #speaker-overlay outside main. It is hidden on initial load with display: none and aria-hidden="true". Pressing s or S toggles #speaker-overlay.open; Escape closes it. Key handling ignores input, textarea, select, and contenteditable targets. Each slide section must include complete data-speaker-time, data-speaker-say, data-speaker-do, data-speaker-ask, data-speaker-adapt, and data-speaker-ritual attributes.
 
-## Facilitation Technique Embedding
-- Opening ritual uses Serial Position Effect and low-friction check-in.
-- Segments 2, 5, and 6 include visible progress tracking ticks on board.
-- Segments 5 and 6 replace generic examples with participant-owned cases.
-- Final segment uses Peak-End Rule with one big win + commitment round-robin.
+## Shared Scenario Set
+- Mars Climate Orbiter: assumption gap and verification failure.
+- Architect vs. Builder: zero-feedback delegation compared with calibrated grounding.
+- Can we climb a tree?: child, psychologist, risk officer, arborist, heavy-eared alien lenses.
+- Executive Makeover Studio: board update, customer apology, hiring calibration, risk memo, product launch, budget tradeoff, incident review, policy rewrite, sales brief, research synthesis, vendor comparison, executive ghostwrite.
+- Zero-trust data governance: no invented facts/citations/numbers, no confidential data in prompts, no claims without traceable evidence.
 
-## Multi-Angle Framing Case Set
-- Tree Climbing scenario: role + audience + constraint shifts.
-- Interpersonal conflict resolution: tone + de-escalation + ownership shifts.
-- Shared responsibility handoff: accountability language without blame.
-- Segment usage:
-	- Segment 2: run blind execution and C.L.E.A.R.+ comparison on all three frames.
-	- Segment 3: deconstruct assumption gaps with C.L.E.A.R.+ field-by-field analysis.
-	- Segments 5 and 6: reuse harvested versions for makeover and live iteration.
+## Theoretical Foundations
+Clark & Brennan: common ground, contribution, feedback, and repair. Chris Voss: calibrated questions and constraint-led negotiation. Nancy Duarte: contrast, audience movement, strong opening/closing moments. Vaswani et al.: attention and context sensitivity in transformer systems; prompt quality controls the usable context window.
 
-## Presenter View Isolation Rules
-- Public projection view shows only slide content.
-- Coaching overlay remains hidden until S key toggle.
-- Escape closes overlay.
-- Key handling ignores input, textarea, select, and contenteditable targets.
-
-## Synchronization Contract
-index.html and script.md must remain 1:1 on:
-- segment timestamps
-- SAY lines
-- DO actions
-- ASK prompts
-- CAPTURE and ADAPT behavior
-- FACILITATION RITUAL / PRO-TIP cues
-
-## Repository Index
-- [index.html](index.html): slide deck and presenter coaching overlay
-- [script.md](script.md): facilitator script aligned to slide metadata
-- [README.md](README.md): implementation and runtime notes
-- [cheatsheet.html](cheatsheet.html): participant ritual guardrails
-- [docs/workshop-summary.md](docs/workshop-summary.md): workshop summary
-- [docs/prompting-framework.md](docs/prompting-framework.md): framework reference
+## File Index
+- index.html: public deck, responsive 16:9 slide viewport, keyboard navigation, singleton presenter overlay, slide metadata source of truth.
+- script.md: full speaker transcript and facilitation runbook for all eight segments.
+- README.md: syllabus, theory, delivery checklist, repository map.
+- cheatsheet.html: participant desk reference for C.L.E.A.R.+, peer rubric, steering loop, and governance checks.
+- docs/prompting-framework.md: detailed C.L.E.A.R.+ protocol and verification reference.
+- docs/workshop-summary.md: compact facilitator operating summary.
