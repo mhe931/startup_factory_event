@@ -2,52 +2,70 @@
 
 ## Repository Summary
 - Workshop: The Architecture of Intent
-- Session Type: Professional Prompting and Human Communication
-- Total Duration: 120 minutes
-- Core Method: C.L.E.A.R.+ with Diagnose-Isolate-Constrain iteration
-- Primary Objective: produce reliable, auditable AI delegation prompts through collaborative practice
+- Runtime: 120 minutes
+- Core Method: C.L.E.A.R.+ with Diagnose-Isolate-Constrain
+- Delivery Mode: facilitator coaching with active audience extraction
 
-## Workshop Architecture (120-Minute Sequence)
-1. 00:00-00:15 | Welcome, Contract, Baseline Diagnostic
-2. 00:15-00:35 | The Human Delegation Lab
-3. 00:35-00:50 | Assumption Gap + C.L.E.A.R.+ Engine
-4. 00:50-01:00 | Break / Rest and Informal Table Chat
-5. 01:00-01:25 | Prompt Makeover Studio (Triad Refactoring)
-6. 01:25-01:50 | Live Iteration Crucible (Solo + Peer Audit)
-7. 01:50-02:00 | Synthesis, Commitment Contract, Final Evaluation
+## Coaching Cue Map (Identical to README.md and script.md)
+- 00:00-00:08 | Opening and Contract
+  - SAY focus: welcome hook and confidence reset
+  - ASK focus: name, goal, gut-feeling about AI, one output regret
+  - CAPTURE focus: goals and pain points board (tag M or I)
+- 00:08-00:15 | Agenda Activation
+  - SAY focus: experiential pacing and mandatory break framing
+  - ASK focus: hardest segment and peer-audit familiarity
+  - CAPTURE focus: adaptation priorities for later segments
+- 00:15-00:35 | Human Delegation Lab
+  - SAY focus: no gestures and no questions in Round 1
+  - ASK focus: assumption-gap reveal from Architect and Builder views
+  - CAPTURE focus: three participant assumption-gap cases for Segment 6
+- 00:35-00:50 | Assumption Gap and C.L.E.A.R.+ Engine
+  - SAY focus: weak output as instruction ambiguity
+  - ASK focus: highest-leverage field and skipped field habits
+  - CAPTURE focus: convert one participant case to live scaffold
+- 00:50-01:00 | Break and Informal Table Chat
+  - SAY focus: mandatory pause, movement, coffee, and table reflection
+  - ASK focus: one unresolved challenge per table
+  - CAPTURE focus: assign table challenges to triads
+- 01:00-01:25 | Prompt Makeover Studio
+  - SAY focus: triad roles and participant-owned case refactoring
+  - ASK focus: strongest constraint and underspecified output checks
+  - CAPTURE focus: two participant cases for room critique
+- 01:25-01:50 | Live Iteration Crucible
+  - SAY focus: one-variable iteration with visible revision logs
+  - ASK focus: failure diagnosis, leak detection, and rejection tests
+  - CAPTURE focus: unresolved case turned into live debug demo
+- 01:50-02:00 | Synthesis and Commitment Contract
+  - SAY focus: concrete weekly commitment and pass-fail rule ownership
+  - ASK focus: confidence shift and accountability partner
+  - CAPTURE focus: map final contracts back to opening pain points
 
-## C.L.E.A.R.+ Protocol
-- C: Context and Goal (problem, business setting, completion condition)
-- L: Limits and Negative Constraints (boundaries, exclusions, non-negotiables)
-- E: Expected Output (format, sections, length, output quality bar)
-- A: Audience (reader profile, tone, domain depth)
-- R: Role and Process (model persona and reasoning process)
-- +: Iteration and Verification (revision loop, pass-fail checks)
+## Facilitator Metadata Model
+- Slide metadata fields in index.html:
+  - data-speaker-time
+  - data-speaker-say
+  - data-speaker-do
+  - data-speaker-ask
+  - data-speaker-adapt
+  - data-speaker-protip
+- Speaker overlay fields rendered dynamically:
+  - TIME
+  - SAY
+  - DO
+  - ASK
+  - CAPTURE and ADAPT
+  - FACILITATOR PRO-TIP
 
-## Iteration Loop
-1. Diagnose: identify failed C.L.E.A.R.+ field
-2. Isolate: change one variable only
-3. Constrain: add explicit exclusions and verification rules
-
-## Presenter Overlay Architecture
-- index.html contains exactly one global `#speaker-overlay` element outside the slide container.
-- Per-slide notes exist only in `data-speaker-time`, `data-speaker-say`, `data-speaker-do` attributes on `<section>` elements.
-- JavaScript injects active slide metadata into `#speaker-time`, `#speaker-say`, `#speaker-do` on slide change and when overlay opens.
-- Overlay default state is hidden (`aria-hidden="true"`, no `open` class).
-- Hotkeys: `s` toggles overlay (case-insensitive), `Escape` closes overlay.
+## Runtime Interaction Rules
+- Press S or s to toggle coaching overlay.
+- Press Escape to close overlay.
+- Overlay remains hidden by default and updates from current slide on open and slide change.
 
 ## Repository Index
-- [index.html](index.html): Reveal.js deck, singleton presenter overlay, synchronized speaker metadata
-- [cheatsheet.html](cheatsheet.html): participant quick reference, timing guardrails, and prompt skeletons
-- [script.md](script.md): full facilitator runbook with verbatim lines and operations cues
-- [README.md](README.md): repository overview and 120-minute delivery guide
-- [docs/workshop-summary.md](docs/workshop-summary.md): compressed workshop operations summary
-- [docs/prompting-framework.md](docs/prompting-framework.md): protocol details and templates
-- [.github/copilot-instructions.md](.github/copilot-instructions.md): autonomous execution and git lifecycle directives
-
-## Validation Gates
-- Pacing consistency: all assets align to 120-minute sequence and break interval.
-- Overlay integrity: singleton `#speaker-overlay` and no slide-embedded duplicates.
-- Notes completeness: each slide has time/say/do metadata.
-- Interaction safety: `s` toggle ignores typing contexts and supports case-insensitive key handling.
-- Path integrity: all repository index links resolve.
+- [index.html](index.html): slide deck with structured coaching metadata and overlay renderer
+- [script.md](script.md): full facilitator coaching script
+- [README.md](README.md): operator-facing setup and cue map
+- [cheatsheet.html](cheatsheet.html): participant desk card
+- [docs/workshop-summary.md](docs/workshop-summary.md): concise operations brief
+- [docs/prompting-framework.md](docs/prompting-framework.md): C.L.E.A.R.+ framework reference
+- [.github/copilot-instructions.md](.github/copilot-instructions.md): autonomous agent and git directives
