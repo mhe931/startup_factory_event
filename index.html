@@ -4,22 +4,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mastering the AI Interface - Masterclass</title>
+    <title>The Architecture of Intent | Professional Prompting Workshop</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/dracula.min.css"
-        id="theme">
-
-    <!-- syntax highlighting -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/dracula.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --c-cyan: #8be9fd;
+            --c-green: #50fa7b;
+            --c-pink: #ff79c6;
+            --c-purple: #bd93f9;
+            --c-yellow: #f1fa8c;
+            --c-orange: #ffb86c;
+            --bg-card: rgba(40, 42, 54, 0.85);
+            --bg-glass: rgba(30, 30, 40, 0.7);
+            --line-soft: rgba(255, 255, 255, 0.12);
+        }
+
         .reveal {
             font-family: 'Outfit', sans-serif;
             font-size: 32px;
@@ -35,149 +43,195 @@
             text-transform: none;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .reveal h1 {
-            font-size: 2.8em;
+            font-size: 2.5em;
             line-height: 1.1;
         }
 
         .reveal h2 {
-            font-size: 2.0em;
+            font-size: 1.9em;
             line-height: 1.2;
         }
 
         .reveal h3 {
-            font-size: 1.5em;
+            font-size: 1.25em;
             line-height: 1.3;
         }
 
         .color-cyan {
-            color: #8be9fd !important;
+            color: var(--c-cyan) !important;
         }
 
         .color-green {
-            color: #50fa7b !important;
+            color: var(--c-green) !important;
         }
 
         .color-pink {
-            color: #ff79c6 !important;
+            color: var(--c-pink) !important;
         }
 
         .color-purple {
-            color: #bd93f9 !important;
+            color: var(--c-purple) !important;
         }
 
         .color-yellow {
-            color: #f1fa8c !important;
+            color: var(--c-yellow) !important;
         }
 
         .color-orange {
-            color: #ffb86c !important;
-        }
-
-        .text-center {
-            text-align: center;
+            color: var(--c-orange) !important;
         }
 
         .text-left {
             text-align: left;
         }
 
-        .split-layout {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            width: 100%;
-            text-align: left;
+        .text-center {
+            text-align: center;
         }
 
-        .split-layout>div {
-            flex: 1;
-            width: 50%;
+        .small {
+            font-size: 0.72em;
+            opacity: 0.9;
         }
 
         .pill {
             display: inline-block;
             padding: 8px 20px;
-            background: rgba(80, 250, 123, 0.15);
-            color: #50fa7b;
-            border-radius: 50px;
-            font-size: 0.6em;
+            border-radius: 999px;
+            font-size: 0.52em;
             font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: 1.7px;
             text-transform: uppercase;
-            margin-bottom: 30px;
-            border: 1px solid rgba(80, 250, 123, 0.3);
+            margin: 0 0 22px;
+            border: 1px solid rgba(80, 250, 123, 0.32);
+            color: var(--c-green);
+            background: rgba(80, 250, 123, 0.14);
+        }
+
+        .glass-panel {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--line-soft);
+            border-radius: 20px;
+            padding: 34px;
         }
 
         .card {
-            background: rgba(40, 42, 54, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--line-soft);
             border-radius: 16px;
+            padding: 22px;
             text-align: left;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
         }
 
-        .code-container {
-            font-size: 0.65em;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            margin-top: 20px;
-            text-align: left;
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        .agenda-item {
+            border-left: 4px solid var(--c-cyan);
+            padding-left: 14px;
+            margin-bottom: 14px;
+            font-size: 0.76em;
+        }
+
+        .badge-time {
+            display: inline-block;
+            font-size: 0.54em;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 999px;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
+            color: #111;
+            background: var(--c-yellow);
         }
 
         .reveal ul {
             display: block;
-            margin-left: 1.2em;
+            margin-left: 1.1em;
         }
 
         .reveal li {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            line-height: 1.3;
+            margin-bottom: 9px;
+            font-size: 0.82em;
+            line-height: 1.35;
         }
 
-        .prompt-box {
-            background: rgba(255, 121, 198, 0.1);
-            border-left: 5px solid #ff79c6;
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-            font-weight: 300;
-            font-style: italic;
-            margin-top: 20px;
-            font-size: 0.85em;
+        #notes-toggle {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 90;
+            border: 0;
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            background: var(--c-pink);
+            color: #1b1220;
+            cursor: pointer;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
         }
 
-        .bg-subtle-glow {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(139, 233, 253, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            pointer-events: none;
+        #notes-panel {
+            position: fixed;
+            right: 16px;
+            bottom: 68px;
+            width: min(520px, calc(100vw - 32px));
+            max-height: 58vh;
+            overflow: auto;
+            z-index: 90;
+            border: 1px solid var(--line-soft);
+            border-radius: 16px;
+            padding: 18px;
+            background: rgba(22, 24, 30, 0.96);
+            display: none;
         }
 
-        .reveal pre {
-            width: 100%;
-            margin: 0;
-            box-shadow: none;
+        #notes-panel h4 {
+            margin: 0 0 10px;
+            font-size: 0.72em;
+            color: var(--c-cyan);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
-        .glass-panel {
-            background: rgba(30, 30, 40, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        #notes-content {
+            font-size: 0.62em;
+            line-height: 1.45;
+            white-space: pre-wrap;
+            opacity: 0.92;
+        }
+
+        .notes-tip {
+            font-size: 0.55em;
+            margin-top: 10px;
+            opacity: 0.72;
+        }
+
+        @media (max-width: 900px) {
+            .reveal {
+                font-size: 24px;
+            }
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -185,712 +239,211 @@
 <body>
     <div class="reveal">
         <div class="slides">
-
-            <!-- SLIDE 1: TITLE & VISION (12:00 - 12:40) -->
             <section data-background-size="cover"
                 data-background-image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2072"
-                data-background-opacity="0.25">
-                <div class="bg-subtle-glow"></div>
+                data-background-opacity="0.23" data-facilitator="OPENING SCRIPT\n- Name the workshop: The Architecture of Intent.\n- Set expectation: this is a delegation lab, not a prompt tips lecture.\n- Ask each participant for one communication failure they want to fix today.\nCUE: Capture 2-3 examples for reuse in later exercises.">
                 <div class="glass-panel text-left">
-                    <div class="pill">Startup Factory, Vaasa &bull; Masterclass</div>
-                    <h1><span class="color-pink">Mastering</span><br>the AI Interface</h1>
-                    <h3 class="color-cyan" style="font-weight: 300;">From Idea to Minimum Viable Product</h3>
-                    <p style="opacity: 0.8; font-size: 0.9em; margin-top: 30px;">
-                        Today isn't about chatting with AI.<br>It's about <strong>programming it</strong> using natural
-                        language.
-                    </p>
+                    <div class="pill">Professional Prompting Workshop • 90 Minutes</div>
+                    <h1>The <span class="color-pink">Architecture</span> of <span class="color-cyan">Intent</span></h1>
+                    <h3 style="font-weight: 300;">Human Communication for Reliable AI Delegation</h3>
+                    <p class="small">Framework: <span class="color-green">C.L.E.A.R.+</span> • Context & Goal, Limits,
+                        Expected Output, Audience, Role/Process, Iteration/Verification</p>
                 </div>
                 <aside class="notes">
-                    12:00 to 12:40, Introduction and Targets.</br>
-                    Goal: Break the ice and set the goal for the day.</br>
-
-                    "Hi everyone. I'm Däniel.
-                    I'm studying AI and Data Engineering right here at the University of Vaasa.
-                    I spend most of my time looking at data, but today I want to show you the practical side of AI.
-                    Startup Factory is about building things, so we aren't just going to sit here and talk. We're here
-                    to create.</br>
-
-                    Let's start around the room. Please tell me your name, what you're studying or building,
-                    and what is the one thing you want to walk away with today. Is it a business plan?
-                    A landing page? Or just figuring out how to stop the AI from lying to you?"</br>
-
-                    Participant Task:</br>
-                    State their name, their startup idea, and their specific goal.
+                    Welcome everyone and position this as a practical communication workshop.
+                    Ask for one concrete AI-output frustration from each attendee.
                 </aside>
             </section>
 
-            <!-- SLIDE 2: THE SHIFT (12:40 - 13:40 block part 1) -->
             <section data-background-size="cover"
                 data-background-image="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.2">
-                <div class="glass-panel">
-                    <h2 class="color-purple text-center">The Entrepreneurial Shift</h2>
-                    <p class="text-center" style="font-size: 1.1em; margin-bottom: 40px;">
-                        AI is your <span class="color-green">first hire</span>, not your search engine.
-                    </p>
-                    <div class="split-layout" style="gap: 30px;">
-                        <div class="card" style="border-top: 4px solid #ff79c6; text-align: center;">
-                            <h3 class="color-pink">Users Ask</h3>
-                            <p style="opacity: 0.8; font-size: 0.8em;">They type simple queries and expect instant
-                                perfection. This is the Google mindset.</p>
-                        </div>
-                        <div class="card" style="border-top: 4px solid #8be9fd; text-align: center;">
-                            <h3 class="color-cyan">Engineers Design</h3>
-                            <p style="opacity: 0.8; font-size: 0.8em;">They build structured prompts, define roles, and
-                                guide logic. This is the Systems mindset.</p>
-                        </div>
+                data-background-opacity="0.2" data-facilitator="AGENDA SCRIPT\n- Show the full run-of-show.\n- Stress the workshop rhythm: diagnose, redesign, test, iterate.\n- Mention there are six practical segments and no passive block longer than 20 minutes.">
+                <h2 class="color-purple">90-Minute Flow</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="agenda-item"><strong>00:00-00:10 (10m)</strong><br>The Cost of Ambiguity</div>
+                        <div class="agenda-item"><strong>00:10-00:25 (15m)</strong><br>The Human Delegation Lab</div>
+                        <div class="agenda-item"><strong>00:25-00:40 (15m)</strong><br>The C.L.E.A.R.+ Framework</div>
+                    </div>
+                    <div class="card">
+                        <div class="agenda-item"><strong>00:40-01:00 (20m)</strong><br>Prompt Makeover Studio</div>
+                        <div class="agenda-item"><strong>01:00-01:20 (20m)</strong><br>Live Iteration Crucible</div>
+                        <div class="agenda-item"><strong>01:20-01:30 (10m)</strong><br>Synthesis & Action Plan</div>
                     </div>
                 </div>
-                <aside class="notes">
-                    12:40 to 13:40, The CREATE Framework.</br>
-                    Goal: Move from Asking to Engineering.</br>
-
-                    "Okay, first thing. AI isn't Google.
-                    If you treat it like a search engine, you're going to get average results.
-                    To get professional results, we really need a solid structure."
-                </aside>
             </section>
 
-            <!-- SLIDE 3: THE C.R.E.A.T.E FRAMEWORK -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.15">
-                <h2 class="color-yellow">The C.R.E.A.T.E. Framework</h2>
-                <p style="margin-bottom: 40px; font-weight: 300;">Move from "Asking" to "Engineering".</p>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
-                    <div class="card" style="padding: 20px;">
-                        <h4 class="color-cyan">C</h4>
-                        <p style="margin: 0; font-size: 0.8em;"><strong>Context</strong><br><span
-                                style="opacity:0.7">The background</span></p>
+            <section data-facilitator="SEGMENT 1 SCRIPT (10m)\n- Ask: What did you ask, what did you get, and what broke?\n- Run a quick show-of-hands poll: ambiguity source = context, constraints, output shape, audience, or role.\n- Transition: poor outputs are often communication architecture failures, not model failures.">
+                <div class="badge-time">00:00-00:10</div>
+                <h2>The Cost of <span class="color-pink">Ambiguity</span></h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 class="color-orange">Reflection Prompt</h3>
+                        <ul>
+                            <li>What was your request?</li>
+                            <li>What did the model assume incorrectly?</li>
+                            <li>What was the cost (time, risk, reputation)?</li>
+                        </ul>
                     </div>
-                    <div class="card" style="padding: 20px;">
-                        <h4 class="color-pink">R</h4>
-                        <p style="margin: 0; font-size: 0.8em;"><strong>Role</strong><br><span style="opacity:0.7">Who
-                                the AI is</span></p>
-                    </div>
-                    <div class="card" style="padding: 20px;">
-                        <h4 class="color-green">E</h4>
-                        <p style="margin: 0; font-size: 0.8em;"><strong>Explicit</strong><br><span
-                                style="opacity:0.7">Clear instructions</span></p>
-                    </div>
-                    <div class="card" style="padding: 20px;">
-                        <h4 class="color-orange">A</h4>
-                        <p style="margin: 0; font-size: 0.8em;"><strong>Audience</strong><br><span
-                                style="opacity:0.7">Who it's for</span></p>
-                    </div>
-                    <div class="card" style="padding: 20px;">
-                        <h4 class="color-purple">T</h4>
-                        <p style="margin: 0; font-size: 0.8em;"><strong>Tone</strong><br><span style="opacity:0.7">Voice
-                                & style</span></p>
-                    </div>
-                    <div class="card" style="padding: 20px;">
-                        <h4 class="color-yellow">E</h4>
-                        <p style="margin: 0; font-size: 0.8em;"><strong>Evaluation</strong><br><span
-                                style="opacity:0.7">The success metric</span></p>
+                    <div class="card">
+                        <h3 class="color-cyan">Diagnostic Poll</h3>
+                        <ul>
+                            <li>Missing business context?</li>
+                            <li>No constraints or boundaries?</li>
+                            <li>Output format unspecified?</li>
+                            <li>Wrong audience or tone?</li>
+                        </ul>
                     </div>
                 </div>
-                <aside class="notes">
-                    "We use CREATE. Context, Role, Explicit instructions, Audience, Tone, and Evaluation.</br>
-
-                    Think about it like this. If you hire an intern and just say 'Write a plan,' they'll probably fail.
-                    But if you say 'You're a marketing lead, we are in Vaasa, we need 3 ways to reach students on a 50
-                    euro budget,' they'll succeed. That is exactly what we're doing here."
-                </aside>
             </section>
 
-            <!-- SLIDE 4: ANATOMY OF A PROMPT -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.15">
-                <h2 class="text-left">Anatomy of a <span class="color-yellow">Prompt</span></h2>
-                <p class="text-left" style="font-size: 0.9em; opacity: 0.8; margin-bottom: 20px;">Breaking down the
-                    C.R.E.A.T.E framework.</p>
-
-                <div class="split-layout" style="align-items: flex-start; gap: 40px;">
-                    <!-- LEFT SIDE: THE PROMPT -->
-                    <div class="card" style="padding: 30px;">
-                        <h4 style="margin-top: 0; color: white;">The Professional Prompt</h4>
-                        <p style="font-size: 0.85em; font-style: italic; line-height: 1.6;">
-                            <strong class="color-pink">"Act as a Senior SaaS Product Manager.</strong>
-                            <strong class="color-green">Create a detailed Product Requirements Document</strong> for a
-                            <strong class="color-cyan">student-led cleaning service app in Vaasa.</strong>
-                            <strong class="color-green">Focus on MVP features only.</strong>
-                            <strong class="color-purple">Write in a grounded, professional tone</strong> for a
-                            <strong class="color-orange">developer audience.</strong>
-                            <strong class="color-yellow">Format as a Markdown document."</strong>
-                        </p>
+            <section data-facilitator="SEGMENT 2 SCRIPT (15m)\n- Pair participants: Architect and Builder.\n- Architect gets a workplace objective; Builder executes exactly and may ask only one clarifying question.\n- Debrief where assumptions emerged. Capture phrases that led to drift.">
+                <div class="badge-time">00:10-00:25</div>
+                <h2>The Human Delegation Lab</h2>
+                <p class="small">Paired simulation: Architect writes instructions, Builder executes with constrained interpretation.</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 class="color-green">Round 1: Raw Request</h3>
+                        <ul>
+                            <li>Architect gives a 1-sentence request.</li>
+                            <li>Builder executes literally.</li>
+                            <li>Measure mismatch and rework.</li>
+                        </ul>
                     </div>
-
-                    <!-- RIGHT SIDE: THE BREAKDOWN -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div
-                            style="background: rgba(40,42,54,0.7); backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); padding: 15px; border-left: 4px solid #8be9fd; border-radius: 8px;">
-                            <strong class="color-cyan"
-                                style="font-size: 0.75em; text-transform: uppercase;">Context</strong>
-                            <div style="font-size: 0.7em; margin-top: 5px;">Student-led cleaning service in Vaasa.
-                            </div>
-                        </div>
-                        <div
-                            style="background: rgba(40,42,54,0.7); backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); padding: 15px; border-left: 4px solid #ff79c6; border-radius: 8px;">
-                            <strong class="color-pink"
-                                style="font-size: 0.75em; text-transform: uppercase;">Role</strong>
-                            <div style="font-size: 0.7em; margin-top: 5px;">Senior Product Manager.</div>
-                        </div>
-                        <div
-                            style="background: rgba(40,42,54,0.7); backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); padding: 15px; border-left: 4px solid #50fa7b; border-radius: 8px;">
-                            <strong class="color-green" style="font-size: 0.75em; text-transform: uppercase;">Explicit
-                                Instructions</strong>
-                            <div style="font-size: 0.7em; margin-top: 5px;">Create a PRD focusing on MVP features.
-                            </div>
-                        </div>
-                        <div
-                            style="background: rgba(40,42,54,0.7); backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); padding: 15px; border-left: 4px solid #ffb86c; border-radius: 8px;">
-                            <strong class="color-orange"
-                                style="font-size: 0.75em; text-transform: uppercase;">Audience</strong>
-                            <div style="font-size: 0.7em; margin-top: 5px;">Developers.</div>
-                        </div>
-                        <div
-                            style="background: rgba(40,42,54,0.7); backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); padding: 15px; border-left: 4px solid #bd93f9; border-radius: 8px;">
-                            <strong class="color-purple"
-                                style="font-size: 0.75em; text-transform: uppercase;">Tone</strong>
-                            <div style="font-size: 0.7em; margin-top: 5px;">Grounded and professional.</div>
-                        </div>
-                        <div
-                            style="background: rgba(40,42,54,0.7); backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); padding: 15px; border-left: 4px solid #f1fa8c; border-radius: 8px;">
-                            <strong class="color-yellow"
-                                style="font-size: 0.75em; text-transform: uppercase;">Evaluation</strong>
-                            <div style="font-size: 0.7em; margin-top: 5px;">Markdown document format.</div>
-                        </div>
+                    <div class="card">
+                        <h3 class="color-yellow">Round 2: Structured Request</h3>
+                        <ul>
+                            <li>Architect rewrites with C.L.E.A.R.+ fields.</li>
+                            <li>Builder executes again.</li>
+                            <li>Compare quality and speed delta.</li>
+                        </ul>
                     </div>
                 </div>
-
-                <aside class="notes">
-                    12:40 to 13:40, The CREATE Framework.</br>
-
-                    "Now, let's look under the hood. This prompt isn't just a sentence; it's a system. Notice how we
-                    didn't just ask for a plan, we gave the AI a job, a location, a specific audience, and a format.
-                    This reduces hallucination and gives you exactly what you need for your MVP."
-                </aside>
             </section>
 
-            <!-- SLIDE 5: EXAMPLE - C.R.E.A.T.E IN ACTION -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.2">
-                <h2 class="text-left">C.R.E.A.T.E <span class="color-green">in Action</span></h2>
-                <p class="text-left" style="font-size: 0.9em; opacity: 0.8;">Local Bike Rental in Vaasa</p>
+            <section data-facilitator="SEGMENT 3 SCRIPT (15m)\n- Teach C.L.E.A.R.+ as a delegation protocol.\n- Emphasize Limits and Negative Constraints: what must never happen.\n- Show '+': iteration and verification checkpoints.">
+                <div class="badge-time">00:25-00:40</div>
+                <h2>The <span class="color-yellow">C.L.E.A.R.+</span> Framework</h2>
+                <div class="grid-3">
+                    <div class="card"><strong class="color-cyan">C</strong><br><span class="small">Context & Goal</span></div>
+                    <div class="card"><strong class="color-pink">L</strong><br><span class="small">Limits & Negative Constraints</span></div>
+                    <div class="card"><strong class="color-green">E</strong><br><span class="small">Expected Output</span></div>
+                    <div class="card"><strong class="color-orange">A</strong><br><span class="small">Audience</span></div>
+                    <div class="card"><strong class="color-purple">R</strong><br><span class="small">Role & Process</span></div>
+                    <div class="card"><strong class="color-yellow">+</strong><br><span class="small">Iteration & Verification</span></div>
+                </div>
+            </section>
 
-                <div class="split-layout" style="align-items: stretch; margin-top: 30px;">
-                    <div class="card" style="background: rgba(255, 85, 85, 0.1); border-color: rgba(255, 85, 85, 0.3);">
-                        <h4 style="color: #ff5555;">Before (The User)</h4>
-                        <p style="font-size: 0.8em; font-style: italic; opacity: 0.9;">
-                            "Write a marketing plan for my bike rental business."
-                        </p>
-                        <p style="font-size: 0.7em; margin-top: 20px; color: #ff5555;">Result: Generic, unhelpful SEO
-                            fluff.</p>
+            <section data-facilitator="SEGMENT 4 SCRIPT (20m)\n- Collect weak workplace requests from participants.\n- Refactor each using C.L.E.A.R.+ fields.\n- Run side-by-side output comparison to expose leverage from constraints.">
+                <div class="badge-time">00:40-01:00</div>
+                <h2>Prompt Makeover Studio</h2>
+                <div class="grid-2">
+                    <div class="card" style="border-top: 4px solid #ff79c6;">
+                        <h3 class="color-pink">Before</h3>
+                        <p class="small">"Make a project plan for launching our service."</p>
+                        <ul>
+                            <li>No scope</li>
+                            <li>No output spec</li>
+                            <li>No failure boundaries</li>
+                        </ul>
                     </div>
-                    <div class="card"
-                        style="background: rgba(80, 250, 123, 0.1); border-color: rgba(80, 250, 123, 0.3);">
-                        <h4 style="color: #50fa7b;">After (The Engineer)</h4>
-                        <p style="font-size: 0.75em; font-style: italic; opacity: 0.9; margin: 0; line-height: 1.4;">
-                            <span style="color:#ffb86c">[Role]</span> Act as a Local Marketing Consultant.<br>
-                            <span style="color:#8be9fd">[Context]</span> I am launching an e-bike rental near the Univ.
-                            of Vaasa.<br>
-                            <span style="color:#ff79c6">[Explicit]</span> Create a 1-week launch strategy.<br>
-                            <span style="color:#bd93f9">[Audience]</span> Target international students.<br>
-                            <span style="color:#f1fa8c">[Tone]</span> Trendy and budget-conscious.<br>
-                            <span style="color:#50fa7b">[Evaluation]</span> Format as a daily bulleted list.
-                        </p>
+                    <div class="card" style="border-top: 4px solid #50fa7b;">
+                        <h3 class="color-green">After (C.L.E.A.R.+)</h3>
+                        <p class="small">Context: pre-revenue B2B startup, 4-week runway.<br>
+                            Limits: no paid ads, no legal claims.<br>
+                            Expected: 4-week plan table + risk log + owners.</p>
                     </div>
                 </div>
-                <aside class="notes">
-                    Business Example 1: Local Bike Rental in Vaasa.</br>
-                    Context: A new e-bike rental service near the University.</br>
-                    Role: Local Marketing Consultant.</br>
-                    Goal: Create a 1-week launch strategy.</br>
-
-                    Step-by-Step Exercise for 40 mins:</br>
-                    Pick your business idea, like a sustainable coffee shop, a cleaning app, or a niche SaaS.</br>
-                    Write a prompt using all 6 CREATE letters.</br>
-                    Share the result with the person next to you.</br>
-
-                    Pro-Tip:</br>
-                    "If your prompt is shorter than three sentences, it's probably too vague.</br>
-                    Add more context about who your customer is."
-                </aside>
             </section>
 
-            <!-- SLIDE 5: BREAK & LUNCH -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=2072"
-                data-background-opacity="0.3">
-                <div class="glass-panel text-center">
-                    <h1 class="color-yellow">Break & Lunch</h1>
-                    <h3 style="font-weight: 300;">13:40 &bull; 14:10</h3>
-                    <p style="opacity: 0.8; font-size: 1.2em; margin-top: 30px;">
-                        Networking, ideation, and getting ready for logic.
-                    </p>
+            <section data-facilitator="SEGMENT 5 SCRIPT (20m)\n- Solo build challenge: each participant refines one real prompt through 2-3 turns.\n- Peer audit uses Diagnose-Isolate-Constrain checklist.\n- Intervene only when participants skip verification criteria.">
+                <div class="badge-time">01:00-01:20</div>
+                <h2>Live Iteration Crucible</h2>
+                <div class="card">
+                    <h3 class="color-cyan">3-Step Iteration Loop</h3>
+                    <ol style="font-size: 0.8em; line-height: 1.35;">
+                        <li><strong>Diagnose:</strong> Identify which C.L.E.A.R.+ field failed.</li>
+                        <li><strong>Isolate:</strong> Change one variable only (scope, role, constraints, format).</li>
+                        <li><strong>Constrain:</strong> Add explicit exclusions and a verification gate.</li>
+                    </ol>
+                    <p class="small">Peer audit question: "What assumption is still unconstrained?"</p>
                 </div>
-                <aside class="notes">
-                    13:40 to 14:10, Break and Lunch.</br>
-
-                    "Take a break and grab some food.</br>
-                    Talk to each other about your awesome ideas.</br>
-                    We will start the hard logic part in exactly 30 minutes."
-                </aside>
             </section>
 
-            <!-- SLIDE 6: LOGIC & CHAIN-OF-THOUGHT -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1620802051772-29fc12d1264c?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.3">
-                <div class="glass-panel text-left">
-                    <h2 class="color-cyan">Logic & Chain-of-Thought</h2>
-                    <p style="font-size: 1.1em; opacity: 0.9;">
-                        "Think <span class="color-yellow">step-by-step</span>."
-                    </p>
-                    <ul style="margin-top: 30px;">
-                        <li>AI models don't "think", they probabilistically predict.</li>
-                        <li>Complex logic requested instantly often leads to hallucination.</li>
-                        <li>Forcing the model to show its math reduces error rates significantly.</li>
+            <section data-facilitator="SEGMENT 6 SCRIPT (10m)\n- Run post-test: participants rewrite one prompt from segment 1 in 90 seconds.\n- Ask each participant to commit one workplace use-case and one verification rule.\n- Close with access pointers: cheatsheet + script + notes modal.">
+                <div class="badge-time">01:20-01:30</div>
+                <h2>Synthesis, Action Plan & Post-Test</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 class="color-orange">Post-Test</h3>
+                        <ul>
+                            <li>Rewrite one flawed request with C.L.E.A.R.+</li>
+                            <li>Add two negative constraints</li>
+                            <li>Define pass/fail output criteria</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="color-yellow">Action Plan</h3>
+                        <ul>
+                            <li>Use C.L.E.A.R.+ in one real task this week</li>
+                            <li>Run Diagnose-Isolate-Constrain loop</li>
+                            <li>Share outcomes with your team</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section data-facilitator="CLOSEOUT SCRIPT\n- Remind participants to open speaker notes panel and cheatsheet for field use.\n- Invite the group to adapt this deck for internal team onboarding.">
+                <h2>Delivery Assets</h2>
+                <div class="card text-left">
+                    <ul>
+                        <li>Slides and speaker notes: this deck (press <strong>S</strong> for speaker view).</li>
+                        <li>Quick reference card: <strong>cheatsheet.html</strong>.</li>
+                        <li>Facilitator script: <strong>script.md</strong>.</li>
+                        <li>Token-optimized LLM context: <strong>llms.txt</strong> and <strong>docs/</strong>.</li>
                     </ul>
                 </div>
-                <aside class="notes">
-                    14:10 to 15:30, Logic and The Skeptical VC.</br>
-                    Goal: Stress-test the business model using Chain-of-Thought.</br>
-
-                    "Welcome back. Now we get serious. AI can hallucinate. It makes things up. To fix this, we use
-                    Chain-of-Thought. We tell it: 'Think step-by-step.' This forces the model to show its math before
-                    giving an answer."
-                </aside>
             </section>
-
-            <!-- SLIDE 7: MARKET SIZING EXAMPLE -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.2">
-                <h2 class="text-left color-yellow">Market Sizing Example</h2>
-                <div class="card">
-                    <h4 style="margin-top: 0;">SaaS for Finnish SMEs</h4>
-                    <div class="prompt-box">
-                        "Estimate the market size for an automated bookkeeping tool for small businesses in
-                        Finland.<br><br>
-                        <strong class="color-pink">Think step-by-step.</strong><br>
-                        1. First, find the number of registered SMEs in Finland.<br>
-                        2. Second, estimate how many use manual systems.<br>
-                        3. Third, calculate a realistic price point."
-                    </div>
-                </div>
-                <div style="margin-top: 20px; text-align: left; font-size: 0.8em; opacity: 0.8;">
-                    <em>Exercise: Use the CoT prompt to calculate your own market size.</em>
-                </div>
-                <aside class="notes">
-                    Business Example 2: SaaS for Finnish SMEs.</br>
-                    Prompt: "Estimate the market size for an automated bookkeeping tool for small businesses in Finland.
-                    Think step-by-step. First, find the number of registered SMEs. Second, estimate how many use manual
-                    systems. Third, calculate a realistic price point."
-
-                    "Here is an exercise for everyone. Use the Chain-of-Thought prompt to calculate your market size."
-                </aside>
-            </section>
-
-            <!-- SLIDE 7.1: THE FULL PROMPT (CODE SCROLL) -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.1">
-                <style>
-                    .scroll-code {
-                        max-height: 480px !important;
-                        overflow-y: auto !important;
-                        font-size: 1.5em !important;
-                        line-height: 1.6 !important;
-                        white-space: pre-wrap !important;
-                        word-break: break-word !important;
-                        text-align: left;
-                        padding: 24px !important;
-                        border: 1px solid rgba(80, 250, 123, 0.5) !important;
-                        border-radius: 12px;
-                        background: rgba(40, 42, 54, 0.95);
-                        backdrop-filter: blur(10px);
-                        color: #f8f8f2 !important;
-                    }
-                </style>
-                <div class="pill">The Master Prompt</div>
-                <h2 class="text-left color-cyan" style="margin-bottom: 20px;">The Engineered Prompt</h2>
-
-                <div class="code-container">
-                    <pre><code class="language-markdown scroll-code" data-trim>
-You are a seasoned Product Manager and Software Architect with 15+ years of experience in developing minimum viable products (MVPs) for service-based mobile applications, particularly in the local service economy sectors like cleaning and maintenance apps. You have successfully launched multiple student-led startup apps in Nordic markets, including Finland, and are adept at creating actionable Product Requirements Documents (PRDs) that balance user needs, technical feasibility, and rapid iteration for developer teams.
-
-**Contextual Constraints:**
-- Target audience: A small developer team (2-4 people) building this app in Vaasa, Finland, using modern cross-platform tools like Flutter or React Native.
-- Focus exclusively on MVP scope: Prioritize core features that enable a basic launch with student cleaners and local customers in Vaasa. Exclude nice-to-haves like advanced analytics, loyalty programs, payments, or scalability features.
-- App concept: A student-led cleaning service app connecting university students in Vaasa (e.g., from Vaasa University of Applied Sciences or local campuses) as cleaners with local residents/businesses needing affordable, on-demand cleaning services (e.g., apartments, offices, post-event cleanups).
-- Tone: Grounded, professional, pragmatic—use clear, concise language like a senior dev would appreciate. Avoid hype, fluff, or unsubstantiated assumptions.
-- Format: Output the entire response as a complete, well-structured Markdown document titled "# Product Requirements Document (PRD): Vaasa Student Cleaning Service MVP". Use Markdown headers (##, ###), bullet points, numbered lists, and simple tables where appropriate (e.g., for feature prioritization or user flows). Ensure it's scannable and developer-friendly—no more than 2000 words.
-
-**Step-by-Step Instructions:**
-1. **Introduction Section**: Write a brief overview (## Introduction) including app name suggestion ("VaasaClean Students" or similar), problem statement (high demand for affordable cleaning in Vaasa student areas, untapped student workforce), target users (customers: residents/businesses; providers: students), MVP goals (validate demand, onboard 50 students/100 customers in first month), and success metrics (e.g., 20 bookings/week).
-2. **User Personas Section**: Define 2-3 concise personas (## User Personas) – e.g., "Busy Vaasa Resident" (customer), "Broke Student Cleaner" (provider), "App Admin" (student founder). Include demographics, pain points, goals relevant to Vaasa context (e.g., cold weather messes, student schedules).
-3. **Key Assumptions & Constraints**: List MVP assumptions (## Assumptions and Constraints), e.g., manual payments initially (cash/transfer), Vaasa-only geolocation, Finnish/English bilingual UI.
-4. **Core Features Section**: Detail only 5-7 MVP features (## MVP Features), prioritized by MoSCoW method (Must-Have, Should-Have). For each feature:
-   - Feature name and description.
-   - User stories (As a [user], I want [feature] so that [benefit]).
-   - High-level user flow (numbered steps).
-   - Technical notes (e.g., "Use Google Maps API for Vaasa-only radius").
-   - Wireframe sketch in simple ASCII or Markdown table.
-   Examples: User auth/signup, Booking creation (select service type: basic clean, deep clean; time slot), Cleaner matching/availability, Basic chat, Ratings, Admin dashboard.
-5. **Non-Functional Requirements**: Cover basics (## Non-Functional Requirements) – performance (load in <3s), security (basic auth/JWT), accessibility (Finnish/English), platforms (iOS/Android web-first?).
-6. **Tech Stack Recommendations**: Suggest lightweight stack (## Recommended Tech Stack) suitable for students/devs, e.g., Firebase backend, Flutter frontend.
-7. **Risks & Next Steps**: Outline top risks (## Risks and Mitigation) and post-MVP roadmap (## Post-MVP Roadmap).
-
-**Output Verification:**
-Before finalizing, self-review against these criteria and confirm in a short footer section (## Self-Review Confirmation):
-- Is the scope strictly MVP (no feature creep)?
-- Does every feature have a clear Vaasa/student context tie-in?
-- Is the document fully Markdown-formatted, professional, and under 2000 words?
-- Are user flows logical and developer-actionable?
-- Does it empower a dev team to start coding immediately?
-If any criterion fails, revise inline before outputting. Output ONLY the Markdown PRD—no additional text, explanations, or chit-chat.
-                    </code></pre>
-                </div>
-                <aside class="notes">
-                    12:40 to 13:40, The CREATE Framework.</br>
-
-                    "This is the actual prompt that comes out of the Anatomy we just looked at. Look at the length and
-                    detail! This is what you hand to an AI to get a professional, ready-to-code Product Requirements
-                    Document. It's almost an entire page of text. If your prompts are only 2 sentences long, start
-                    making them look exactly like this."
-                </aside>
-            </section>
-
-            <!-- SLIDE 8: SKEPTICAL VC PERSONA -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.3">
-                <div class="pill">15:00 Segment</div>
-                <h2 class="text-left color-pink" style="margin-bottom: 10px;">The Skeptical VC Persona</h2>
-                <p class="text-left" style="font-size: 0.9em; margin-bottom: 20px;">
-                    Stress-testing your business model before a real pitch.
-                </p>
-
-                <div class="code-container" style="margin-top: 0;">
-                    <pre><code class="language-markdown" data-trim>
-Act as a Senior Partner at a Tier-1 VC firm...
-Find 3 fatal flaws...
-Ask 3 nightmare questions.
-                    </code></pre>
-                </div>
-
-                <aside class="notes">
-                    At 15:00, we dive into The Skeptical VC.</br>
-
-                    "We are also going to use the 'Skeptical VC' persona. This is a prompt that tells the AI to be your
-                    harshest critic. It is way better to fail right here than in front of a real investor."</br>
-                </aside>
-            </section>
-
-            <!-- SLIDE 8.1: COMPLETE VC PROMPT -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.15">
-                <div class="pill">The VC Deep-Dive</div>
-                <h2 class="text-left color-pink" style="margin-bottom: 20px;">The Complete VC Prompt</h2>
-                <div class="code-container" style="margin-top: 0;">
-                    <pre><code class="language-markdown scroll-code" style="border-color: rgba(255, 121, 198, 0.5) !important;" data-trim>
-You are a Senior Partner at Sequoia Capital, a Tier-1 venture capital firm with over 25 years of experience evaluating thousands of startups across consumer, marketplace, and service sectors. You have led investments in category-defining companies like Uber, Airbnb, and DoorDash, and are renowned for your ruthless ability to identify fatal flaws in business models before they manifest. Your style is direct, incisive, and developer-founder-friendly—cutting through hype to expose structural weaknesses with data-backed reasoning.
-
-**Contextual Constraints:**
-- Target business: The "Vaasa Student Cleaning Service" app MVP from the prior PRD (student cleaners in Vaasa, Finland connecting with local customers for on-demand cleaning services).
-- Output format: Pure Markdown document titled "# VC Due Diligence: Fatal Flaws & Nightmare Questions - Vaasa Student Cleaning Service". Use crisp headers (##, ###), numbered lists for flaws/questions, and bolded **key risks**. Keep total length under 800 words for pitch-deck digestibility.
-- Tone: Grounded, professional, no-nonsense—like a boardroom takedown. Use metrics, Vaasa-specific realities (e.g., small population ~70k, harsh winters, student turnover), and marketplace benchmarks (e.g., TaskRabbit failure rates).
-- Audience: Student founders pitching for seed funding—make it constructive yet brutal to force model hardening.
-
-**Step-by-Step Instructions:**
-1. **Executive Summary (## Executive Summary)**: 2-3 sentences recapping the business model (2-sided marketplace: student supply vs. customer demand in Vaasa) and your overall thesis (e.g., "High-localization limits scalability; viability hinges on unproven retention").
-2. **Fatal Flaw #1 (## Fatal Flaw 1: [Descriptive Title])**: Identify the first structural death-knell (e.g., extreme supply-side churn from graduating students). Explain why it's fatal (data/cases), Vaasa impact, and quantitative risk (e.g., "90% annual turnover erodes network effects").
-3. **Fatal Flaw #2 (## Fatal Flaw 2: [Descriptive Title])**: Second killer issue (e.g., demand ceiling in small market with seasonal cleaning needs). Back with local stats, comps.
-4. **Fatal Flaw #3 (## Fatal Flaw 3: [Descriptive Title])**: Third core weakness (e.g., manual payments enabling fraud/black market bypass). Tie to regulatory/execution risks.
-5. **Nightmare Questions (## Nightmare Questions for Founders)**: Pose exactly 3 brutal, unanswerable-without-data questions (numbered 1-3). Each with 1-2 sentences explaining why it matters (e.g., "If student acquisition cost > €10, how do you hit breakeven with Vaasa's 70k population?").
-6. **Path to Survival (## Survival Recommendations)**: 3-5 bullet-point fixes, prioritized by impact.
-
-**Output Verification:**
-Before finalizing, self-audit in a footer (## VC Audit Checklist) confirming:
-- Each flaw is truly "fatal" (model-killing at scale, not fixable with tweaks)?
-- Questions are nightmare-level (require deep metrics/models, expose assumptions)?
-- Analysis is Vaasa-contextualized, benchmarked (e.g., vs. Helpling/Handy), under 800 words?
-- Tone is Sequoia-sharp: 70% critique, 30% constructive?
-- Fully Markdown-formatted, no fluff or generic advice?
-If failing any, revise inline. Output ONLY the Markdown doc—no intros, explanations, or additional text.
-                    </code></pre>
-                </div>
-                <aside class="notes">
-                    Business Example 3: The Complete VC Critique Prompt.</br>
-
-                    Step-by-Step Exercise for 30 mins:</br>
-                    Use the CoT prompt to calculate your market size.</br>
-                    Run the VC Critique prompt.</br>
-                    Write down your answers to the nightmare questions the AI asks you.</br>
-                </aside>
-            </section>
-
-            <!-- SLIDE 9: QUICK BREAK -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2072"
-                data-background-opacity="0.25">
-                <div class="glass-panel text-center">
-                    <h1 class="color-blue" style="color: #8be9fd;">Break</h1>
-                    <h3 style="font-weight: 300;">15:30 &bull; 15:45</h3>
-                </div>
-                <aside class="notes">
-                    15:30 to 15:45, Break.</br>
-
-                    "Quick stretch. Make sure to hydrate. Next, we build the actual product."
-                </aside>
-            </section>
-
-            <!-- SLIDE 10: RAPID PROTOTYPING LAB -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2072"
-                data-background-opacity="0.2">
-                <h2 class="text-left color-green">Rapid Prototyping Lab</h2>
-                <div class="split-layout" style="margin-bottom: 20px;">
-                    <div>
-                        <h4 class="color-yellow" style="margin-bottom: 5px;">1. The Technical PRD</h4>
-                        <p style="font-size: 0.7em; opacity: 0.8;">Generate a Product Requirements Document to map out
-                            features.</p>
-                    </div>
-                    <div>
-                        <h4 class="color-cyan" style="margin-bottom: 5px;">2. The Landing Page</h4>
-                        <p style="font-size: 0.7em; opacity: 0.8;">Generate a functional HTML website instantly.</p>
-                    </div>
-                </div>
-
-                <div class="code-container">
-                    <pre><code class="language-markdown" data-trim>
-Act as a web developer. 
-Create a single-file HTML landing page for my business. 
-Use Tailwind CSS for a modern, clean look. 
-Include a hero section with a call to action button. 
-Make it look like a high-end Nordic startup.
-                    </code></pre>
-                </div>
-                <aside class="notes">
-                    15:45 to 16:30, MVP Building.</br>
-                    Goal: Generate a Technical PRD and a Landing Page.</br>
-
-                    "The final part is building. We want to leave here with something real today. We are going to ask
-                    the AI to write a Product Requirements Document, or PRD. This is basically a map for developers.
-                    Then, we will ask it to code a simple landing page in HTML."</br>
-
-                    Landing Page Prompt Exercise for 40 mins:</br>
-                    Ask the AI to write a PRD for your Minimum Viable Product.</br>
-                    Generate the HTML code for your landing page.</br>
-                    Open the code in your browser and see how it looks.</br>
-                </aside>
-            </section>
-
-            <!-- SLIDE 10.1: THE NORDIC LANDING PAGE PROMPT -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2072"
-                data-background-opacity="0.1">
-                <div class="pill">The Master Prompt</div>
-                <h2 class="text-left color-cyan" style="margin-bottom: 20px;">The Engineered Landing Page</h2>
-
-                <div class="code-container">
-                    <pre><code class="language-markdown scroll-code" style="border-color: #8be9fd !important;" data-trim>
-You are a Senior Frontend Developer at a top Nordic design agency (like Vaadin or Futurice), specializing in high-conversion landing pages for Finnish startups. With 10+ years building pixel-perfect, Tailwind-powered sites for SaaS and service apps, you've crafted pages for companies like Wolt and Relex—minimalist, trustworthy, and optimized for cold Nordic markets like Vaasa.
-
-**Contextual Constraints:**
-- Business: "Vaasa Student Cleaning Service" app—a student-led on-demand cleaning marketplace in Vaasa, Finland (students as cleaners, locals as customers; MVP-focused).
-- Tech: Single-file HTML only. Include Tailwind CSS via CDN (latest v3.x). No external JS frameworks; vanilla JS for subtle interactions (e.g., button hover, smooth scroll). Fully responsive (mobile-first for Samsung S24 Ultra users).
-- Design: High-end Nordic startup aesthetic—clean whites/grays/blues (e.g., #F8FAFC bg, #0F172A text, #3B82F6 accents), generous whitespace, sans-serif fonts (Inter via Google Fonts), subtle shadows/gradients. Hero evokes trust/reliability (e.g., sparkling clean imagery placeholder).
-- Features: Hero section with compelling headline ("Affordable Cleaning by Trusted Vaasa Students"), subheadline, prominent CTA button ("Book Now"), trust signals (e.g., "50+ Students Ready", "Vaasa Only"), simple 3-feature grid, footer with contacts.
-- Output: ONLY the complete, copy-paste-ready HTML code in a single &lt;pre&gt;&lt;code&gt; block. No explanations, previews, or extra text—pure functional code.
-
-**Step-by-Step Instructions:**
-1. **DOCTYPE & Head Setup**: Start with &lt;!DOCTYPE html&gt;, &lt;html lang="fi"&gt; (Finnish primary). &lt;head&gt; with &lt;title&gt;VaasaClean Students | Student Cleaning Service&lt;/title&gt;, Tailwind CDN &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;, Google Fonts &lt;link&gt; for Inter, responsive viewport meta.
-2. **Hero Section**: &lt;section class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4 py-20"&gt; with centered content: H1 headline (text-5xl md:text-7xl font-bold text-gray-900), subheadline (text-xl md:text-2xl text-gray-600), CTA button (bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg transform hover:-translate-y-1 transition-all).
-3. **Features Section**: Below hero, 3-column grid (md:grid-cols-3) with cards for key benefits (e.g., "Local Students", "Flexible Slots", "Affordable Rates")—each with icon emoji, title, short desc.
-4. **Trust/CTA Section**: Stats row (e.g., "70k+ Vaasa Reach", "5⭐ Avg Rating"), secondary CTA ("Get Quote").
-5. **Footer**: Simple bottom bar with logo/text, email/phone (use placeholders: hello@vaasaclean.fi, +358 40 1234567), social links (LinkedIn, Instagram icons via Heroicons SVG or emoji).
-6. **Polish**: Add smooth-scroll &lt;a href="#features"&gt; links, mobile hamburger if needed (but keep minimal), dark mode toggle? No—stick to light Nordic vibe. Ensure <100KB file size.
-
-**Output Verification:**
-Self-check before outputting:
-- Single-file HTML? Tailwind via CDN only? Fully responsive (test mentally: mobile hero stacks, grid adapts)?
-- Nordic high-end look: Clean, spacious, blue-toned, trustworthy (no clutter)?
-- Hero + CTA prominent? Business-relevant (Vaasa students cleaning)?
-- Code is production-ready: Semantic HTML5, ARIA labels where needed, fast-loading, no console errors?
-- EXACTLY &lt;pre&gt;&lt;code class="language-html"&gt;```html [full code] ```&lt;/code&gt;&lt;/pre&gt;—nothing else?
-If any fail, fix inline. Output ONLY the code block.
-                    </code></pre>
-                </div>
-                <aside class="notes">
-                    Landing Page Prompt Exercise for 40 mins.</br>
-
-                    "This is the actual prompt for generating a complete HTML landing page. Look how precise the
-                    constraints are! Tell the AI what colors, fonts, layout, and copy it should use. Don't leave it up
-                    to chance."
-                </aside>
-            </section>
-
-            <!-- SLIDE 11: CHEAT SHEET -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.15">
-                <style>
-                    .cheat-grid {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr 1fr;
-                        gap: 20px;
-                        margin-top: 30px;
-                        align-items: stretch;
-                    }
-
-                    .cheat-card {
-                        background: rgba(40, 42, 54, 0.6);
-                        backdrop-filter: blur(12px);
-                        border: 1px solid rgba(80, 250, 123, 0.4);
-                        padding: 25px;
-                        border-radius: 16px;
-                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-                        text-align: left;
-                    }
-
-                    .cheat-card h4 {
-                        margin-top: 0;
-                        font-size: 1.1em;
-                        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-                        padding-bottom: 10px;
-                        margin-bottom: 15px;
-                    }
-
-                    .cheat-card ul {
-                        list-style-type: none !important;
-                        margin: 0 !important;
-                        padding: 0 !important;
-                    }
-
-                    .cheat-card li {
-                        font-size: 0.75em !important;
-                        margin-bottom: 12px !important;
-                        line-height: 1.3 !important;
-                        margin-left: 0 !important;
-                    }
-
-                    .cheat-icon {
-                        margin-right: 8px;
-                        font-size: 1.2em;
-                        vertical-align: middle;
-                    }
-                </style>
-                <div class="glass-panel" style="padding: 30px 40px; background: rgba(30,30,40,0.85);">
-                    <h2 class="color-yellow" style="margin-bottom: 10px;">📸 The Vault: Cheat Sheet</h2>
-                    <p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 0;">Your tactical anchor. Photograph this
-                        slide.</p>
-
-                    <div class="cheat-grid">
-                        <!-- Block 1: C.R.E.A.T.E. -->
-                        <div class="cheat-card" style="border-color: rgba(139, 233, 253, 0.3);">
-                            <h4 class="color-cyan">🧩 C.R.E.A.T.E.</h4>
-                            <ul>
-                                <li><span class="cheat-icon">🎯</span> <strong>Context:</strong> The background</li>
-                                <li><span class="cheat-icon">🎭</span> <strong>Role:</strong> Who the AI is</li>
-                                <li><span class="cheat-icon">📋</span> <strong>Explicit:</strong> Exact instructions
-                                </li>
-                                <li><span class="cheat-icon">👥</span> <strong>Audience:</strong> Who it's for</li>
-                                <li><span class="cheat-icon">🎨</span> <strong>Tone:</strong> Voice & style</li>
-                                <li><span class="cheat-icon">✅</span> <strong>Evaluation:</strong> Format & success</li>
-                            </ul>
-                        </div>
-
-                        <!-- Block 2: Magic Triggers -->
-                        <div class="cheat-card" style="border-color: rgba(80, 250, 123, 0.3);">
-                            <h4 class="color-green">⚡ Magic Triggers</h4>
-                            <ul>
-                                <li style="display:block;"><span class="cheat-icon">🧠</span> <strong>"Think
-                                        step-by-step"</strong><br><span
-                                        style="opacity:0.7; font-size:0.85em; margin-left: 32px; display:block;">Forces
-                                        logical consistency.</span></li>
-                                <li style="display:block;"><span class="cheat-icon">🔍</span> <strong>"Reason
-                                        first"</strong><br><span
-                                        style="opacity:0.7; font-size:0.85em; margin-left: 32px; display:block;">Eliminates
-                                        hallucination jumps.</span></li>
-                                <li style="display:block;"><span class="cheat-icon">📚</span> <strong>"Cite
-                                        sources"</strong><br><span
-                                        style="opacity:0.7; font-size:0.85em; margin-left: 32px; display:block;">Roots
-                                        answers in reality.</span></li>
-                            </ul>
-                        </div>
-
-                        <!-- Block 3: Personas -->
-                        <div class="cheat-card" style="border-color: rgba(255, 121, 198, 0.3);">
-                            <h4 class="color-pink">🎭 Core Personas</h4>
-                            <ul>
-                                <li style="display:block;"><span class="cheat-icon">👔</span> <strong>The Skeptical
-                                        VC</strong><br><span
-                                        style="opacity:0.7; font-size:0.85em; margin-left: 32px; display:block;">"Find 3
-                                        fatal flaws in my logic."</span></li>
-                                <li style="display:block;"><span class="cheat-icon">💻</span> <strong>Technical
-                                        Founder</strong><br><span
-                                        style="opacity:0.7; font-size:0.85em; margin-left: 32px; display:block;">"Explain
-                                        scalability to a dev."</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <aside class="notes">
-                    This is your tactical anchor. Take a photo of this slide. These are the building blocks for every
-                    professional prompt you will write today.
-                </aside>
-            </section>
-
-            <!-- SLIDE 12: CONCLUSION & DEMO -->
-            <section data-background-size="cover"
-                data-background-image="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=2070"
-                data-background-opacity="0.3">
-                <div class="bg-subtle-glow"
-                    style="background: radial-gradient(circle, rgba(255, 121, 198, 0.15) 0%, rgba(0, 0, 0, 0) 70%);">
-                </div>
-                <div class="text-center" style="margin-top: 50px;">
-                    <h1 class="color-pink" style="margin-bottom: 10px;">Showcase & Celebrate</h1>
-                    <h3 style="font-weight: 300;">You are no longer users. You are engineers.</h3>
-
-                    <div style="margin-top: 50px;">
-                        <p class="color-cyan"
-                            style="font-size: 1.2em; border-bottom: 2px solid #50fa7b; display: inline-block; padding-bottom: 10px;">
-                            Keep Building in Vaasa.
-                        </p>
-                    </div>
-                </div>
-                <aside class="notes">
-                    16:30 to 16:45, Showcase, Snacks and Gifts.</br>
-                    Goal: Celebrate the wins.</br>
-
-                    "We are at the finish line now. Who wants to show their landing page? Who got a really tough
-                    question from the VC? Let's check out some results. First of all, huge thanks to Negar for making
-                    this happen. I have some small gifts for the best prompts and most improved ideas today. Grab a
-                    snack, and thank you for being here. You aren't just users anymore, you're engineers. Let's keep
-                    building in Vaasa."
-                </aside>
-            </section>
-
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.js"></script>
+    <button id="notes-toggle" type="button">Facilitator Notes</button>
+    <div id="notes-panel" aria-live="polite">
+        <h4>Current Slide Cue</h4>
+        <div id="notes-content">Open a slide to view facilitator notes.</div>
+        <div class="notes-tip">Tip: press S for Reveal speaker mode.</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
     <script>
         Reveal.initialize({
             hash: true,
             slideNumber: 'c/t',
             transition: 'slide',
-            backgroundTransition: 'fade',
             plugins: [RevealNotes, RevealHighlight]
         });
+
+        const notesPanel = document.getElementById('notes-panel');
+        const notesContent = document.getElementById('notes-content');
+        const notesToggle = document.getElementById('notes-toggle');
+
+        function updateFacilitatorNotes() {
+            const current = Reveal.getCurrentSlide();
+            const cue = current && current.getAttribute('data-facilitator');
+            notesContent.textContent = cue || 'No custom facilitator cue on this slide. Use speaker notes (S) if needed.';
+        }
+
+        notesToggle.addEventListener('click', () => {
+            notesPanel.style.display = notesPanel.style.display === 'block' ? 'none' : 'block';
+            if (notesPanel.style.display === 'block') {
+                updateFacilitatorNotes();
+            }
+        });
+
+        Reveal.on('slidechanged', updateFacilitatorNotes);
+        Reveal.on('ready', updateFacilitatorNotes);
     </script>
 </body>
 

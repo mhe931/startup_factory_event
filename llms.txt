@@ -1,0 +1,44 @@
+WORKSHOP=The Architecture of Intent
+DURATION_MIN=90
+FRAMEWORK=C.L.E.A.R.+
+
+AGENDA
+00:00-00:10 Cost of Ambiguity
+00:10-00:25 Human Delegation Lab
+00:25-00:40 C.L.E.A.R.+ mental model
+00:40-01:00 Prompt Makeover Studio
+01:00-01:20 Live Iteration Crucible
+01:20-01:30 Synthesis + Post-Test
+
+C.L.E.A.R.+
+C=Context and Goal
+L=Limits and Negative Constraints
+E=Expected Output
+A=Audience
+R=Role and Process
++=Iteration and Verification
+
+ITERATION_LOOP
+1 Diagnose failed field
+2 Isolate one variable
+3 Constrain with exclusions and verification checks
+
+FACILITATOR_RULES
+- Keep segment boundaries strict.
+- Ask "what assumption is still unconstrained?" every 10-15 min.
+- Require pass/fail criteria before accepting final outputs.
+
+FILES
+index.html=slides+speaker cues+notes toggle
+cheatsheet.html=participant desk card
+script.md=timestamped facilitation script
+docs/workshop-summary.md=concise operations brief
+docs/prompting-framework.md=framework and examples
+.github/copilot-instructions.md=agent conventions for this repo
+
+OUTPUT_QUALITY_GATES
+- timing must total 90 minutes
+- framework naming must be C.L.E.A.R.+
+- negative constraints included in examples
+- before/after prompt rewrite included
+- iteration loop explicit

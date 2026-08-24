@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C.L.E.A.R.+ Desk Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --c-bg: #161821;
+            --c-surface: rgba(40, 42, 54, 0.9);
+            --c-line: rgba(255, 255, 255, 0.12);
+            --c-text: #f8f8f2;
+            --c-muted: #bdc2d0;
+            --c-cyan: #8be9fd;
+            --c-green: #50fa7b;
+            --c-pink: #ff79c6;
+            --c-purple: #bd93f9;
+            --c-yellow: #f1fa8c;
+            --c-orange: #ffb86c;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Outfit', sans-serif;
+            color: var(--c-text);
+            background:
+                radial-gradient(circle at 10% 10%, rgba(139, 233, 253, 0.12), transparent 30%),
+                radial-gradient(circle at 85% 20%, rgba(255, 121, 198, 0.12), transparent 26%),
+                var(--c-bg);
+            padding: 20px;
+        }
+
+        .wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 1px solid var(--c-line);
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(18, 20, 28, 0.9);
+        }
+
+        header {
+            padding: 24px;
+            border-bottom: 1px solid var(--c-line);
+            background: linear-gradient(120deg, rgba(139, 233, 253, 0.08), rgba(255, 121, 198, 0.08));
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            letter-spacing: -0.02em;
+        }
+
+        .sub {
+            margin-top: 8px;
+            color: var(--c-muted);
+            font-size: 0.98rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            padding: 18px;
+        }
+
+        .card {
+            background: var(--c-surface);
+            border: 1px solid var(--c-line);
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            margin: 8px 0 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 7px 0;
+            line-height: 1.35;
+            color: var(--c-muted);
+        }
+
+        strong {
+            color: var(--c-text);
+        }
+
+        .pill {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 8px;
+            letter-spacing: 0.4px;
+        }
+
+        .cyan {
+            color: #04262f;
+            background: var(--c-cyan);
+        }
+
+        .pink {
+            color: #320c25;
+            background: var(--c-pink);
+        }
+
+        .green {
+            color: #09341a;
+            background: var(--c-green);
+        }
+
+        .yellow {
+            color: #2f3106;
+            background: var(--c-yellow);
+        }
+
+        .purple {
+            color: #1f1238;
+            background: var(--c-purple);
+        }
+
+        .orange {
+            color: #3f2404;
+            background: var(--c-orange);
+        }
+
+        .mono {
+            font-family: Consolas, Menlo, Monaco, monospace;
+            font-size: 0.84rem;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--c-line);
+            color: #d9deeb;
+            white-space: pre-wrap;
+        }
+
+        .footer {
+            padding: 14px 18px 18px;
+            border-top: 1px solid var(--c-line);
+            color: #aeb5c7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 840px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+                padding: 0;
+            }
+
+            .wrap {
+                border: 0;
+                border-radius: 0;
+                background: #fff;
+            }
+
+            .card,
+            header,
+            .footer,
+            .mono {
+                background: #fff;
+                color: #111;
+                border-color: #ddd;
+            }
+
+            li,
+            .sub {
+                color: #333;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <h1>C.L.E.A.R.+ Prompting Desk Card</h1>
+            <div class="sub">Professional Prompting & Human Communication Workshop • 90-Minute Edition</div>
+        </header>
+
+        <main class="grid">
+            <section class="card">
+                <h2>C.L.E.A.R.+ Breakdown</h2>
+                <ul>
+                    <li><strong>C | Context & Goal:</strong> objective, business setting, completion definition.</li>
+                    <li><strong>L | Limits & Negative Constraints:</strong> boundaries, exclusions, non-negotiables.</li>
+                    <li><strong>E | Expected Output:</strong> required format, sections, length, fields.</li>
+                    <li><strong>A | Audience:</strong> who will consume output, domain literacy, tone target.</li>
+                    <li><strong>R | Role & Process:</strong> model persona and step-by-step method.</li>
+                    <li><strong>+ | Iteration/Verification:</strong> test criteria and revision loop.</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>3-Step Iteration Loop</h2>
+                <div class="pill cyan">Diagnose</div>
+                <ul>
+                    <li>Identify failing field in C.L.E.A.R.+.</li>
+                    <li>Pinpoint assumption causing drift.</li>
+                </ul>
+                <div class="pill orange">Isolate</div>
+                <ul>
+                    <li>Change one variable only per retry.</li>
+                    <li>Keep the rest of the prompt fixed.</li>
+                </ul>
+                <div class="pill green">Constrain</div>
+                <ul>
+                    <li>Add explicit do-not-do clauses.</li>
+                    <li>Define pass/fail checks before rerun.</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Negative Constraint Patterns</h2>
+                <ul>
+                    <li>No fabricated data, references, citations, or legal claims.</li>
+                    <li>No scope expansion beyond provided product phase.</li>
+                    <li>No implementation details that require unstated dependencies.</li>
+                    <li>No confidential or personal data in examples.</li>
+                    <li>No markdown tables unless explicitly requested.</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Pre-Flight Checklist</h2>
+                <ul>
+                    <li>Goal measurable in one sentence.</li>
+                    <li>Constraints include at least two exclusions.</li>
+                    <li>Output format is concrete and reviewable.</li>
+                    <li>Audience and reading level specified.</li>
+                    <li>Verification rubric included.</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Reusable Prompt Skeleton</h2>
+                <div class="mono">Role: [who the model is and how it should think]
+Context & Goal: [problem + desired outcome]
+Limits: [rules + explicit exclusions]
+Expected Output: [format + sections + length]
+Audience: [target reader and tone]
+Verification: [checks, edge cases, confidence notes]</div>
+            </section>
+
+            <section class="card">
+                <h2>Facilitator Cue Card</h2>
+                <div class="pill pink">Session Cadence</div>
+                <ul>
+                    <li>Every 10-15 minutes: ask "What assumption is still unconstrained?"</li>
+                    <li>Before every rerun: document one change only.</li>
+                    <li>At close: each participant commits one workplace application.</li>
+                </ul>
+                <div class="pill purple">Timing Guardrail</div>
+                <ul>
+                    <li>00:40 mark: force transition to makeover studio.</li>
+                    <li>01:20 mark: start post-test and action planning.</li>
+                </ul>
+            </section>
+        </main>
+
+        <div class="footer">
+            Tip: print this page and keep it visible during live exercises.
+        </div>
+    </div>
+</body>
+
+</html>
