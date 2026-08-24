@@ -79,7 +79,6 @@
         }
 
         h2 { margin: 0 0 10px; font-size: 1.05rem; }
-
         ul { margin: 8px 0 0; padding-left: 20px; }
 
         li {
@@ -105,18 +104,6 @@
         .green { color: #09341a; background: var(--c-green); }
         .yellow { color: #2f3106; background: var(--c-yellow); }
         .purple { color: #1f1238; background: var(--c-purple); }
-        .orange { color: #3f2404; background: var(--c-orange); }
-
-        .mono {
-            font-family: Consolas, Menlo, Monaco, monospace;
-            font-size: 0.84rem;
-            padding: 12px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.25);
-            border: 1px solid var(--c-line);
-            color: #d9deeb;
-            white-space: pre-wrap;
-        }
 
         .footer {
             padding: 14px 18px 18px;
@@ -128,13 +115,6 @@
         @media (max-width: 840px) {
             .grid { grid-template-columns: 1fr; }
         }
-
-        @media print {
-            body { background: #fff; color: #111; padding: 0; }
-            .wrap { border: 0; border-radius: 0; background: #fff; }
-            .card, header, .footer, .mono { background: #fff; color: #111; border-color: #ddd; }
-            li, .sub { color: #333; }
-        }
     </style>
 </head>
 
@@ -142,93 +122,87 @@
     <div class="wrap">
         <header>
             <h1>C.L.E.A.R.+ Prompting Desk Card</h1>
-            <div class="sub">Professional Prompting & Human Communication Workshop • 120-Minute Edition</div>
+            <div class="sub">120-Minute Edition • Facilitation Rituals Included</div>
         </header>
 
         <main class="grid">
             <section class="card">
-                <h2>C.L.E.A.R.+ Breakdown</h2>
+                <h2>C.L.E.A.R.+ Core</h2>
                 <ul>
-                    <li><strong>C | Context & Goal:</strong> objective, business setting, completion definition.</li>
-                    <li><strong>L | Limits & Negative Constraints:</strong> boundaries, exclusions, non-negotiables.</li>
-                    <li><strong>E | Expected Output:</strong> required format, sections, length, fields.</li>
-                    <li><strong>A | Audience:</strong> target reader, literacy level, tone target.</li>
-                    <li><strong>R | Role & Process:</strong> model persona and working method.</li>
-                    <li><strong>+ | Iteration/Verification:</strong> test criteria and revision loop.</li>
+                    <li><strong>C:</strong> Context and Goal</li>
+                    <li><strong>L:</strong> Limits and Negative Constraints</li>
+                    <li><strong>E:</strong> Expected Output</li>
+                    <li><strong>A:</strong> Audience</li>
+                    <li><strong>R:</strong> Role and Process</li>
+                    <li><strong>+:</strong> Iteration and Verification</li>
                 </ul>
             </section>
 
             <section class="card">
-                <h2>3-Step Iteration Loop</h2>
-                <div class="pill cyan">Diagnose</div>
+                <h2>120-Minute Segment Map</h2>
                 <ul>
-                    <li>Identify failing field in C.L.E.A.R.+.</li>
-                    <li>Pinpoint assumption causing drift.</li>
-                </ul>
-                <div class="pill orange">Isolate</div>
-                <ul>
-                    <li>Change one variable only per retry.</li>
-                    <li>Keep the rest of the prompt fixed.</li>
-                </ul>
-                <div class="pill green">Constrain</div>
-                <ul>
-                    <li>Add explicit do-not-do clauses.</li>
-                    <li>Define pass/fail checks before rerun.</li>
+                    <li>00:00-00:15 Opening Ritual and Baseline</li>
+                    <li>00:15-00:35 Human Delegation Lab</li>
+                    <li>00:35-00:50 Assumption Gap Engine</li>
+                    <li>00:50-01:00 Break and Table Chat</li>
+                    <li>01:00-01:25 Prompt Makeover Studio</li>
+                    <li>01:25-01:50 Live Iteration Crucible</li>
+                    <li>01:50-02:00 Highlight Session and Commitments</li>
                 </ul>
             </section>
 
             <section class="card">
-                <h2>120-Minute Timing Guardrail</h2>
+                <h2>Ritual Stack (AJ&amp;Smart Inspired)</h2>
+                <div class="pill cyan">Start Ritual</div>
                 <ul>
-                    <li>00:00-00:15: baseline diagnostic and contract setup.</li>
-                    <li>00:15-00:35: paired delegation lab.</li>
-                    <li>00:35-00:50: assumption gap + framework engine.</li>
-                    <li>00:50-01:00: mandatory break and table chat.</li>
-                    <li>01:00-01:25: triad makeover studio.</li>
-                    <li>01:25-01:50: iteration crucible and peer audit.</li>
-                    <li>01:50-02:00: commitment contract and final evaluation.</li>
+                    <li>Low-friction check-in in first 90 seconds.</li>
+                    <li>Write names, goals, and AI friction points live.</li>
+                </ul>
+                <div class="pill green">Visible Progress</div>
+                <ul>
+                    <li>Tick completed blocks after Segments 2, 5, and 6.</li>
+                </ul>
+                <div class="pill yellow">Peak-End</div>
+                <ul>
+                    <li>Final round-robin: One Big Win and Commitment.</li>
                 </ul>
             </section>
 
             <section class="card">
-                <h2>Negative Constraint Patterns</h2>
+                <h2>Dynamic Example Harvesting</h2>
                 <ul>
-                    <li>No fabricated data, references, citations, or legal claims.</li>
-                    <li>No scope expansion beyond provided product phase.</li>
-                    <li>No implementation details that require unstated dependencies.</li>
-                    <li>No confidential or personal data in examples.</li>
-                    <li>No markdown tables unless explicitly requested.</li>
+                    <li>Capture participant pain points in Segment 1.</li>
+                    <li>Assign table challenges after break.</li>
+                    <li>Replace generic demos with participant cases in Segments 5 and 6.</li>
                 </ul>
             </section>
 
             <section class="card">
-                <h2>Reusable Prompt Skeleton</h2>
-                <div class="mono">Role/Process: [who the model is and method]
-Context & Goal: [problem + desired outcome]
-Limits/Exclusions: [rules + explicit constraints]
-Expected Output: [format + sections + length]
-Audience: [target reader + tone]
-Verification: [pass/fail checks + confidence notes]</div>
+                <h2>Iteration Loop</h2>
+                <ul>
+                    <li><strong>Diagnose:</strong> Find failure field.</li>
+                    <li><strong>Isolate:</strong> Change one variable only.</li>
+                    <li><strong>Constrain:</strong> Add explicit exclusions and tests.</li>
+                </ul>
             </section>
 
             <section class="card">
-                <h2>Facilitator Cue Card</h2>
-                <div class="pill pink">Collaboration Cadence</div>
+                <h2>Facilitator Rules</h2>
+                <div class="pill pink">Energy</div>
                 <ul>
-                    <li>Every 10-15 minutes ask: "What assumption is still unconstrained?"</li>
-                    <li>Before rerun: document exactly one change.</li>
-                    <li>In triads: rotate author/auditor roles on schedule.</li>
+                    <li>Do not speak over small-group chatter.</li>
+                    <li>Use visible timers for every block.</li>
                 </ul>
-                <div class="pill purple">Break Discipline</div>
+                <div class="pill purple">Clarity</div>
                 <ul>
-                    <li>00:50-01:00 is mandatory and non-compressible.</li>
-                    <li>01:00 restart with one-minute return cue completed.</li>
+                    <li>One instruction at a time.</li>
+                    <li>Require evidence from revision logs.</li>
                 </ul>
             </section>
         </main>
 
         <div class="footer">
-            Tip: print this card and keep it visible during exercises and peer audits.
+            Keep this card visible while facilitating triads and critique rounds.
         </div>
     </div>
 </body>

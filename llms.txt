@@ -4,68 +4,59 @@
 - Workshop: The Architecture of Intent
 - Runtime: 120 minutes
 - Core Method: C.L.E.A.R.+ with Diagnose-Isolate-Constrain
-- Delivery Mode: facilitator coaching with active audience extraction
+- Delivery Mode: facilitator coaching with active participant example harvesting
 
-## Coaching Cue Map (Identical to README.md and script.md)
-- 00:00-00:08 | Opening and Contract
-  - SAY focus: welcome hook and confidence reset
-  - ASK focus: name, goal, gut-feeling about AI, one output regret
-  - CAPTURE focus: goals and pain points board (tag M or I)
-- 00:08-00:15 | Agenda Activation
-  - SAY focus: experiential pacing and mandatory break framing
-  - ASK focus: hardest segment and peer-audit familiarity
-  - CAPTURE focus: adaptation priorities for later segments
+## Runtime Map (120 Minutes Total)
+- 00:00-00:15 | Opening Ritual and Baseline
 - 00:15-00:35 | Human Delegation Lab
-  - SAY focus: no gestures and no questions in Round 1
-  - ASK focus: assumption-gap reveal from Architect and Builder views
-  - CAPTURE focus: three participant assumption-gap cases for Segment 6
 - 00:35-00:50 | Assumption Gap and C.L.E.A.R.+ Engine
-  - SAY focus: weak output as instruction ambiguity
-  - ASK focus: highest-leverage field and skipped field habits
-  - CAPTURE focus: convert one participant case to live scaffold
 - 00:50-01:00 | Break and Informal Table Chat
-  - SAY focus: mandatory pause, movement, coffee, and table reflection
-  - ASK focus: one unresolved challenge per table
-  - CAPTURE focus: assign table challenges to triads
 - 01:00-01:25 | Prompt Makeover Studio
-  - SAY focus: triad roles and participant-owned case refactoring
-  - ASK focus: strongest constraint and underspecified output checks
-  - CAPTURE focus: two participant cases for room critique
 - 01:25-01:50 | Live Iteration Crucible
-  - SAY focus: one-variable iteration with visible revision logs
-  - ASK focus: failure diagnosis, leak detection, and rejection tests
-  - CAPTURE focus: unresolved case turned into live debug demo
-- 01:50-02:00 | Synthesis and Commitment Contract
-  - SAY focus: concrete weekly commitment and pass-fail rule ownership
-  - ASK focus: confidence shift and accountability partner
-  - CAPTURE focus: map final contracts back to opening pain points
+- 01:50-02:00 | Highlight Session and Commitments
 
-## Facilitator Metadata Model
-- Slide metadata fields in index.html:
-  - data-speaker-time
-  - data-speaker-say
-  - data-speaker-do
-  - data-speaker-ask
-  - data-speaker-adapt
-  - data-speaker-protip
-- Speaker overlay fields rendered dynamically:
-  - TIME
-  - SAY
-  - DO
-  - ASK
-  - CAPTURE and ADAPT
-  - FACILITATOR PRO-TIP
+## Structured Coaching Schema
+Per slide metadata fields:
+- data-speaker-time
+- data-speaker-say
+- data-speaker-do
+- data-speaker-ask
+- data-speaker-adapt
+- data-speaker-ritual
 
-## Runtime Interaction Rules
-- Press S or s to toggle coaching overlay.
-- Press Escape to close overlay.
-- Overlay remains hidden by default and updates from current slide on open and slide change.
+Overlay render fields:
+- TIME
+- SAY
+- DO
+- ASK
+- CAPTURE and ADAPT
+- FACILITATION RITUAL / PRO-TIP
+
+## Facilitation Technique Embedding
+- Opening ritual uses Serial Position Effect and low-friction check-in.
+- Segments 2, 5, and 6 include visible progress tracking ticks on board.
+- Segments 5 and 6 replace generic examples with participant-owned cases.
+- Final segment uses Peak-End Rule with one big win + commitment round-robin.
+
+## Presenter View Isolation Rules
+- Public projection view shows only slide content.
+- Coaching overlay remains hidden until S key toggle.
+- Escape closes overlay.
+- Key handling ignores input, textarea, select, and contenteditable targets.
+
+## Synchronization Contract
+index.html and script.md must remain 1:1 on:
+- segment timestamps
+- SAY lines
+- DO actions
+- ASK prompts
+- CAPTURE and ADAPT behavior
+- FACILITATION RITUAL / PRO-TIP cues
 
 ## Repository Index
-- [index.html](index.html): slide deck with structured coaching metadata and overlay renderer
-- [script.md](script.md): full facilitator coaching script
-- [README.md](README.md): operator-facing setup and cue map
-- [cheatsheet.html](cheatsheet.html): participant desk card
-- [docs/workshop-summary.md](docs/workshop-summary.md): concise operations brief
-- [docs/prompting-framework.md](docs/prompting-framework.md): C.L.E.A.R.+ framework reference
-- [.github/copilot-instructions.md](.github/copilot-instructions.md): autonomous agent and git directives
+- [index.html](index.html): slide deck and presenter coaching overlay
+- [script.md](script.md): facilitator script aligned to slide metadata
+- [README.md](README.md): implementation and runtime notes
+- [cheatsheet.html](cheatsheet.html): participant ritual guardrails
+- [docs/workshop-summary.md](docs/workshop-summary.md): workshop summary
+- [docs/prompting-framework.md](docs/prompting-framework.md): framework reference

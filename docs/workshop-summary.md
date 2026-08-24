@@ -7,13 +7,13 @@
 - Outcome: participants produce reliable, auditable AI delegation prompts
 
 ## Segment Map
-- 00:00-00:15 welcome, contract, baseline diagnostic
+- 00:00-00:15 opening ritual, contract, baseline diagnostic
 - 00:15-00:35 paired delegation simulation
 - 00:35-00:50 assumption gap teardown + C.L.E.A.R.+ engine
 - 00:50-01:00 mandatory rest break + informal table chat
 - 01:00-01:25 triad prompt refactor workshop
 - 01:25-01:50 live iteration and peer audit drills
-- 01:50-02:00 synthesis, commitment contract, final evaluation
+- 01:50-02:00 highlight session, commitment contract, peak-end close
 
 ## Operational Rules
 - one-variable prompt changes during iteration
@@ -21,6 +21,9 @@
 - explicit output schema required
 - pass-fail verification criteria required
 - mandatory break window enforced without compression
+- visible progress tracking: tick board after key blocks (Segments 2, 5, 6)
+- dynamic example harvesting: replace generic prompts with participant-owned cases
+- projection isolation: facilitator coaching appears only in presenter view (S toggle)
 
 ## Core Artifacts
 - index.html: deck + singleton presenter overlay
