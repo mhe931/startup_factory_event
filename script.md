@@ -1,7 +1,7 @@
 # Professional Prompting & Human Communication
-## Facilitator Script (90 Minutes)
+## Facilitator Script (120 Minutes)
 
-Audience: founders, students, and operators using AI for real work output.
+Audience: founders, students, operators, and teams building real AI-assisted workflows.
 Framework: C.L.E.A.R.+
 
 - C: Context & Goal
@@ -13,178 +13,154 @@ Framework: C.L.E.A.R.+
 
 ---
 
-## 00:00-00:10 (10m) | The Cost of Ambiguity
-Objective: make communication failure visible and measurable.
+## 00:00-00:15 (15m) | Welcome, Contract & Baseline Diagnostic
+Objective: establish workshop contract, collect baseline failures, and define success criteria.
 
-Facilitator script:
-"Welcome to The Architecture of Intent. This session is not about clever prompts. It is about professional delegation. If the model fails, we inspect instruction quality before blaming capability."
+What to say (verbatim):
+"Welcome to The Architecture of Intent. This is a 120-minute experiential workshop where we practice professional delegation with AI. We will prioritize clarity, constraints, and verification over speed."
 
-Prompt to room:
-- "What did you ask?"
-- "What did the model assume?"
-- "What was the cost?"
-
-Diagnostic poll options:
-- Missing context
-- Missing limits
-- Missing output specification
-- Wrong audience/tone
-- Role/process unclear
+What to do:
+- Set contract rules: one-variable iteration, explicit exclusions, and peer audit before final acceptance.
+- Ask each participant for one AI-output failure they want to fix.
+- Run a quick baseline confidence poll (1-10).
 
 Pacing counters:
-- Minute 03: collect two failure examples.
-- Minute 06: poll and classify root causes.
-- Minute 09: transition statement.
+- Minute 05: contract complete.
+- Minute 10: baseline failures collected.
+- Minute 14: announce transition.
 
 Transition line:
-"Ambiguity is expensive. C.L.E.A.R.+ is the control surface that reduces rework."
+"Now we test how instruction structure changes output quality in real time."
 
 ---
 
-## 00:10-00:25 (15m) | The Human Delegation Lab
-Objective: prove that structure outperforms vague intent.
+## 00:15-00:35 (20m) | The Human Delegation Lab
+Objective: demonstrate measurable quality gains from structured delegation.
 
-Exercise setup:
-- Pair participants as Architect and Builder.
-- Builder can ask exactly one clarifying question.
+What to say (verbatim):
+"Pair up as Architect and Builder. Round one uses a single-sentence request. Round two uses C.L.E.A.R.+ for the exact same task. We compare mismatch rate, time, and confidence."
 
-Round 1 (raw request, 6m):
-- Architect gives one-sentence task.
-- Builder executes literally.
-- Pair records mismatch count.
-
-Round 2 (structured request, 7m):
-- Architect rewrites with C.L.E.A.R.+ fields.
-- Builder executes again.
-- Pair compares output quality + elapsed time.
-
-Debrief prompts (2m):
-- "Which field removed most confusion?"
-- "Which assumption remained unconstrained?"
+What to do:
+- Assign pairs.
+- Enforce one clarifying question maximum per round.
+- Capture assumption mismatches and rework points.
 
 Pacing counters:
-- Minute 12: call switch to round 2.
-- Minute 23: stop and debrief.
+- Minute 24: force round switch.
+- Minute 33: run two-minute debrief.
 
 Transition line:
-"Now we formalize what just improved your result."
+"Now we deconstruct why those assumption gaps appeared."
 
 ---
 
-## 00:25-00:40 (15m) | The C.L.E.A.R.+ Framework
-Objective: teach the mental model and shared vocabulary.
+## 00:35-00:50 (15m) | Deconstructing the Assumption Gap & C.L.E.A.R.+ Engine
+Objective: map errors to missing instruction fields.
 
-Facilitator script:
-"Treat C.L.E.A.R.+ as an instruction architecture. Every weak output can be mapped to a weak field."
+What to say (verbatim):
+"Weak outputs are assumption gaps. C.L.E.A.R.+ closes those gaps by making context, limits, output shape, audience, role, and verification explicit."
 
-Field-by-field brief:
-- Context & Goal: business scenario + completion definition.
-- Limits & Negative Constraints: what must not happen.
-- Expected Output: format, sections, and quality bar.
-- Audience: who reads and what they understand.
-- Role & Process: model persona and working method.
-- Iteration & Verification: checks before acceptance.
-
-Live micro-demo:
-- Start with weak request.
-- Add one field at a time.
-- Show quality jump after adding limits + expected output.
+What to do:
+- Run a live prompt teardown from weak to strong.
+- Add one C.L.E.A.R.+ field at a time.
+- Ask participants to identify which field reduced ambiguity most.
 
 Pacing counters:
-- Minute 30: complete first three fields.
-- Minute 36: complete + verification criteria.
+- Minute 42: first three fields complete.
+- Minute 48: verification layer complete.
 
 Transition line:
-"Now we use the framework on real workplace requests."
+"We pause now, then use the second half for extended collaboration and iteration."
 
 ---
 
-## 00:40-01:00 (20m) | Prompt Makeover Studio
-Objective: refactor weak prompts into execution-grade prompts.
+## 00:50-01:00 (10m) | Break / Rest & Informal Table Chat (Mandatory)
+Objective: cognitive reset and peer synthesis.
 
-Task:
-- Participants submit one weak workplace request.
-- They refactor using C.L.E.A.R.+.
-- They run before/after outputs and compare.
+What to say (verbatim):
+"Mandatory break for ten minutes. Step away from screens, hydrate, and discuss one insight plus one unresolved challenge at your table."
 
-Facilitator prompts:
-- "What is excluded explicitly?"
-- "How would you audit success without reading everything?"
-- "Which output shape reduces downstream work?"
+What to do:
+- Start visible timer.
+- Enforce full ten-minute pause.
+- At minute 59, issue one-minute return cue.
 
-Makeover checklist:
-- Add two negative constraints.
-- Add explicit output structure.
-- Add verification rubric.
+Transition line:
+"We restart with triad collaboration and live critique."
+
+---
+
+## 01:00-01:25 (25m) | Prompt Makeover Studio (Exercise C)
+Objective: triad-based prompt refactoring and critique.
+
+What to say (verbatim):
+"Work in triads: one author, one constraints auditor, one output auditor. Rotate roles every eight minutes. Convert weak requests into execution-grade prompts with explicit exclusions and measurable output requirements."
+
+What to do:
+- Form triads and assign roles.
+- Enforce two role rotations.
+- Collect one high-quality triad output for live critique.
 
 Pacing counters:
-- Minute 45: collect raw prompts.
-- Minute 52: run first before/after comparison.
-- Minute 58: collect one strong rewrite example.
+- Minute 08: first role rotation.
+- Minute 16: second role rotation.
+- Minute 22: live critique begins.
 
 Transition line:
-"Great. Now we pressure-test iteration under time constraints."
+"Now we pressure-test revisions through disciplined multi-turn iteration."
 
 ---
 
-## 01:00-01:20 (20m) | Live Iteration Crucible
-Objective: practice multi-turn debugging with discipline.
+## 01:25-01:50 (25m) | Live Iteration Crucible (Exercise D)
+Objective: practice one-variable multi-turn debugging with peer audits.
 
-Mode:
-- Solo build (10m) + peer audit (8m) + rapid fix (2m).
+What to say (verbatim):
+"Use Diagnose-Isolate-Constrain. Diagnose the failed field, isolate one variable, and constrain with exclusions plus pass-fail checks. Keep a revision log so peers can audit your changes."
 
-Iteration protocol (must follow in order):
-1. Diagnose: identify failing C.L.E.A.R.+ field.
-2. Isolate: change one variable only.
-3. Constrain: add exclusions and verification gate.
-
-Peer audit questions:
-- "What assumption still leaks?"
-- "What check would reject this output?"
-- "What changed from prior iteration?"
+What to do:
+- 10 minutes solo build.
+- 10 minutes peer audit.
+- 5 minutes final revision.
+- Require peers to state one unconstrained assumption and one rejection rule.
 
 Pacing counters:
-- Minute 66: solo build checkpoint.
-- Minute 72: start peer audits.
-- Minute 78: finalize one improved prompt.
+- Minute 35: solo build close.
+- Minute 45: peer audit close.
+- Minute 49: final revision close.
 
 Transition line:
-"Last block: we convert this into repeatable behavior for next week."
+"Final block: convert learning into a concrete personal execution contract."
 
 ---
 
-## 01:20-01:30 (10m) | Synthesis, Action Plan & Post-Test
-Objective: commit transfer to real work.
+## 01:50-02:00 (10m) | Synthesis, Personal Commitment Contract & Final Evaluation
+Objective: lock transfer to real workplace use.
 
-Post-test (4m):
-- Rewrite one flawed prompt from segment 1 using C.L.E.A.R.+.
-- Include two negative constraints.
-- Include pass/fail criteria.
+What to say (verbatim):
+"Write one commitment contract: one task you will refactor this week, two exclusions you will always include, and one pass-fail check you will enforce before accepting outputs."
 
-Action plan (4m):
-- One real use-case this week.
-- One verification rule to enforce.
-- One stakeholder to share workflow with.
+What to do:
+- 4 minutes: contract drafting.
+- 3 minutes: pair share.
+- 3 minutes: confidence re-poll and closing statements.
 
-Close (2m):
-"You now have a repeatable delegation architecture. Use C.L.E.A.R.+ first, then iterate with Diagnose-Isolate-Constrain."
+Close line:
+"Reliable AI output is an architecture outcome. Use C.L.E.A.R.+ first, then iterate with Diagnose-Isolate-Constrain."
 
 ---
 
-## Participant FAQs (Use During Any Segment)
-- "What if I do not know the right constraints yet?"
-  - Start with risk boundaries: no fabrication, no legal claims, no hidden assumptions.
+## Participant FAQs
 - "How long should prompts be?"
-  - As long as needed for unambiguous delegation; optimize for clarity, not brevity.
-- "Can I skip role/audience?"
-  - Only if output is purely internal and structure already constrains behavior.
+  - Long enough to eliminate ambiguity in scope, output shape, and constraints.
+- "What if I do not know constraints yet?"
+  - Start with risk boundaries: no fabrication, no legal claims, no hidden dependencies.
 - "How many iterations before stopping?"
-  - Stop when pass/fail rubric is consistently met across two runs.
+  - Stop when pass-fail rubric is met consistently across two runs.
 
 ## Facilitation Controls
-- Hard stop rule: if discussion exceeds 90 seconds, park and continue.
-- Energy reset: ask participants to stand for 20 seconds before segment 5.
-- Inclusion rule: every pair shares one failure and one fix.
+- Hard stop rule: discussion longer than 90 seconds moves to parking lot.
+- Break rule: mandatory pause from 00:50 to 01:00.
+- Inclusion rule: every table submits one refined prompt and one failed assumption.
 
 ## Asset Map
 - Slides: index.html

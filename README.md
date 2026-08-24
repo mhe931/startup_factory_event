@@ -1,46 +1,48 @@
 # The Architecture of Intent Workshop Suite
 
-90-minute Professional Prompting & Human Communication delivery package.
+120-minute Professional Prompting & Human Communication delivery package.
 
 ## Purpose
-This repository provides a complete facilitator-ready workshop bundle for teaching professional prompt design using the C.L.E.A.R.+ framework.
+This repository provides a facilitator-ready workshop bundle for teaching professional prompt design with C.L.E.A.R.+ and hands-on peer collaboration.
 
-## Workshop Timing (90 minutes)
-- 00:00-00:10: The Cost of Ambiguity
-- 00:10-00:25: The Human Delegation Lab
-- 00:25-00:40: The C.L.E.A.R.+ Framework
-- 00:40-01:00: Prompt Makeover Studio
-- 01:00-01:20: Live Iteration Crucible
-- 01:20-01:30: Synthesis, Action Plan & Post-Test
+## Workshop Timing (120 minutes)
+- 00:00-00:15: Welcome, Contract & Baseline Diagnostic
+- 00:15-00:35: The Human Delegation Lab
+- 00:35-00:50: Deconstructing the Assumption Gap & The C.L.E.A.R.+ Engine
+- 00:50-01:00: Break / Rest & Informal Table Chat
+- 01:00-01:25: Prompt Makeover Studio (Exercise C)
+- 01:25-01:50: Live Iteration Crucible (Exercise D)
+- 01:50-02:00: Synthesis, Personal Commitment Contract & Final Evaluation
 
 ## Repository Structure
-- index.html: Reveal.js slide deck with integrated facilitator notes toggle.
-- cheatsheet.html: desk-card style quick reference for participants.
-- script.md: timestamped facilitator script with transitions, FAQs, pacing counters.
-- llms.txt: token-dense machine context for AI assistants.
+- index.html: Reveal.js slide deck with singleton presenter overlay and `s` hotkey toggle.
+- cheatsheet.html: desk-card quick reference for participants.
+- script.md: timestamped facilitator script with verbatim delivery lines and operational cues.
+- llms.txt: token-dense machine onboarding entry point.
 - docs/workshop-summary.md: compact operational summary.
-- docs/prompting-framework.md: detailed C.L.E.A.R.+ and iteration protocol.
-- .github/copilot-instructions.md: repository agent instructions and conventions.
+- docs/prompting-framework.md: C.L.E.A.R.+ and iteration protocol reference.
+- .github/copilot-instructions.md: repository-specific agent operating conventions.
 
 ## Local Viewing Guide
 1. Open index.html in a browser.
 2. Use arrow keys to navigate slides.
-3. Press S for Reveal speaker mode.
-4. Use the Facilitator Notes button (bottom-right) for on-slide cue panel.
-5. Open cheatsheet.html separately for participant handout or print.
+3. Press S to toggle presenter overlay.
+4. Press Escape to close presenter overlay.
+5. Open cheatsheet.html separately for handout or print.
 
 ## Delivery Instructions
-- Start with Segment 1 exactly at minute 00:00.
-- Announce a timing check at each segment boundary.
-- In exercises, enforce one-variable iteration changes only.
-- Require pass/fail verification criteria before accepting outputs.
+- Start Segment 1 at 00:00 and announce each segment boundary.
+- Enforce one-variable prompt iteration changes.
+- Enforce mandatory break from 00:50 to 01:00.
+- Require pass-fail verification criteria before accepting prompt outputs.
 
-## Facilitation Timing Checks
-- 00:10 transition to Delegation Lab.
-- 00:40 transition to Makeover Studio.
-- 01:00 start Iteration Crucible.
-- 01:20 begin synthesis and post-test.
+## Timing Checkpoints
+- 00:15 start delegation lab.
+- 00:50 start mandatory break.
+- 01:00 restart with triad makeover studio.
+- 01:25 start iteration crucible.
+- 01:50 begin final synthesis and commitment contracts.
 
 ## Notes
-- Theme intentionally matches the existing dracula-style visual language.
-- All documents use C.L.E.A.R.+ naming consistently.
+- Theme preserves existing dracula-style visual language.
+- All artifacts use C.L.E.A.R.+ naming and synchronized 120-minute pacing.

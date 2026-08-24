@@ -3,47 +3,51 @@
 ## Repository Summary
 - Workshop: The Architecture of Intent
 - Session Type: Professional Prompting and Human Communication
-- Total Duration: 90 minutes
+- Total Duration: 120 minutes
 - Core Method: C.L.E.A.R.+ with Diagnose-Isolate-Constrain iteration
-- Primary Objective: train participants to produce reliable, auditable AI delegation prompts
+- Primary Objective: produce reliable, auditable AI delegation prompts through collaborative practice
 
-## Workshop Architecture (90-Minute Sequence)
-1. 00:00-00:10 | The Cost of Ambiguity
-2. 00:10-00:25 | The Human Delegation Lab
-3. 00:25-00:40 | The C.L.E.A.R.+ Framework
-4. 00:40-01:00 | Prompt Makeover Studio
-5. 01:00-01:20 | Live Iteration Crucible
-6. 01:20-01:30 | Synthesis, Action Plan, and Post-Test
+## Workshop Architecture (120-Minute Sequence)
+1. 00:00-00:15 | Welcome, Contract, Baseline Diagnostic
+2. 00:15-00:35 | The Human Delegation Lab
+3. 00:35-00:50 | Assumption Gap + C.L.E.A.R.+ Engine
+4. 00:50-01:00 | Break / Rest and Informal Table Chat
+5. 01:00-01:25 | Prompt Makeover Studio (Triad Refactoring)
+6. 01:25-01:50 | Live Iteration Crucible (Solo + Peer Audit)
+7. 01:50-02:00 | Synthesis, Commitment Contract, Final Evaluation
 
 ## C.L.E.A.R.+ Protocol
-- C: Context and Goal (problem, business setting, finish condition)
-- L: Limits and Negative Constraints (must-not rules, boundaries, exclusions)
-- E: Expected Output (format, sections, length, completion shape)
-- A: Audience (reader profile, depth, tone calibration)
+- C: Context and Goal (problem, business setting, completion condition)
+- L: Limits and Negative Constraints (boundaries, exclusions, non-negotiables)
+- E: Expected Output (format, sections, length, output quality bar)
+- A: Audience (reader profile, tone, domain depth)
 - R: Role and Process (model persona and reasoning process)
-- +: Iteration and Verification (test loop, pass-fail gates, revision strategy)
+- +: Iteration and Verification (revision loop, pass-fail checks)
 
 ## Iteration Loop
 1. Diagnose: identify failed C.L.E.A.R.+ field
 2. Isolate: change one variable only
 3. Constrain: add explicit exclusions and verification rules
 
-## Repository Index
-- [index.html](index.html): Reveal.js deck, cleaned UI, hidden presenter overlay, `s` hotkey toggle, per-slide speaker metadata (time, verbatim script, facilitation actions)
-- [cheatsheet.html](cheatsheet.html): participant desk card with C.L.E.A.R.+, negative constraints, and iteration checklist
-- [script.md](script.md): facilitator runbook with timestamps, transitions, pacing counters, and FAQ handling
-- [README.md](README.md): usage, setup, and delivery overview
-- [docs/workshop-summary.md](docs/workshop-summary.md): compact operational summary
-- [docs/prompting-framework.md](docs/prompting-framework.md): framework details, templates, and failure mapping
-- [.github/copilot-instructions.md](.github/copilot-instructions.md): repository-specific agent operating conventions
+## Presenter Overlay Architecture
+- index.html contains exactly one global `#speaker-overlay` element outside the slide container.
+- Per-slide notes exist only in `data-speaker-time`, `data-speaker-say`, `data-speaker-do` attributes on `<section>` elements.
+- JavaScript injects active slide metadata into `#speaker-time`, `#speaker-say`, `#speaker-do` on slide change and when overlay opens.
+- Overlay default state is hidden (`aria-hidden="true"`, no `open` class).
+- Hotkeys: `s` toggles overlay (case-insensitive), `Escape` closes overlay.
 
-## Presenter Notes System
-- Visible slide surface must not include facilitator buttons or badge-style time chips.
-- Timing metadata is embedded per slide in speaker-note attributes.
-- Press `s` to toggle presenter overlay (case-insensitive); ignore key handling when focus is in input/textarea/select/contenteditable.
+## Repository Index
+- [index.html](index.html): Reveal.js deck, singleton presenter overlay, synchronized speaker metadata
+- [cheatsheet.html](cheatsheet.html): participant quick reference, timing guardrails, and prompt skeletons
+- [script.md](script.md): full facilitator runbook with verbatim lines and operations cues
+- [README.md](README.md): repository overview and 120-minute delivery guide
+- [docs/workshop-summary.md](docs/workshop-summary.md): compressed workshop operations summary
+- [docs/prompting-framework.md](docs/prompting-framework.md): protocol details and templates
+- [.github/copilot-instructions.md](.github/copilot-instructions.md): autonomous execution and git lifecycle directives
 
 ## Validation Gates
-- Timing consistency: all assets reflect the same 90-minute sequence.
-- Naming consistency: C.L.E.A.R.+ spelling is preserved across all files.
-- Constraint discipline: examples include negative constraints and verification criteria.
-- Notes completeness: each slide includes time, what-to-say text, and facilitation actions.
+- Pacing consistency: all assets align to 120-minute sequence and break interval.
+- Overlay integrity: singleton `#speaker-overlay` and no slide-embedded duplicates.
+- Notes completeness: each slide has time/say/do metadata.
+- Interaction safety: `s` toggle ignores typing contexts and supports case-insensitive key handling.
+- Path integrity: all repository index links resolve.
