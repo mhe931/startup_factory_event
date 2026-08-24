@@ -37,22 +37,24 @@ FACILITATION RITUAL / PRO-TIP:
 TIME: 00:15-00:35 | 20 min
 
 SAY (Verbatim Script):
-Round one starts now: Architect gives one instruction only. Builder executes with no questions and no gestures from Architect. Then we reveal the assumption gap. Round two repeats with C.L.E.A.R.+.
+Round one starts now: Architect gives one instruction only. Builder executes with no questions and no gestures from Architect. We run this on three everyday frames: Tree Climbing safety instruction, interpersonal conflict resolution message, and shared responsibility handoff. Then we reveal the assumption gap. Round two repeats with C.L.E.A.R.+.
 
 DO (Facilitation Actions):
 - Pair participants and assign roles.
 - Enforce strict Round 1 rule: no gestures and no questions.
 - Timer split: 7 minutes Round 1, 8 minutes Round 2, 5 minutes reveal.
+- Rotate all pairs through Tree Climbing, interpersonal conflict, and shared responsibility frames.
 - After debrief, visibly tick Segment 2 complete on the board.
 
 ASK (Audience Prompts):
 - Architects: what did you assume was obvious?
 - Builders: what did you have to invent?
 - Group: where did quality fail first, scope, format, or audience fit?
+- Which frame broke first and why: Tree Climbing, interpersonal conflict, or shared responsibility handoff?
 
 CAPTURE and ADAPT:
-- Capture three assumption-gap examples from different tables.
-- Reuse one case in Segment 4 and one in Segment 5.
+- Capture one failure snapshot per framing example and label each by failure type.
+- Reuse Tree Climbing in Segment 5 and shared responsibility in Segment 6.
 
 FACILITATION RITUAL / PRO-TIP:
 - Visible Progress Tracking Ritual: mark completion publicly to create momentum.
@@ -63,21 +65,23 @@ FACILITATION RITUAL / PRO-TIP:
 TIME: 00:35-00:50 | 15 min
 
 SAY (Verbatim Script):
-Now we deconstruct the gap. Weak outputs usually come from weak instructions. We tighten context, limits, output shape, audience, role, and verification until the result becomes trustworthy.
+Now we deconstruct the gap. Weak outputs usually come from weak instructions. We tighten context, limits, output shape, audience, role, and verification until the result becomes trustworthy. We compare Tree Climbing, interpersonal conflict, and shared responsibility to show how meaning shifts when role and audience change.
 
 DO (Facilitation Actions):
 - Use one participant example from opening board.
 - Rebuild it field by field through C, L, E, A, R, and plus.
+- Rebuild one Tree Climbing, one conflict-resolution, and one shared-responsibility prompt.
 - Keep movement active and point physically to each field as you add it.
 
 ASK (Audience Prompts):
 - Which field changed usefulness most?
 - Which field do you skip under time pressure?
 - What exclusion should be mandatory in your domain?
+- Which framing example made hidden assumptions easiest to detect?
 
 CAPTURE and ADAPT:
-- Convert one participant prompt into a reusable scaffold.
-- Save scaffold as the first task in Segment 4.
+- Convert one participant prompt and one shared-responsibility prompt into reusable scaffolds.
+- Save Tree Climbing scaffold as the first task in Segment 5.
 
 FACILITATION RITUAL / PRO-TIP:
 - Serial Position reinforcement: make this midpoint memorable with one dramatic before/after delta.

@@ -38,6 +38,15 @@ Overlay render fields:
 - Segments 5 and 6 replace generic examples with participant-owned cases.
 - Final segment uses Peak-End Rule with one big win + commitment round-robin.
 
+## Multi-Angle Framing Case Set
+- Tree Climbing scenario: role + audience + constraint shifts.
+- Interpersonal conflict resolution: tone + de-escalation + ownership shifts.
+- Shared responsibility handoff: accountability language without blame.
+- Segment usage:
+	- Segment 2: run blind execution and C.L.E.A.R.+ comparison on all three frames.
+	- Segment 3: deconstruct assumption gaps with C.L.E.A.R.+ field-by-field analysis.
+	- Segments 5 and 6: reuse harvested versions for makeover and live iteration.
+
 ## Presenter View Isolation Rules
 - Public projection view shows only slide content.
 - Coaching overlay remains hidden until S key toggle.
